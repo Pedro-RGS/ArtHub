@@ -22,12 +22,12 @@ public class Usuario {
     private String nome;
     private String apelido;
     private String email;
-    private Date data_nascimento;
+    private Date dataNascimento;
     private String senha;
     @Enumerated(EnumType.STRING)
-    private UsuarioEnum tipo_usuario;
+    private UsuarioEnum tipoUsuario;
     private String biografia;
-    private Byte [] fotoperfil;
+    private Byte [] fotoPerfil;
     private Byte [] banner;
-    private String chave_pix;
+    private String chavePix;
 }
