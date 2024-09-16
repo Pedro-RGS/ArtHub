@@ -18,7 +18,7 @@ import java.util.Date;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nome;
     private String apelido;
     private String email;
@@ -27,7 +27,7 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private UsuarioEnum tipoUsuario;
     private String biografia;
-    private Byte [] fotoPerfil;
-    private Byte [] banner;
+    private byte [] fotoPerfil;
+    private byte [] banner;
     private String chavePix;
 }
