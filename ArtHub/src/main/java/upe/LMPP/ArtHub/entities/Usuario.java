@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import upe.LMPP.ArtHub.entities.enums.UsuarioEnum;
-
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table
@@ -30,4 +30,6 @@ public class Usuario {
     private byte [] fotoPerfil;
     private byte [] banner;
     private String chavePix;
+//    @OneToMany
+//    List<Publicacao> publicacoes;
 }

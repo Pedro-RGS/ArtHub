@@ -1,7 +1,6 @@
 package upe.LMPP.ArtHub.entities.enums;
 
 public enum TipoArquivoEnum {
-
     IMAGEM("Imagem"),
     AUDIO("Audio"),
     TEXTO("Texto");
