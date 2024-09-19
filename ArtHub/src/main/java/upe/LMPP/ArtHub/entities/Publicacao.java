@@ -1,12 +1,15 @@
 package upe.LMPP.ArtHub.entities;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import upe.LMPP.ArtHub.entities.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.entities.enums.TipoArquivoEnum;
-
 import java.time.LocalDateTime;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "publicacao")
@@ -17,7 +20,7 @@ import java.time.LocalDateTime;
 public class Publicacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Enumerated(EnumType.STRING)
     private TipoArquivoEnum tipoArquivo;
     private LocalDateTime data_hora;
@@ -29,5 +32,4 @@ public class Publicacao {
     @ManyToOne
     @JoinTable(name = "usuario")
     private int id_usuario;
-
 }
