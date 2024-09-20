@@ -8,6 +8,7 @@ import lombok.Setter;
 import upe.LMPP.ArtHub.entities.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.entities.enums.TipoArquivoEnum;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "publicacao")
@@ -21,10 +22,20 @@ public class Publicacao {
     private int id;
     @Enumerated(EnumType.STRING)
     private TipoArquivoEnum tipoArquivo;
-    private LocalDateTime dataHora;
+    private LocalDateTime dataPublicacao;
     private String legenda;
     private String titulo;
     @Enumerated(EnumType.STRING)
     private CategoriaEnum categoria;
     private Integer curtidas;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
+    @ManyToMany(mappedBy = "publicacoesCurtidas")
+    private List<Usuario> usuariosQueCurtiram;
+
+    @ManyToMany(mappedBy = "publicacoesCompartilhadas")
+    private List<Usuario> usuariosQueCompartilharam;
 }
