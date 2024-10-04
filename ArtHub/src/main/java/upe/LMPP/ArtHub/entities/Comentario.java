@@ -30,6 +30,4 @@ public class Comentario {
     private Integer curtidas;
     private LocalDateTime dataPublicacao;
 
-    @ManyToMany(mappedBy = "comentariosCurtidos")
-    private List<Usuario> usuariosQueCurtiram;
 }
