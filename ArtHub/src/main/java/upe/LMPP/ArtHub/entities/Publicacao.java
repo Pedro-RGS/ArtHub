@@ -1,15 +1,14 @@
 package upe.LMPP.ArtHub.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
-import upe.LMPP.ArtHub.entities.enums.CategoriaEnum;
-import upe.LMPP.ArtHub.entities.enums.TipoArquivoEnum;
-import java.time.LocalDateTime;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import upe.LMPP.ArtHub.entities.enums.CategoriaEnum;
+import upe.LMPP.ArtHub.entities.enums.TipoArquivoEnum;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "publicacao")
@@ -20,16 +19,21 @@ import lombok.Setter;
 public class Publicacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     @Enumerated(EnumType.STRING)
     private TipoArquivoEnum tipoArquivo;
-    private LocalDateTime data_hora;
+    private LocalDateTime dataPublicacao;
     private String legenda;
     private String titulo;
     @Enumerated(EnumType.STRING)
     private CategoriaEnum categoria;
     private Integer curtidas;
+
     @ManyToOne
-    @JoinTable(name = "usuario")
-    private int id_usuario;
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
+    @ManyToMany(mappedBy = "publicacoesCurtidas")
+    private List<Usuario> usuariosQueCurtiram;
+
 }
