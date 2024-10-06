@@ -19,15 +19,13 @@ import java.util.List;
 public class Publicacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+
     @Enumerated(EnumType.STRING)
     private TipoArquivoEnum tipoArquivo;
-    private LocalDateTime dataPublicacao;
-    private String legenda;
-    private String titulo;
+
     @Enumerated(EnumType.STRING)
     private CategoriaEnum categoria;
-    private Integer curtidas;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
@@ -38,4 +36,9 @@ public class Publicacao {
 
     @ManyToMany(mappedBy = "publicacoesCompartilhadas")
     private List<Usuario> usuariosQueCompartilharam;
+
+    private Integer curtidas;
+    private LocalDateTime dataPublicacao;
+    private String legenda;
+    private String titulo;
 }

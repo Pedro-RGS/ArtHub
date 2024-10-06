@@ -4,16 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c6cbd59-1927-4dcb-9f32-86a53e2473d9" name="Changes" comment="unversioned files">
+    <list default="true" id="2c6cbd59-1927-4dcb-9f32-86a53e2473d9" name="Changes" comment="mudanças para fazer o merge com a main">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -42,9 +50,11 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pedro Ricardo/Documents/Estudos/Programação/Intellij/ArtHub/ArtHub&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pedro Ricardo/Documents/Estudos/Programação/Intellij/ProjectPartterns&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -79,7 +89,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726838020393</updated>
-      <workItem from="1726838021638" duration="2663000" />
+      <workItem from="1726838021638" duration="3283000" />
+      <workItem from="1727037846676" duration="3992000" />
+      <workItem from="1727223847692" duration="50000" />
+      <workItem from="1727714277038" duration="8705000" />
+      <workItem from="1727801355212" duration="3926000" />
+      <workItem from="1727868880982" duration="36000" />
+      <workItem from="1727961535165" duration="7473000" />
+      <workItem from="1728000351289" duration="2165000" />
     </task>
     <task id="LOCAL-00001" summary="unversioned files">
       <option name="closed" value="true" />
@@ -97,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726838225119</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="mudanças para fazer o merge com a main">
+      <option name="closed" value="true" />
+      <created>1726841663389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726841663389</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +130,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="unversioned files" />
+    <MESSAGE value="mudanças para fazer o merge com a main" />
+    <option name="LAST_COMMIT_MESSAGE" value="mudanças para fazer o merge com a main" />
   </component>
 </project>
