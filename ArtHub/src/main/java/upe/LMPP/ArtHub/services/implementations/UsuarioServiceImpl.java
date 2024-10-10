@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import upe.LMPP.ArtHub.entities.Usuario;
+import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioExistenteException;
+import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
@@ -22,7 +24,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuario.getEmail());
 
         if (usuarioBanco.isPresent()) {
-            return null; //Aqui vai a Exception de quando já existir o usuário
+            throw new UsuarioExistenteException(usuario.getEmail());
         }
 
         return usuarioRepository.save(usuario);
@@ -36,7 +38,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             return usuarioRepository.save(usuario);
         }
 
-        return null; //Aqui vai a Exception de quando não existir usuário
+       throw new UsuarioInexistenteException(usuario.getEmail());
     }
 
     @Override
