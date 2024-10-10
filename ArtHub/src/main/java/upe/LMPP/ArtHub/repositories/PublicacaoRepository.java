@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer> {
-    @Query("SELECT p FROM Publicacao p WHERE p.usuario = :id_dono")
+    @Query("SELECT p FROM Publicacao p WHERE p.usuario.id = :idDono")
     public List<Publicacao> findByUsuario(Integer idDono);
 }
