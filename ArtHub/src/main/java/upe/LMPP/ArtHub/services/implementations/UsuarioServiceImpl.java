@@ -42,7 +42,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public void removerUsuario(Usuario usuario) {
-
+        usuarioRepository.delete(usuario);
     }
 
     @Override
@@ -55,27 +55,5 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findByApelido(apelido).orElse(null);
     }
 
-    @Override
-    public List<Publicacao> buscarPublicacoesPorUsuario(Integer id) {
-        Optional<Usuario> usuario = usuarioRepository.findById(id);
-
-        if (usuario.isPresent()){
-            return usuario.get().getPublicacoes();
-        }
-
-        return null;
-    }
-
-    @Override
-    public List<Publicacao> buscarPublicacoesCurtidasPorUsuario(Integer id) {
-
-        Optional<Usuario> usuario = usuarioRepository.findById(id);
-
-        if (usuario.isPresent()){
-            return usuario.get().getPublicacoesCurtidas();
-        }
-
-        return null;
-    }
 }
 
