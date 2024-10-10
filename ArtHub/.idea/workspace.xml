@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c6cbd59-1927-4dcb-9f32-86a53e2473d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/UsuarioRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="2c6cbd59-1927-4dcb-9f32-86a53e2473d9" name="Changes" comment="Completando o UsuarioService" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,22 +46,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pedro Ricardo/Documents/Estudos/Programação/Intellij/ProjectPartterns&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Pedro Ricardo/Documents/Estudos/Programação/Intellij/ProjectPartterns",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ArtHubApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -108,6 +99,7 @@
       <workItem from="1728223881667" duration="3293000" />
       <workItem from="1728387635218" duration="58000" />
       <workItem from="1728412698549" duration="536000" />
+      <workItem from="1728574074817" duration="1183000" />
     </task>
     <task id="LOCAL-00001" summary="unversioned files">
       <option name="closed" value="true" />
@@ -149,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728224125688</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Completando o UsuarioService">
+      <option name="closed" value="true" />
+      <created>1728574341355</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728574341371</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +159,7 @@
     <MESSAGE value="unversioned files" />
     <MESSAGE value="mudanças para fazer o merge com a main" />
     <MESSAGE value="Alterações desfeitas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterações desfeitas" />
+    <MESSAGE value="Completando o UsuarioService" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completando o UsuarioService" />
   </component>
 </project>
