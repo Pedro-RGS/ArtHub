@@ -3,7 +3,6 @@ package upe.LMPP.ArtHub.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import upe.LMPP.ArtHub.entities.Publicacao;
 import upe.LMPP.ArtHub.entities.Usuario;
 import upe.LMPP.ArtHub.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
@@ -42,7 +41,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public void removerUsuario(Usuario usuario) {
-
+        usuarioRepository.delete(usuario);
     }
 
     @Override
@@ -55,17 +54,5 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findByApelido(apelido).orElse(null);
     }
 
-    @Override
-    public List<Publicacao> buscarPublicacoesPorUsuario(Integer id) {
-        // Tirar duvida
-        return List.of();
-
-    }
-
-    @Override
-    public List<Publicacao> buscarPublicacoesCurtidasPorUsuario(Integer id) {
-        // Tirar duvida
-        return List.of();
-    }
 }
 

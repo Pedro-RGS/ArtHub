@@ -11,7 +11,4 @@ public interface UsuarioService {
     public void removerUsuario(Usuario usuario);
     public Usuario buscarUsuarioPorId(Integer id);
     public Usuario buscarUsuarioPorApelido(String apelido);
-    public List<Publicacao> buscarPublicacoesPorUsuario(Integer id);
-    public List<Publicacao> buscarPublicacoesCurtidasPorUsuario(Integer id);
-
 }
