@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import upe.LMPP.ArtHub.entities.Publicacao;
+import upe.LMPP.ArtHub.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
 import upe.LMPP.ArtHub.repositories.PublicacaoRepository;
 import upe.LMPP.ArtHub.services.interfaces.PublicacaoService;
 
@@ -24,6 +25,12 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
     @Override
     public void excluirPublicacao(Integer idPublicacao) {
+        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
+
+        if(publicacaoBanco.isEmpty()){
+            throw new PublicacaoInexistenteException();
+        }
+
         publicacaoRepository.deleteById(idPublicacao);
     }
 
@@ -31,19 +38,19 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     public void curtirPublicacao(Integer idPublicacao) {
         Optional<Publicacao> publicacao = publicacaoRepository.findById(idPublicacao);
 
-        if(publicacao.isPresent()){
-            Publicacao publicacaoEntity = publicacao.get();
-            publicacaoEntity.setCurtidas(publicacaoEntity.getCurtidas() + 1);
+        if(publicacao.isEmpty()){
+            throw new PublicacaoInexistenteException();
         }
 
-        // publicacao nao encontrada
+        Publicacao publicacaoEntity = publicacao.get();
+        publicacaoEntity.setCurtidas(publicacaoEntity.getCurtidas() + 1);
     }
 
     @Override
     public Publicacao buscarPublicacao(Integer idPublicacao) {
         Optional<Publicacao> publicacao = publicacaoRepository.findById(idPublicacao);
 
-        return publicacao.orElse(null);
+        return publicacao.orElseThrow(PublicacaoInexistenteException::new);
     }
 
     @Override
@@ -68,6 +75,6 @@ public class PublicacaoServiceImpl implements PublicacaoService {
                 return publicacaoRepository.save(publicacao);
             }
         }
-        return null;
+        throw new PublicacaoInexistenteException();
     }
 }
