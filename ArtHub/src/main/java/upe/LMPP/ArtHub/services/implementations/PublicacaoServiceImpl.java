@@ -2,9 +2,11 @@ package upe.LMPP.ArtHub.services.implementations;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import upe.LMPP.ArtHub.entities.Publicacao;
 import upe.LMPP.ArtHub.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
+import upe.LMPP.ArtHub.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
 import upe.LMPP.ArtHub.repositories.PublicacaoRepository;
 import upe.LMPP.ArtHub.services.interfaces.PublicacaoService;
 
@@ -24,11 +26,15 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public void excluirPublicacao(Integer idPublicacao) {
+    public void excluirPublicacao(Integer idPublicacao, Integer idDono) {
         Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
 
         if(publicacaoBanco.isEmpty()){
             throw new PublicacaoInexistenteException();
+        }
+
+        if(publicacaoBanco.get().getUsuario().getId() != idDono){
+            throw new PublicacaoNaoAutoralException();
         }
 
         publicacaoRepository.deleteById(idPublicacao);
@@ -54,7 +60,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public List<Publicacao> buscarPublicacoesPorUsuario() {
+    public List<Publicacao> buscarTodasPublicacacoes() {
         return publicacaoRepository.findAll();
     }
 
@@ -64,7 +70,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public Publicacao atualizarPublicacao(Publicacao publicacao) {
+    public Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono) {
         Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(publicacao.getId());
 
         if(publicacaoBanco.isPresent()){
@@ -73,6 +79,10 @@ public class PublicacaoServiceImpl implements PublicacaoService {
             if (publicacao.getTitulo() != publicacaoEntity.getTitulo() ||
                     publicacao.getLegenda() != publicacaoEntity.getLegenda()){
                 return publicacaoRepository.save(publicacao);
+            }
+
+            if(publicacaoBanco.get().getUsuario().getId() != idDono){
+                throw new PublicacaoNaoAutoralException();
             }
         }
         throw new PublicacaoInexistenteException();

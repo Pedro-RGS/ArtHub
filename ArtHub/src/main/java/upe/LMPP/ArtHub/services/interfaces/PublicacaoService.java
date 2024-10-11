@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface PublicacaoService {
     public Publicacao criarPublicacao(Publicacao publicacao);
-    public void excluirPublicacao(Integer idPublicacao);
-    public void curtirPublicacao(Integer idPublicacao);
     public Publicacao buscarPublicacao(Integer idPublicacao);
-    public List<Publicacao> buscarPublicacoesPorUsuario();
+    public List<Publicacao> buscarTodasPublicacacoes();
     public List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono);
-    public Publicacao atualizarPublicacao(Publicacao publicacao);
+    public Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono);
+    public void excluirPublicacao(Integer idPublicacao, Integer idDono);
+    public void curtirPublicacao(Integer idPublicacao);
 }
