@@ -51,19 +51,5 @@ public class Usuario {
     )
     private List<Publicacao> publicacoesCurtidas;
 
-    @ManyToMany
-    @JoinTable(
-            name = "compartilhar_publicacao",
-            joinColumns = @JoinColumn(name = "id_usuario"),
-            inverseJoinColumns = @JoinColumn(name = "id_publicacao")
-    )
-    private List<Publicacao> publicacoesCompartilhadas;
 
-    @ManyToMany
-    @JoinTable(
-            name = "curtir_comentario",
-            joinColumns = @JoinColumn(name = "id_usuario"),
-            inverseJoinColumns = @JoinColumn(name = "id_comentario")
-    )
-    private List<Comentario> comentariosCurtidos;
 }

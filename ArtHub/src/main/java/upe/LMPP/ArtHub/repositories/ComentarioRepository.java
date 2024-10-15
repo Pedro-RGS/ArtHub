@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface ComentarioRepository extends JpaRepository<Comentario, Integer> {
 
-
+    public List<Comentario> findByPublicacao(Publicacao publicacao);
 }
