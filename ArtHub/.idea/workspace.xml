@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c6cbd59-1927-4dcb-9f32-86a53e2473d9" name="Changes" comment="Criação de mais uma exception para a plubicação e criação e implementação do PublicacaoController" />
+    <list default="true" id="2c6cbd59-1927-4dcb-9f32-86a53e2473d9" name="Changes" comment="workspace.xml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728674194263</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="workspace.xml">
+      <option name="closed" value="true" />
+      <created>1728674442637</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728674442637</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +133,7 @@
     <MESSAGE value="implementação dos métodos do PublicacaoServiceImpl" />
     <MESSAGE value="TUDO" />
     <MESSAGE value="Criação de mais uma exception para a plubicação e criação e implementação do PublicacaoController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação de mais uma exception para a plubicação e criação e implementação do PublicacaoController" />
+    <MESSAGE value="workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml" />
   </component>
 </project>
