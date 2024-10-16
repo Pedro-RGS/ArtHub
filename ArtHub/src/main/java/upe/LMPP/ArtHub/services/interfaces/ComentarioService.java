@@ -2,8 +2,8 @@ package upe.LMPP.ArtHub.services.interfaces;
 
 import upe.LMPP.ArtHub.entities.Comentario;
 import upe.LMPP.ArtHub.entities.Publicacao;
-import upe.LMPP.ArtHub.exceptions.ComentarioExceptions.ComentarioExistenteException;
-import upe.LMPP.ArtHub.exceptions.ComentarioExceptions.ComentarioNotFoundPubliExceptiton;
+import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioExistenteException;
+import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioNotFoundPubliExceptiton;
 
 import java.util.List;
 

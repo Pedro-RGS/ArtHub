@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import upe.LMPP.ArtHub.entities.Comentario;
 import upe.LMPP.ArtHub.entities.Publicacao;
-import upe.LMPP.ArtHub.exceptions.ComentarioExceptions.ComentarioExistenteException;
-import upe.LMPP.ArtHub.exceptions.ComentarioExceptions.ComentarioNotFoundPubliExceptiton;
+import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioExistenteException;
+import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioNotFoundPubliExceptiton;
 import upe.LMPP.ArtHub.repositories.ComentarioRepository;
 import upe.LMPP.ArtHub.services.interfaces.ComentarioService;
 
