@@ -2,17 +2,16 @@ package upe.LMPP.ArtHub.services.interfaces;
 
 import upe.LMPP.ArtHub.entities.Comentario;
 import upe.LMPP.ArtHub.entities.Publicacao;
-import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioExistenteException;
-import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioNotFoundPubliExceptiton;
 
 import java.util.List;
 
 public interface ComentarioService {
 
-    public Comentario publicarComentario(Comentario comentario, Publicacao publicacao) throws ComentarioNotFoundPubliExceptiton;
-    public void removerComentario(Integer idComentario) throws ComentarioExistenteException;
-    public Comentario curtirComentario(Comentario comentario) throws ComentarioExistenteException;
-    public List<Comentario> listarComentarios(Publicacao publicacao) throws ComentarioNotFoundPubliExceptiton;
+    public Comentario publicarComentario(Comentario comentario, Publicacao publicacao);
+    public void removerComentario(Integer idComentario);
+    public Comentario curtirComentario(Integer idComentario);
+    public List<Comentario> listarComentarios(Integer idPublicacao);
+    public Comentario buscarPorId(Integer idComentario);
 
 
 
