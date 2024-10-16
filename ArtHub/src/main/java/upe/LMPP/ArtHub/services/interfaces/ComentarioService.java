@@ -10,8 +10,8 @@ import java.util.List;
 public interface ComentarioService {
 
     public Comentario publicarComentario(Comentario comentario, Publicacao publicacao) throws ComentarioNotFoundPubliExceptiton;
-    public void removerComentario(Comentario comentario) throws ComentarioExistenteException;
-    public Comentario curtirComentario(Comentario comentario);
+    public void removerComentario(Integer idComentario) throws ComentarioExistenteException;
+    public Comentario curtirComentario(Comentario comentario) throws ComentarioExistenteException;
     public List<Comentario> listarComentarios(Publicacao publicacao) throws ComentarioNotFoundPubliExceptiton;
 
 

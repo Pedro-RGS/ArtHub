@@ -35,5 +35,4 @@ public class Publicacao {
 
     @ManyToMany(mappedBy = "publicacoesCurtidas")
     private List<Usuario> usuariosQueCurtiram;
-
 }

@@ -50,6 +50,4 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "id_publicacao")
     )
     private List<Publicacao> publicacoesCurtidas;
-
-
 }

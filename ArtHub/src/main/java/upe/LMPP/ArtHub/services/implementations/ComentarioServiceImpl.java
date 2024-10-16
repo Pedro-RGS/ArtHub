@@ -7,6 +7,7 @@ import upe.LMPP.ArtHub.entities.Publicacao;
 import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioExistenteException;
 import upe.LMPP.ArtHub.exceptions.comentarioExceptions.ComentarioNotFoundPubliExceptiton;
 import upe.LMPP.ArtHub.repositories.ComentarioRepository;
+import upe.LMPP.ArtHub.repositories.PublicacaoRepository;
 import upe.LMPP.ArtHub.services.interfaces.ComentarioService;
 
 import java.util.List;
@@ -16,29 +17,27 @@ public class ComentarioServiceImpl implements ComentarioService {
 
     @Autowired
     ComentarioRepository comentarioRepository;
+    PublicacaoRepository publicacaoRepository;
 
 
     @Override
     public Comentario publicarComentario(Comentario comentario, Publicacao publicacao) throws ComentarioNotFoundPubliExceptiton {
-        //Publicacao publicacao = publicacaoRepository.findById(publicacao.getId());
-        if (publicacao == null) {
-            throw new ComentarioNotFoundPubliExceptiton("A publicação não foi encontrada ou não existe.");
-        }
-        //comentario.setPublicacao(publicacao);
+        Publicacao publi = publicacaoRepository.findById(publicacao.getId()).orElseThrow(() -> new ComentarioNotFoundPubliExceptiton("A publicação não foi encontrada ou não existe."));
+        comentario.setPublicacao(publi);
         return comentarioRepository.save(comentario);
     }
 
     @Override
-    public void removerComentario(Comentario comentario) throws ComentarioExistenteException {
-        if(comentario == null) {
+    public void removerComentario(Integer idComentario) throws ComentarioExistenteException {
+        if(idComentario == null) {
             throw new ComentarioExistenteException("O comentário não foi encontrado ou não existe");
         }
-        comentarioRepository.delete(comentario);
+        comentarioRepository.deleteById(idComentario);
     }
 
     @Override
     public Comentario curtirComentario(Comentario comentario) throws ComentarioExistenteException {
-        if(comentario == null) {
+        if(comentario.getId() == null) {
             throw new ComentarioExistenteException("O comentário não foi encontrado ou não existe");
         }
         comentario.setCurtidas(comentario.getCurtidas() + 1);
