@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="Merge: merge com a branch main_murilo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" afterDir="false" />
-    </list>
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="Fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +164,7 @@
       <workItem from="1729038214032" duration="4000" />
       <workItem from="1729039179623" duration="5000" />
       <workItem from="1729112244523" duration="7275000" />
-      <workItem from="1729180797172" duration="4073000" />
+      <workItem from="1729180797172" duration="4381000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -320,7 +302,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729181607593</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1729185249061</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1729185249061</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1729185254473</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1729185254473</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +351,7 @@
     <MESSAGE value="rebuild da aplicação e merge com a main_larah" />
     <MESSAGE value="feature: Adicionada a funcionalidade de curtir publicações" />
     <MESSAGE value="Merge: merge com a branch main_murilo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge: merge com a branch main_murilo" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
 </project>
