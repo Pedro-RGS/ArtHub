@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ArtHub" options="-parameters" />
+      <module name="ArtHub" options="" />
     </option>
   </component>
 </project>
