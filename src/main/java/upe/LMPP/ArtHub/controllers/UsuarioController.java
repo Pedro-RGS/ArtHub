@@ -11,7 +11,7 @@ import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
 @RestController
-@RequestMapping("api/usuarios")
+@RequestMapping("api/v1/usuarios")
 public class UsuarioController {
 
     @Autowired
@@ -36,7 +36,6 @@ public class UsuarioController {
         } catch (UsuarioInexistenteException e){
             return ResponseEntity.badRequest().body(usuario);
         }
-
     }
 
     @DeleteMapping("/remover/{id}")

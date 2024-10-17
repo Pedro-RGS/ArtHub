@@ -36,9 +36,10 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoEncontrada);
     }
 
-    @PostMapping
-    public ResponseEntity<Publicacao> postPublicacao(@RequestBody Publicacao publicacao){
-        Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacao);
+    @PostMapping("/{idDono}")
+    public ResponseEntity<Publicacao> postPublicacao(@RequestBody Publicacao publicacao,
+                                                     @PathVariable Integer idDono){
+        Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacao, idDono);
         return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.getId())).body(novaPublicacao);
     }
 
@@ -46,6 +47,12 @@ public class PublicacaoController {
     public ResponseEntity<Publicacao> putPublicacao(@RequestBody Publicacao publicacao,
                                                     @PathVariable Integer idDono){
         return ResponseEntity.ok().body(publicacaoService.atualizarPublicacao(publicacao, idDono));
+    }
+
+    @PutMapping("{idComentario}")
+    public ResponseEntity<Publicacao> curtirPublicacao(@PathVariable Integer idComentario){
+        publicacaoService.curtirPublicacao(idComentario);
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idComentario));
     }
 
     @DeleteMapping("delete/{idUsuario}/{idPublicacao}")

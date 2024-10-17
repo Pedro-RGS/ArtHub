@@ -5,7 +5,7 @@ import upe.LMPP.ArtHub.entities.Publicacao;
 import java.util.List;
 
 public interface PublicacaoService {
-    public Publicacao criarPublicacao(Publicacao publicacao);
+    public Publicacao criarPublicacao(Publicacao publicacao, Integer idDono);
     public Publicacao buscarPublicacao(Integer idPublicacao);
     public List<Publicacao> buscarTodasPublicacacoes();
     public List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono);

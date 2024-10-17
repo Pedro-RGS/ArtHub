@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/comentarios")
+@RequestMapping("api/v1/comentarios")
 public class ComentarioController {
 
     @Autowired
