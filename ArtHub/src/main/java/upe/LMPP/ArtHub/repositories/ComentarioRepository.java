@@ -2,12 +2,14 @@ package upe.LMPP.ArtHub.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import upe.LMPP.ArtHub.entities.Comentario;
 import upe.LMPP.ArtHub.entities.Publicacao;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface ComentarioRepository extends JpaRepository<Comentario, Integer> {
 
     @Query("SELECT c FROM Comentario c WHERE c.publicacao.id = :idPublicacao")
