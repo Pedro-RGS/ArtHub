@@ -48,6 +48,12 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoService.atualizarPublicacao(publicacao, idDono));
     }
 
+    @PutMapping("{idComentario}")
+    public ResponseEntity<Publicacao> curtirPublicacao(@PathVariable Integer idComentario){
+        publicacaoService.curtirPublicacao(idComentario);
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idComentario));
+    }
+
     @DeleteMapping("delete/{idUsuario}/{idPublicacao}")
     public ResponseEntity<Void> deletePublicacao(@PathVariable Integer idUsuario,
                                                  @PathVariable Integer idPublicacao){
