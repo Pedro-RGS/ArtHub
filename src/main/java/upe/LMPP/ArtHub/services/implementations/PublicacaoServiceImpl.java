@@ -23,6 +23,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
     @Autowired
     PublicacaoRepository publicacaoRepository;
+    @Autowired
     UsuarioService usuarioService;
 
     @Override

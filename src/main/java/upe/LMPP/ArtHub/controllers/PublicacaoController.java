@@ -30,7 +30,7 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoEncontrada);
     }
 
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/usuario/{idUsuario}")
     public ResponseEntity<List<Publicacao>> getPublicacaoByUsuario(@PathVariable Integer idUsuario){
         List<Publicacao> publicacaoEncontrada = publicacaoService.buscarPublicacoesPorUsuario(idUsuario);
         return ResponseEntity.ok().body(publicacaoEncontrada);
@@ -55,7 +55,7 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idComentario));
     }
 
-    @DeleteMapping("delete/{idUsuario}/{idPublicacao}")
+    @DeleteMapping("remover/{idUsuario}/{idPublicacao}")
     public ResponseEntity<Void> deletePublicacao(@PathVariable Integer idUsuario,
                                                  @PathVariable Integer idPublicacao){
         publicacaoService.excluirPublicacao(idPublicacao, idUsuario);
