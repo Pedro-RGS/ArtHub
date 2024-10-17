@@ -25,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuario.getEmail());
 
         if (usuarioBanco.isPresent()) {
-            throw new UsuarioExistenteException(usuario.getEmail());
+            throw new UsuarioExistenteException();
         }
 
         return usuarioRepository.save(usuario);
@@ -39,7 +39,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             return usuarioRepository.save(usuario);
         }
 
-       throw new UsuarioInexistenteException(usuario.getEmail());
+       throw new UsuarioInexistenteException();
     }
 
     @Override

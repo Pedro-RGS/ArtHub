@@ -36,9 +36,10 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoEncontrada);
     }
 
-    @PostMapping
-    public ResponseEntity<Publicacao> postPublicacao(@RequestBody Publicacao publicacao){
-        Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacao);
+    @PostMapping("/{idDono}")
+    public ResponseEntity<Publicacao> postPublicacao(@RequestBody Publicacao publicacao,
+                                                     @PathVariable Integer idDono){
+        Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacao, idDono);
         return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.getId())).body(novaPublicacao);
     }
 
