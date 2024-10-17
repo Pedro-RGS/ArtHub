@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioExistenteException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioInexistenteException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/UsuarioRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/ArtHub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ArtHub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/ArtHubApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/ArtHubApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/enums/CategoriaEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/enums/CategoriaEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/enums/TipoArquivoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/enums/TipoArquivoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/enums/UsuarioEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/enums/UsuarioEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoInexistenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoInexistenteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoNaoAutoralException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoNaoAutoralException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioExistenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioExistenteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioInexistenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioInexistenteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/repositories/ComentarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/ComentarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/repositories/PublicacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/PublicacaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/repositories/TelefoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/TelefoneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/repositories/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/services/interfaces/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/ArtHubApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/entities/Comentario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Comentario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/entities/enums/CategoriaEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/CategoriaEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/entities/enums/TipoArquivoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/TipoArquivoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/entities/enums/UsuarioEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/UsuarioEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoInexistenteException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoInexistenteException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoNaoAutoralException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoNaoAutoralException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioExistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioInexistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/repositories/ComentarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/ComentarioRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/repositories/PublicacaoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/PublicacaoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/repositories/TelefoneRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/TelefoneRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/repositories/UsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/services/interfaces/UsuarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/UsuarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/upe/LMPP/ArtHub/ArtHubApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Exception" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main_murilo" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main_murilo" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ilmoruuu&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Pedro-RGS/ArtHub.git&quot;,
+    &quot;accountId&quot;: &quot;f840d62c-b94f-409f-b2b3-45483b99454d&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2lnu9Wc3CNjEsW5eEmELSlHWtf5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ArtHubApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ArtHubApplication.executor": "Run",
+    "git-widget-placeholder": "Merging main__paula",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/muril/OneDrive/Área de Trabalho/Engenharia de Software - UPE/4º Semestre/Programação para Web (60H)/Atividades - PW/POO/eventhub",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArtHubApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="ArtHub" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="upe.LMPP.ArtHub.ArtHubApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="" />
+      <created>1725828011107</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725828011107</updated>
+      <workItem from="1725886658549" duration="256000" />
+      <workItem from="1725886938486" duration="132000" />
+      <workItem from="1726058722583" duration="19000" />
+      <workItem from="1726279002599" duration="457000" />
+      <workItem from="1726428992872" duration="9067000" />
+      <workItem from="1726493775872" duration="1370000" />
+      <workItem from="1726599107311" duration="153000" />
+      <workItem from="1726712536424" duration="3010000" />
+      <workItem from="1726762940280" duration="1504000" />
+      <workItem from="1726779965487" duration="10204000" />
+      <workItem from="1726839217629" duration="2591000" />
+      <workItem from="1726969119906" duration="629000" />
+      <workItem from="1727303384127" duration="797000" />
+      <workItem from="1727320991956" duration="300000" />
+      <workItem from="1727441818649" duration="2262000" />
+      <workItem from="1727808973994" duration="268000" />
+      <workItem from="1728000592456" duration="6329000" />
+      <workItem from="1728007204036" duration="608000" />
+      <workItem from="1728178788427" duration="1432000" />
+      <workItem from="1728387558490" duration="2049000" />
+      <workItem from="1728412779399" duration="1296000" />
+      <workItem from="1728512100120" duration="3487000" />
+      <workItem from="1728577422283" duration="2517000" />
+      <workItem from="1728580044500" duration="182000" />
+      <workItem from="1728580276869" duration="60000" />
+      <workItem from="1728580701285" duration="2322000" />
+      <workItem from="1728587645510" duration="247000" />
+      <workItem from="1728588193342" duration="1734000" />
+      <workItem from="1728678034960" duration="465000" />
+      <workItem from="1728947703660" duration="6000" />
+      <workItem from="1728947840745" duration="3000" />
+      <workItem from="1729038214032" duration="4000" />
+      <workItem from="1729039179623" duration="5000" />
+      <workItem from="1729112244523" duration="6943000" />
+      <workItem from="1729128397340" duration="1997000" />
+      <workItem from="1729130777010" duration="165000" />
+      <workItem from="1729166039162" duration="3965000" />
+    </task>
+    <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
+      <option name="closed" value="true" />
+      <created>1726432530861</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726432530862</updated>
+    </task>
+    <task id="LOCAL-00002" summary="criacao da entidade de usuario e seus tipos enum">
+      <option name="closed" value="true" />
+      <created>1726432611585</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726432611585</updated>
+    </task>
+    <task id="LOCAL-00003" summary="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge">
+      <option name="closed" value="true" />
+      <created>1726436547330</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726436547331</updated>
+    </task>
+    <task id="LOCAL-00004" summary="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge">
+      <option name="closed" value="true" />
+      <created>1726494741647</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726494741647</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge com a branch de Paula (Publicação)">
+      <option name="closed" value="true" />
+      <created>1726780945172</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726780945172</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Commit com arquivos &quot;unversionados&quot;">
+      <option name="closed" value="true" />
+      <created>1726791576068</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726791576068</updated>
+    </task>
+    <task id="LOCAL-00007" summary="relacionamento de entidades e criação de repositórios">
+      <option name="closed" value="true" />
+      <created>1726841200815</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726841200815</updated>
+    </task>
+    <task id="LOCAL-00008" summary="criação da interface do usuario e alterações nas entidades">
+      <option name="closed" value="true" />
+      <created>1728004005343</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728004005344</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adicao de alguns recursos da implementacoes (ainda incompleto)">
+      <option name="closed" value="true" />
+      <created>1728179316896</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1728179316896</updated>
+    </task>
+    <task id="LOCAL-00010" summary="remoção de funções dependentes de publicação e adição do &quot;Deletar Usuário&quot;">
+      <option name="closed" value="true" />
+      <created>1728578550948</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1728578550948</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adição das exceptions">
+      <option name="closed" value="true" />
+      <created>1728588935675</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728588935675</updated>
+    </task>
+    <task id="LOCAL-00012" summary="início do controller de Usuario e alterações nas estruturas de Usuario">
+      <option name="closed" value="true" />
+      <created>1729121860225</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729121860226</updated>
+    </task>
+    <task id="LOCAL-00013" summary="pull da main e construção do controller de Usuario">
+      <option name="closed" value="true" />
+      <created>1729124321573</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1729124321573</updated>
+    </task>
+    <task id="LOCAL-00014" summary="uptade no Controller">
+      <option name="closed" value="true" />
+      <created>1729124509316</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1729124509316</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="criacao da entidade de usuario e seus tipos enum" />
+    <MESSAGE value="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge" />
+    <MESSAGE value="Merge com a branch de Paula (Publicação)" />
+    <MESSAGE value="Commit com arquivos &quot;unversionados&quot;" />
+    <MESSAGE value="relacionamento de entidades e criação de repositórios" />
+    <MESSAGE value="criação da interface do usuario e alterações nas entidades" />
+    <MESSAGE value="adicao de alguns recursos da implementacoes (ainda incompleto)" />
+    <MESSAGE value="remoção de funções dependentes de publicação e adição do &quot;Deletar Usuário&quot;" />
+    <MESSAGE value="adição das exceptions" />
+    <MESSAGE value="início do controller de Usuario e alterações nas estruturas de Usuario" />
+    <MESSAGE value="pull da main e construção do controller de Usuario" />
+    <MESSAGE value="uptade no Controller" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+</project>
