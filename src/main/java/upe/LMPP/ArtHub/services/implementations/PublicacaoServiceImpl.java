@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import upe.LMPP.ArtHub.entities.Publicacao;
+import upe.LMPP.ArtHub.entities.Usuario;
 import upe.LMPP.ArtHub.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
 import upe.LMPP.ArtHub.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
+import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.repositories.PublicacaoRepository;
+import upe.LMPP.ArtHub.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.services.interfaces.PublicacaoService;
+import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,9 +23,13 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
     @Autowired
     PublicacaoRepository publicacaoRepository;
+    @Autowired
+    UsuarioService usuarioService;
 
     @Override
-    public Publicacao criarPublicacao(Publicacao publicacao) {
+    public Publicacao criarPublicacao(Publicacao publicacao, Integer idDono) {
+        Usuario dono = usuarioService.buscarUsuarioPorId(idDono);
+        publicacao.setUsuario(dono);
         return publicacaoRepository.save(publicacao);
     }
 

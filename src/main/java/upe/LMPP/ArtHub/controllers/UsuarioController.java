@@ -11,13 +11,13 @@ import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
 @RestController
-@RequestMapping("api/usuarios")
+@RequestMapping("api/v1/usuarios")
 public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping("/cadastrar")
+    @PostMapping()
     public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
         try{
             Usuario usuarioCadastrado = usuarioService.cadastrarUsuario(usuario);
@@ -36,7 +36,6 @@ public class UsuarioController {
         } catch (UsuarioInexistenteException e){
             return ResponseEntity.badRequest().body(usuario);
         }
-
     }
 
     @DeleteMapping("/remover/{id}")
@@ -51,7 +50,7 @@ public class UsuarioController {
     }
 
     //Tirar dúvida depois//
-    @GetMapping("/busca/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarUsuarioPorId(@PathVariable Integer id) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(id);
 
@@ -62,7 +61,7 @@ public class UsuarioController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/apelido/{apelido}")
+    @GetMapping("/{apelido}")
     public ResponseEntity<Usuario> buscarUsuarioPorApelido(@PathVariable String apelido) {
         Usuario usuario = usuarioService.buscarUsuarioPorApelido(apelido);
 
