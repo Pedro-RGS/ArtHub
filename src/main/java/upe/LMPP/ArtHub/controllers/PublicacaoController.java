@@ -18,7 +18,7 @@ public class PublicacaoController {
     PublicacaoService publicacaoService;
 
     @GetMapping
-    public ResponseEntity<List<Publicacao>> getAllPublicacao(Pageable pageable){
+    public ResponseEntity<List<Publicacao>> getAllPublicacao(){
         List<Publicacao> paginas = publicacaoService.buscarTodasPublicacacoes();
 
         return ResponseEntity.ok().body(paginas);
@@ -54,6 +54,8 @@ public class PublicacaoController {
         publicacaoService.curtirPublicacao(idComentario);
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idComentario));
     }
+
+    // retirar o like
 
     @DeleteMapping("remover/{idUsuario}/{idPublicacao}")
     public ResponseEntity<Void> deletePublicacao(@PathVariable Integer idUsuario,

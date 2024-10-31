@@ -43,8 +43,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void removerUsuario(Usuario usuario) {
-        usuarioRepository.delete(usuario);
+    public void removerUsuario(Integer id) {
+        usuarioRepository.deleteById(id);
     }
 
     @Override

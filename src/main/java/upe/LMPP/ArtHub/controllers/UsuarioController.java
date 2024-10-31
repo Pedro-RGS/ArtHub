@@ -39,17 +39,16 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/remover/{id}")
-    public ResponseEntity<Void> removerUsuario(@RequestBody Usuario usuario) {
-        Usuario usuarioRemovido = usuarioService.buscarUsuarioPorId(usuario.getId());
+    public ResponseEntity<Void> removerUsuario(@PathVariable Integer id) {
+        Usuario usuarioRemovido = usuarioService.buscarUsuarioPorId(id);
 
         if (usuarioRemovido != null) {
-            usuarioService.removerUsuario(usuario);
+            usuarioService.removerUsuario(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    //Tirar dúvida depois//
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarUsuarioPorId(@PathVariable Integer id) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(id);
@@ -61,7 +60,7 @@ public class UsuarioController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/{apelido}")
+    @GetMapping("/apelido/{apelido}")
     public ResponseEntity<Usuario> buscarUsuarioPorApelido(@PathVariable String apelido) {
         Usuario usuario = usuarioService.buscarUsuarioPorApelido(apelido);
 
