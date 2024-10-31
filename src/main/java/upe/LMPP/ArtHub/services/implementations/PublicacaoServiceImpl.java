@@ -82,6 +82,18 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
+    public void descurtirPublicacao(Integer idPublicacao) {
+        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
+
+        if (publicacaoBanco.isEmpty()){
+            throw new PublicacaoInexistenteException();
+        }
+
+        Publicacao publicacao = publicacaoBanco.get();
+        publicacao.setCurtidas(publicacao.getCurtidas() - 1);
+    }
+
+    @Override
     public void excluirPublicacao(Integer idPublicacao, Integer idDono) {
         Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
 

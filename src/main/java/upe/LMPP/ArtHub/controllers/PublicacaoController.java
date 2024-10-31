@@ -49,13 +49,17 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoService.atualizarPublicacao(publicacao, idDono));
     }
 
-    @PutMapping("{idComentario}")
-    public ResponseEntity<Publicacao> curtirPublicacao(@PathVariable Integer idComentario){
-        publicacaoService.curtirPublicacao(idComentario);
-        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idComentario));
+    @PutMapping("{idPublicacao}")
+    public ResponseEntity<Publicacao> curtirPublicacao(@PathVariable Integer idPublicacao){
+        publicacaoService.curtirPublicacao(idPublicacao);
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idPublicacao));
     }
 
-    // retirar o like
+    @PutMapping("{idPublicacao}")
+    public ResponseEntity<Publicacao> descurtirPublicacao(@PathVariable Integer idPublicacao){
+        publicacaoService.descurtirPublicacao(idPublicacao);
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idPublicacao));
+    }
 
     @DeleteMapping("remover/{idUsuario}/{idPublicacao}")
     public ResponseEntity<Void> deletePublicacao(@PathVariable Integer idUsuario,
