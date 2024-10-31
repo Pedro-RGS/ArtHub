@@ -27,18 +27,21 @@ public class RestExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 
+    @ExceptionHandler(PublicacaoNaoAutoralException.class)
     public ResponseEntity<String> publicacaoNaoAutoral(
             PublicacaoNaoAutoralException e
     ){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 
+    @ExceptionHandler(UsuarioExistenteException.class)
     public ResponseEntity<String> usuarioExistente(
             UsuarioExistenteException e
     ){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 
+    @ExceptionHandler(UsuarioInexistenteException.class)
     public ResponseEntity<String> usuarioInexistente(
             UsuarioInexistenteException e
     ){
