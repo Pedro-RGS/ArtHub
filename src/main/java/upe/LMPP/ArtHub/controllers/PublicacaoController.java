@@ -40,6 +40,7 @@ public class PublicacaoController {
     public ResponseEntity<Publicacao> postPublicacao(@RequestBody Publicacao publicacao,
                                                      @PathVariable Integer idDono){
         Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacao, idDono);
+
         return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.getId())).body(novaPublicacao);
     }
 

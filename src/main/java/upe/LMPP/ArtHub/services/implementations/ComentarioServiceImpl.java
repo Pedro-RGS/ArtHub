@@ -37,9 +37,12 @@ public class ComentarioServiceImpl implements ComentarioService {
 
     @Override
     public void removerComentario(Integer idComentario) {
-        if (idComentario == null) {
+        Optional<Comentario> comentarioBanco = comentarioRepository.findById(idComentario);
+
+        if (comentarioBanco.isEmpty()) {
             throw new ComentarioInexistenteException();
         }
+
         comentarioRepository.deleteById(idComentario);
     }
 
@@ -52,6 +55,18 @@ public class ComentarioServiceImpl implements ComentarioService {
         }
         Comentario comentarioCurtido = comentario.get();
         comentarioCurtido.setCurtidas(comentarioCurtido.getCurtidas() + 1);
+        return comentarioRepository.save(comentarioCurtido);
+    }
+
+    @Override
+    public Comentario descurtirComentario(Integer idComentario) {
+        Optional<Comentario> comentario = comentarioRepository.findById(idComentario);
+
+        if (comentario.isEmpty()) {
+            throw new ComentarioInexistenteException();
+        }
+        Comentario comentarioCurtido = comentario.get();
+        comentarioCurtido.setCurtidas(comentarioCurtido.getCurtidas() - 1);
         return comentarioRepository.save(comentarioCurtido);
     }
 

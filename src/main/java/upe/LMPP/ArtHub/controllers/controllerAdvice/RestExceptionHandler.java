@@ -17,34 +17,34 @@ public class RestExceptionHandler {
     public ResponseEntity<String> comentarioInexistente(
             ComentarioInexistenteException e
     ){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
 
     @ExceptionHandler(PublicacaoInexistenteException.class)
     public ResponseEntity<String> publicacoInexistente(
             PublicacaoInexistenteException e
     ){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
 
     @ExceptionHandler(PublicacaoNaoAutoralException.class)
     public ResponseEntity<String> publicacaoNaoAutoral(
             PublicacaoNaoAutoralException e
     ){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(e.getMessage());
     }
 
     @ExceptionHandler(UsuarioExistenteException.class)
     public ResponseEntity<String> usuarioExistente(
             UsuarioExistenteException e
     ){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
     }
 
     @ExceptionHandler(UsuarioInexistenteException.class)
     public ResponseEntity<String> usuarioInexistente(
             UsuarioInexistenteException e
     ){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
 }
