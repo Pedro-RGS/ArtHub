@@ -4,17 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge com main_murilo">
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/controllerAdvice/RestExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/controllerAdvice/RestExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ArtHub.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Comentario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Comentario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +49,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Exception" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,6 +80,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -96,7 +118,7 @@
     "Spring Boot.ArtHubApplication.executor": "Run",
     "git-widget-placeholder": "Merging main__paula",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/muril/OneDrive/Área de Trabalho/Engenharia de Software - UPE/4º Semestre/Programação para Web (60H)/Atividades - PW/POO/eventhub",
+    "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/Programação-Web/ArtHub",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -176,7 +198,14 @@
       <workItem from="1729038214032" duration="4000" />
       <workItem from="1729039179623" duration="5000" />
       <workItem from="1729112244523" duration="7275000" />
-      <workItem from="1729180797172" duration="574000" />
+      <workItem from="1729180797172" duration="4381000" />
+      <workItem from="1729188057789" duration="4705000" />
+      <workItem from="1729680050469" duration="29000" />
+      <workItem from="1729786665799" duration="3773000" />
+      <workItem from="1729884134572" duration="1600000" />
+      <workItem from="1730331246061" duration="4503000" />
+      <workItem from="1730393718924" duration="2564000" />
+      <workItem from="1730507049072" duration="1566000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -306,7 +335,47 @@
       <option name="project" value="LOCAL" />
       <updated>1729125873534</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Merge: merge com a branch main_murilo">
+      <option name="closed" value="true" />
+      <created>1729181607593</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1729181607593</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1729185249061</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1729185249061</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1729185254473</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1729185254473</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: Criação do RestExceptionHanlder para lidar com todas as exceções lançadas durante a execução do aplicativo">
+      <option name="closed" value="true" />
+      <created>1730335151520</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1730335151520</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos.">
+      <option name="closed" value="true" />
+      <created>1730335772499</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1730335772499</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +407,10 @@
     <MESSAGE value="uptade no Controller" />
     <MESSAGE value="rebuild da aplicação e merge com a main_larah" />
     <MESSAGE value="feature: Adicionada a funcionalidade de curtir publicações" />
-    <MESSAGE value="merge com main_murilo" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge com main_murilo" />
+    <MESSAGE value="Merge: merge com a branch main_murilo" />
+    <MESSAGE value="Fix" />
+    <MESSAGE value="feat: Criação do RestExceptionHanlder para lidar com todas as exceções lançadas durante a execução do aplicativo" />
+    <MESSAGE value="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

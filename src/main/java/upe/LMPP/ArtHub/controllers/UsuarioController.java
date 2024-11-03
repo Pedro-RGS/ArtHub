@@ -10,6 +10,8 @@ import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioExistenteException;
 import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping("api/v1/usuarios")
 public class UsuarioController {
@@ -17,58 +19,37 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping("/cadastrar")
+    @PostMapping
     public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
-        try{
-            Usuario usuarioCadastrado = usuarioService.cadastrarUsuario(usuario);
-            return ResponseEntity.ok(usuarioCadastrado);
+        Usuario usuarioCadastrado = usuarioService.cadastrarUsuario(usuario);
 
-        } catch (UsuarioExistenteException e) {
-            return ResponseEntity.badRequest().body(usuario);
-        }
+        return ResponseEntity.created(URI.create("/usuarios/" + usuarioCadastrado.getId())).body(usuarioCadastrado);
     }
 
     @PutMapping("/atualizar")
     public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuario) {
-        try{
-            Usuario usuarioAtualizado = usuarioService.atualizarUsuario(usuario);
-            return ResponseEntity.ok(usuarioAtualizado);
-        } catch (UsuarioInexistenteException e){
-            return ResponseEntity.badRequest().body(usuario);
-        }
+        Usuario usuarioAtualizado = usuarioService.atualizarUsuario(usuario);
+        return ResponseEntity.ok(usuarioAtualizado);
     }
 
     @DeleteMapping("/remover/{id}")
     public ResponseEntity<Void> removerUsuario(@PathVariable Integer id) {
         Usuario usuarioRemovido = usuarioService.buscarUsuarioPorId(id);
-
-        if (usuarioRemovido != null) {
-            usuarioService.removerUsuario(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        usuarioService.removerUsuario(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    //Tirar dúvida depois//
-    @GetMapping("/busca/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarUsuarioPorId(@PathVariable Integer id) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(id);
 
-        if (usuario != null) {
-            return ResponseEntity.ok(usuario);
-        }
-
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return ResponseEntity.ok(usuario);
     }
 
     @GetMapping("/apelido/{apelido}")
     public ResponseEntity<Usuario> buscarUsuarioPorApelido(@PathVariable String apelido) {
         Usuario usuario = usuarioService.buscarUsuarioPorApelido(apelido);
 
-        if (usuario != null) {
-            return ResponseEntity.ok(usuario);
-        }
-
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return ResponseEntity.ok(usuario);
     }
 }

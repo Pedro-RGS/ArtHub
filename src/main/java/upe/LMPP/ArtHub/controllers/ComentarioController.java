@@ -18,13 +18,16 @@ public class ComentarioController {
     @Autowired
     ComentarioService comentarioService;
 
-    @PostMapping
-    public ResponseEntity<Comentario> publicarComentario(@RequestBody Comentario comentario, @RequestParam Publicacao publicacao) {
-        Comentario comentarioPublicado = comentarioService.publicarComentario(comentario, publicacao);
+    @PostMapping("/{idUsuario}/{idPublicacao}")
+    public ResponseEntity<Comentario> publicarComentario(@RequestBody Comentario comentario,
+                                                         @PathVariable Integer idUsuario,
+                                                         @PathVariable Integer idPublicacao) {
+        Comentario comentarioPublicado = comentarioService.publicarComentario(comentario, idUsuario, idPublicacao);
+
         return ResponseEntity.created(URI.create("/comentarios/" + comentarioPublicado.getId())).body(comentarioPublicado);
     }
 
-    @DeleteMapping("delete/{idComentario}")
+    @DeleteMapping("remover/{idComentario}")
     public ResponseEntity<Void> removerComentario(@PathVariable Integer idComentario) {
         comentarioService.removerComentario(idComentario);
         return ResponseEntity.noContent().build();
