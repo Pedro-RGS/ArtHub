@@ -49,7 +49,6 @@ public class UsuarioController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    //Tirar dúvida depois//
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarUsuarioPorId(@PathVariable Integer id) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(id);
@@ -61,7 +60,7 @@ public class UsuarioController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/{apelido}")
+    @GetMapping("/apelido/{apelido}")
     public ResponseEntity<Usuario> buscarUsuarioPorApelido(@PathVariable String apelido) {
         Usuario usuario = usuarioService.buscarUsuarioPorApelido(apelido);
 

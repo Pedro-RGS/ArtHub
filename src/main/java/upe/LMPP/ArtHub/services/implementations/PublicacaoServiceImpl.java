@@ -20,9 +20,9 @@ import java.util.Optional;
 @Service
 @Transactional
 public class PublicacaoServiceImpl implements PublicacaoService {
-
     @Autowired
     PublicacaoRepository publicacaoRepository;
+
     @Autowired
     UsuarioService usuarioService;
 
@@ -31,33 +31,6 @@ public class PublicacaoServiceImpl implements PublicacaoService {
         Usuario dono = usuarioService.buscarUsuarioPorId(idDono);
         publicacao.setUsuario(dono);
         return publicacaoRepository.save(publicacao);
-    }
-
-    @Override
-    public void excluirPublicacao(Integer idPublicacao, Integer idDono) {
-        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
-
-        if(publicacaoBanco.isEmpty()){
-            throw new PublicacaoInexistenteException();
-        }
-
-        if(publicacaoBanco.get().getUsuario().getId() != idDono){
-            throw new PublicacaoNaoAutoralException();
-        }
-
-        publicacaoRepository.deleteById(idPublicacao);
-    }
-
-    @Override
-    public void curtirPublicacao(Integer idPublicacao) {
-        Optional<Publicacao> publicacao = publicacaoRepository.findById(idPublicacao);
-
-        if(publicacao.isEmpty()){
-            throw new PublicacaoInexistenteException();
-        }
-
-        Publicacao publicacaoEntity = publicacao.get();
-        publicacaoEntity.setCurtidas(publicacaoEntity.getCurtidas() + 1);
     }
 
     @Override
@@ -94,5 +67,44 @@ public class PublicacaoServiceImpl implements PublicacaoService {
             }
         }
         throw new PublicacaoInexistenteException();
+    }
+
+    @Override
+    public void curtirPublicacao(Integer idPublicacao) {
+        Optional<Publicacao> publicacao = publicacaoRepository.findById(idPublicacao);
+
+        if(publicacao.isEmpty()){
+            throw new PublicacaoInexistenteException();
+        }
+
+        Publicacao publicacaoEntity = publicacao.get();
+        publicacaoEntity.setCurtidas(publicacaoEntity.getCurtidas() + 1);
+    }
+
+    @Override
+    public void descurtirPublicacao(Integer idPublicacao) {
+        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
+
+        if (publicacaoBanco.isEmpty()){
+            throw new PublicacaoInexistenteException();
+        }
+
+        Publicacao publicacao = publicacaoBanco.get();
+        publicacao.setCurtidas(publicacao.getCurtidas() - 1);
+    }
+
+    @Override
+    public void excluirPublicacao(Integer idPublicacao, Integer idDono) {
+        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
+
+        if(publicacaoBanco.isEmpty()){
+            throw new PublicacaoInexistenteException();
+        }
+
+        if(publicacaoBanco.get().getUsuario().getId() != idDono){
+            throw new PublicacaoNaoAutoralException();
+        }
+
+        publicacaoRepository.deleteById(idPublicacao);
     }
 }

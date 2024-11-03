@@ -5,11 +5,14 @@ import upe.LMPP.ArtHub.entities.Publicacao;
 import java.util.List;
 
 public interface PublicacaoService {
-    public Publicacao criarPublicacao(Publicacao publicacao, Integer idDono);
-    public Publicacao buscarPublicacao(Integer idPublicacao);
-    public List<Publicacao> buscarTodasPublicacacoes();
-    public List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono);
-    public Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono);
-    public void excluirPublicacao(Integer idPublicacao, Integer idDono);
-    public void curtirPublicacao(Integer idPublicacao);
+    // Todos os metodos de interfaces do java já são "public" por padrao
+
+    Publicacao criarPublicacao(Publicacao publicacao, Integer idDono);
+    Publicacao buscarPublicacao(Integer idPublicacao);
+    List<Publicacao> buscarTodasPublicacacoes();
+    List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono);
+    Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono);
+    void curtirPublicacao(Integer idPublicacao);
+    void descurtirPublicacao(Integer idPublicacao);
+    void excluirPublicacao(Integer idPublicacao, Integer idDono);
 }

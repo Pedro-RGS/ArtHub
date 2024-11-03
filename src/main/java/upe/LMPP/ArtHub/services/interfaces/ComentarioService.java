@@ -13,7 +13,4 @@ public interface ComentarioService {
     public Comentario curtirComentario(Integer idComentario);
     public List<Comentario> listarComentarios(Integer idPublicacao);
     public Comentario buscarPorId(Integer idComentario);
-
-
-
 }
