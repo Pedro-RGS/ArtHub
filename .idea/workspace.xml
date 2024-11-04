@@ -4,23 +4,82 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29605d39-41bb-4884-ad20-a53e774d281f" name="Changes" comment="fix erros">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/controllerAdvice/RestExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/controllerAdvice/RestExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ArtHub.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/src/main/java/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtHub/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/ComentarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Publicacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Telefone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/ComentarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/ComentarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Comentario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Comentario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/UsuarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/UsuarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/ComentarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Exception" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main_murilo" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="main_murilo" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,47 +87,56 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;laahnanes&quot;
+    &quot;assignee&quot;: &quot;ilmoruuu&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Pedro-RGS/ArtHub.git&quot;,
-    &quot;accountId&quot;: &quot;02c67bbd-5cfa-48be-8b35-cac3effa50d6&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Pedro-RGS/ArtHub.git",
+    "accountId": "02c67bbd-5cfa-48be-8b35-cac3effa50d6"
   }
-}</component>
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2nZ5lN1K65VQ80GhgzojgxWg0r2" />
+  <component name="ProjectId" id="2lnu9Wc3CNjEsW5eEmELSlHWtf5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.ArtHubApplication.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.ArtHubApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main__larah&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging main__larah&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/Programação-Web/ArtHub&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
   <component name="RunManager">
-    <configuration name="ArtHubApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="ArtHub" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="upe.LMPP.ArtHub.ArtHubApplication" />
+    <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -92,92 +160,261 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="configuração de banco">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="" />
+      <created>1725828011107</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725828011107</updated>
+      <workItem from="1725886658549" duration="256000" />
+      <workItem from="1725886938486" duration="132000" />
+      <workItem from="1726058722583" duration="19000" />
+      <workItem from="1726279002599" duration="457000" />
+      <workItem from="1726428992872" duration="9067000" />
+      <workItem from="1726493775872" duration="1370000" />
+      <workItem from="1726599107311" duration="153000" />
+      <workItem from="1726712536424" duration="3010000" />
+      <workItem from="1726762940280" duration="1504000" />
+      <workItem from="1726779965487" duration="10204000" />
+      <workItem from="1726839217629" duration="2591000" />
+      <workItem from="1726969119906" duration="629000" />
+      <workItem from="1727303384127" duration="797000" />
+      <workItem from="1727320991956" duration="300000" />
+      <workItem from="1727441818649" duration="2262000" />
+      <workItem from="1727808973994" duration="268000" />
+      <workItem from="1728000592456" duration="6329000" />
+      <workItem from="1728007204036" duration="608000" />
+      <workItem from="1728178788427" duration="1432000" />
+      <workItem from="1728387558490" duration="2049000" />
+      <workItem from="1728412779399" duration="1296000" />
+      <workItem from="1728512100120" duration="3487000" />
+      <workItem from="1728577422283" duration="2517000" />
+      <workItem from="1728580044500" duration="182000" />
+      <workItem from="1728580276869" duration="60000" />
+      <workItem from="1728580701285" duration="2322000" />
+      <workItem from="1728587645510" duration="247000" />
+      <workItem from="1728588193342" duration="1734000" />
+      <workItem from="1728678034960" duration="465000" />
+      <workItem from="1728947703660" duration="6000" />
+      <workItem from="1728947840745" duration="3000" />
+      <workItem from="1729038214032" duration="4000" />
+      <workItem from="1729039179623" duration="5000" />
+      <workItem from="1729112244523" duration="7275000" />
+      <workItem from="1729180797172" duration="4381000" />
+      <workItem from="1729188057789" duration="4705000" />
+      <workItem from="1729680050469" duration="29000" />
+      <workItem from="1729786665799" duration="3773000" />
+      <workItem from="1729884134572" duration="1600000" />
+      <workItem from="1730331246061" duration="4503000" />
+      <workItem from="1730393718924" duration="2564000" />
+      <workItem from="1730507049072" duration="1566000" />
+      <workItem from="1730743967805" duration="720000" />
+    </task>
+    <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
-      <created>1729124035920</created>
+      <created>1726432530861</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1729124035920</updated>
+      <updated>1726432530862</updated>
     </task>
-    <task id="LOCAL-00002" summary="configuração de banco">
+    <task id="LOCAL-00002" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
-      <created>1729124046716</created>
+      <created>1726432611585</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1729124046716</updated>
+      <updated>1726432611585</updated>
     </task>
-    <task id="LOCAL-00003" summary="fix erros">
+    <task id="LOCAL-00003" summary="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge">
       <option name="closed" value="true" />
-      <created>1729124301581</created>
+      <created>1726436547330</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1729124301581</updated>
+      <updated>1726436547331</updated>
     </task>
-    <task id="LOCAL-00004" summary="fix erros">
+    <task id="LOCAL-00004" summary="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge">
       <option name="closed" value="true" />
-      <created>1729124308210</created>
+      <created>1726494741647</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1729124308210</updated>
+      <updated>1726494741647</updated>
     </task>
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="29605d39-41bb-4884-ad20-a53e774d281f" name="Changes" comment="" />
-      <created>1729167910051</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1729167910051</updated>
-      <workItem from="1729167911521" duration="4265000" />
-      <workItem from="1729182557492" duration="2527000" />
-      <workItem from="1729208419191" duration="5000" />
-      <workItem from="1729343415626" duration="4000" />
-      <workItem from="1729343713427" duration="197000" />
-      <workItem from="1729621796793" duration="7000" />
-      <workItem from="1730401027444" duration="78000" />
-      <workItem from="1730401134209" duration="648000" />
-      <workItem from="1730489086335" duration="4000" />
-    </task>
-    <task id="LOCAL-00005" summary="fix erros">
+    <task id="LOCAL-00005" summary="Merge com a branch de Paula (Publicação)">
       <option name="closed" value="true" />
-      <created>1729168108691</created>
+      <created>1726780945172</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1729168108691</updated>
+      <updated>1726780945172</updated>
     </task>
-    <task id="LOCAL-00006" summary="fix erros">
+    <task id="LOCAL-00006" summary="Commit com arquivos &quot;unversionados&quot;">
       <option name="closed" value="true" />
-      <created>1729168121504</created>
+      <created>1726791576068</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1729168121504</updated>
+      <updated>1726791576068</updated>
     </task>
-    <task id="LOCAL-00007" summary="fix erros">
+    <task id="LOCAL-00007" summary="relacionamento de entidades e criação de repositórios">
       <option name="closed" value="true" />
-      <created>1729185892968</created>
+      <created>1726841200815</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1729185892968</updated>
+      <updated>1726841200815</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="criação da interface do usuario e alterações nas entidades">
+      <option name="closed" value="true" />
+      <created>1728004005343</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728004005344</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adicao de alguns recursos da implementacoes (ainda incompleto)">
+      <option name="closed" value="true" />
+      <created>1728179316896</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1728179316896</updated>
+    </task>
+    <task id="LOCAL-00010" summary="remoção de funções dependentes de publicação e adição do &quot;Deletar Usuário&quot;">
+      <option name="closed" value="true" />
+      <created>1728578550948</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1728578550948</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adição das exceptions">
+      <option name="closed" value="true" />
+      <created>1728588935675</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728588935675</updated>
+    </task>
+    <task id="LOCAL-00012" summary="início do controller de Usuario e alterações nas estruturas de Usuario">
+      <option name="closed" value="true" />
+      <created>1729121860225</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729121860226</updated>
+    </task>
+    <task id="LOCAL-00013" summary="pull da main e construção do controller de Usuario">
+      <option name="closed" value="true" />
+      <created>1729124321573</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1729124321573</updated>
+    </task>
+    <task id="LOCAL-00014" summary="uptade no Controller">
+      <option name="closed" value="true" />
+      <created>1729124509316</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1729124509316</updated>
+    </task>
+    <task id="LOCAL-00015" summary="rebuild da aplicação e merge com a main_larah">
+      <option name="closed" value="true" />
+      <created>1729125857913</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1729125857913</updated>
+    </task>
+    <task id="LOCAL-00016" summary="rebuild da aplicação e merge com a main_larah">
+      <option name="closed" value="true" />
+      <created>1729125873534</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1729125873534</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Merge: merge com a branch main_murilo">
+      <option name="closed" value="true" />
+      <created>1729181607593</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1729181607593</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1729185249061</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1729185249061</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1729185254473</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1729185254473</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: Criação do RestExceptionHanlder para lidar com todas as exceções lançadas durante a execução do aplicativo">
+      <option name="closed" value="true" />
+      <created>1730335151520</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1730335151520</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos.">
+      <option name="closed" value="true" />
+      <created>1730335772499</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1730335772499</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/.." />
-    </ignored-roots>
-    <MESSAGE value="commit" />
-    <MESSAGE value="configuração de banco" />
-    <MESSAGE value="fix" />
-    <MESSAGE value="fix erros" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix erros" />
+    <MESSAGE value="criacao da entidade de usuario e seus tipos enum" />
+    <MESSAGE value="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge" />
+    <MESSAGE value="Merge com a branch de Paula (Publicação)" />
+    <MESSAGE value="Commit com arquivos &quot;unversionados&quot;" />
+    <MESSAGE value="relacionamento de entidades e criação de repositórios" />
+    <MESSAGE value="criação da interface do usuario e alterações nas entidades" />
+    <MESSAGE value="adicao de alguns recursos da implementacoes (ainda incompleto)" />
+    <MESSAGE value="remoção de funções dependentes de publicação e adição do &quot;Deletar Usuário&quot;" />
+    <MESSAGE value="adição das exceptions" />
+    <MESSAGE value="início do controller de Usuario e alterações nas estruturas de Usuario" />
+    <MESSAGE value="pull da main e construção do controller de Usuario" />
+    <MESSAGE value="uptade no Controller" />
+    <MESSAGE value="rebuild da aplicação e merge com a main_larah" />
+    <MESSAGE value="feature: Adicionada a funcionalidade de curtir publicações" />
+    <MESSAGE value="Merge: merge com a branch main_murilo" />
+    <MESSAGE value="Fix" />
+    <MESSAGE value="feat: Criação do RestExceptionHanlder para lidar com todas as exceções lançadas durante a execução do aplicativo" />
+    <MESSAGE value="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos." />
+    <MESSAGE value="modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifications" />
   </component>
 </project>

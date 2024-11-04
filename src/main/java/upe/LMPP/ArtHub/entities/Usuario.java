@@ -1,5 +1,6 @@
 package upe.LMPP.ArtHub.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,15 +35,19 @@ public class Usuario {
     private byte[] banner;
     private String chavePix;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Telefone> telefones;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Publicacao> publicacoes;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Comentario> comentarios;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "curtir_publicacao",
