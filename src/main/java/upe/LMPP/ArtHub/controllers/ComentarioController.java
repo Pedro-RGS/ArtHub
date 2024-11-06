@@ -23,6 +23,7 @@ public class ComentarioController {
                                                          @PathVariable Integer idUsuario,
                                                          @PathVariable Integer idPublicacao) {
         Comentario comentarioPublicado = comentarioService.publicarComentario(comentario, idUsuario, idPublicacao);
+
         return ResponseEntity.created(URI.create("/comentarios/" + comentarioPublicado.getId())).body(comentarioPublicado);
     }
 

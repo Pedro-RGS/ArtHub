@@ -12,7 +12,7 @@ public interface PublicacaoService {
     List<Publicacao> buscarTodasPublicacacoes();
     List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono);
     Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono);
-    void curtirPublicacao(Integer idPublicacao);
-    void descurtirPublicacao(Integer idPublicacao);
+    Publicacao curtirPublicacao(Integer idPublicacao);
+    Publicacao descurtirPublicacao(Integer idPublicacao);
     void excluirPublicacao(Integer idPublicacao, Integer idDono);
 }

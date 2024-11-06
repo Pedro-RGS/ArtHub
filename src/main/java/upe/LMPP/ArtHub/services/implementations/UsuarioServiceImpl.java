@@ -48,12 +48,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario buscarUsuarioPorId(Integer id) {
-        return usuarioRepository.findById(id).orElse(null);
+        return usuarioRepository.findById(id).orElseThrow(UsuarioInexistenteException::new);
     }
 
     @Override
     public Usuario buscarUsuarioPorApelido(String apelido) {
-        return usuarioRepository.findByApelido(apelido).orElse(null);
+        return usuarioRepository.findByApelido(apelido).orElseThrow(UsuarioInexistenteException::new);
     }
 
 }
