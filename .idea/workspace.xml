@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="feat: Adição do lançamento de exceções em todos os Services e retirada de blocos try-catch do UsuarioController">
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="raw: Commit do arquivo workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/PublicacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/repositories/PublicacaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/PublicacaoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/PublicacaoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,6 +401,7 @@
     <MESSAGE value="feat: Criação do RestExceptionHanlder para lidar com todas as exceções lançadas durante a execução do aplicativo" />
     <MESSAGE value="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos." />
     <MESSAGE value="feat: Adição do lançamento de exceções em todos os Services e retirada de blocos try-catch do UsuarioController" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Adição do lançamento de exceções em todos os Services e retirada de blocos try-catch do UsuarioController" />
+    <MESSAGE value="raw: Commit do arquivo workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="raw: Commit do arquivo workspace.xml" />
   </component>
 </project>

@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import upe.LMPP.ArtHub.entities.Publicacao;
+import upe.LMPP.ArtHub.entities.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.services.interfaces.PublicacaoService;
 
 import java.net.URI;
@@ -34,6 +35,12 @@ public class PublicacaoController {
     public ResponseEntity<List<Publicacao>> getPublicacaoByUsuario(@PathVariable Integer idUsuario){
         List<Publicacao> publicacaoEncontrada = publicacaoService.buscarPublicacoesPorUsuario(idUsuario);
         return ResponseEntity.ok().body(publicacaoEncontrada);
+    }
+
+    @GetMapping("categoria/{categoria}")
+    public ResponseEntity<List<Publicacao>> getPublicacaoByCategoria(@PathVariable CategoriaEnum categoria){
+        List<Publicacao> publicacoesEncontradas = publicacaoService.buscarPublicacaoPorCategoria(categoria);
+        return ResponseEntity.ok().body(publicacoesEncontradas);
     }
 
     @PostMapping("/{idDono}")
