@@ -5,7 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge: merge com a branch main_larah">
+      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/controllerAdvice/RestExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/CategoriaEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/TipoArquivoEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/UsuarioEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoInexistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoNaoAutoralException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioExistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioInexistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/ComentarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/PublicacaoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/TelefoneRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/UsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/UsuarioService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +112,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.ArtHubApplication.executor": "Run",
-    "git-widget-placeholder": "main__pedro",
+    "git-widget-placeholder": "Merging main__pedro",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/ProjetoPapagaio/microsservico-notificacao",
     "node.js.detected.package.eslint": "true",

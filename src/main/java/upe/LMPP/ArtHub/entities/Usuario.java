@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.userdetails.UserDetails;
 import upe.LMPP.ArtHub.entities.enums.UsuarioEnum;
 import java.util.Date;
 import java.util.List;
