@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="feat: Adição da feature que permite que as publicações sejam filtradas por suas categorias">
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/DTO/LoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/DTO/UsuarioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge: merge com a branch main_larah">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,9 +84,9 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.ArtHubApplication.executor": "Run",
-    "git-widget-placeholder": "Merging main__pedro",
+    "git-widget-placeholder": "main__pedro",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/Programação-Web/ArtHub",
+    "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/ProjetoPapagaio/microsservico-notificacao",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -184,6 +176,7 @@
       <workItem from="1730507049072" duration="2243000" />
       <workItem from="1730509352022" duration="280000" />
       <workItem from="1730667049967" duration="11000" />
+      <workItem from="1730985974971" duration="101000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -369,7 +362,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730934048593</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="merge: merge com a branch main_larah">
+      <option name="closed" value="true" />
+      <created>1730982724698</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1730982724698</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,6 +409,7 @@
     <MESSAGE value="feat: Adição do lançamento de exceções em todos os Services e retirada de blocos try-catch do UsuarioController" />
     <MESSAGE value="raw: Commit do arquivo workspace.xml" />
     <MESSAGE value="feat: Adição da feature que permite que as publicações sejam filtradas por suas categorias" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Adição da feature que permite que as publicações sejam filtradas por suas categorias" />
+    <MESSAGE value="merge: merge com a branch main_larah" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge: merge com a branch main_larah" />
   </component>
 </project>
