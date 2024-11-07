@@ -5,35 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge: merge com a branch main_larah">
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/PublicacaoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/controllerAdvice/RestExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Publicacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Telefone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/CategoriaEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/TipoArquivoEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/enums/UsuarioEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/comentarioExceptions/ComentarioInexistenteException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoInexistenteException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/publicacaoExceptions/PublicacaoNaoAutoralException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioExistenteException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/exceptions/usuarioExceptions/UsuarioInexistenteException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/ComentarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/PublicacaoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/TelefoneRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/repositories/UsuarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/PublicacaoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/PublicacaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/interfaces/UsuarioService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,32 +76,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ArtHubApplication.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.ArtHubApplication.executor": "Run",
-    "git-widget-placeholder": "Merging main__pedro",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/ProjetoPapagaio/microsservico-notificacao",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ArtHubApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ArtHubApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging main__pedro&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/ProjetoPapagaio/microsservico-notificacao&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -438,6 +411,7 @@
     <MESSAGE value="raw: Commit do arquivo workspace.xml" />
     <MESSAGE value="feat: Adição da feature que permite que as publicações sejam filtradas por suas categorias" />
     <MESSAGE value="merge: merge com a branch main_larah" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge: merge com a branch main_larah" />
+    <MESSAGE value="merge: merge com a branch main_murilo" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge: merge com a branch main_murilo" />
   </component>
 </project>

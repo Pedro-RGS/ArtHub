@@ -6,8 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import upe.LMPP.ArtHub.entities.enums.UsuarioEnum;
+
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Usuario {
+public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -63,6 +67,25 @@ public class Usuario {
         this.email = email;
         this.dataNascimento = dataNascimento;
         this.senha = senha;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.tipoUsuario == UsuarioEnum.ADMINISTRADOR){
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMINISTRADOR"), new SimpleGrantedAuthority("ROLE_COMUM"));
+
+        }
+        return List.of(new SimpleGrantedAuthority("ROLE_COMUM"));
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.apelido;
     }
 
 }
