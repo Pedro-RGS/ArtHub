@@ -55,4 +55,13 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "id_publicacao")
     )
     private List<Publicacao> publicacoesCurtidas;
+
+    public Usuario(String nome, String apelido, String email, Date dataNascimento, String senha){
+        this.nome = nome;
+        this.apelido = apelido;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.senha = senha;
+    }
+
 }
