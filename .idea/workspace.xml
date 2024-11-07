@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="feat: adição da depedência de segurança">
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/TokenService.java" afterDir="false" />
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="fix: correção na entidade de usuário (implementação dos métodos)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,12 +57,12 @@
     &quot;assignee&quot;: &quot;ilmoruuu&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Pedro-RGS/ArtHub.git&quot;,
-    &quot;accountId&quot;: &quot;02c67bbd-5cfa-48be-8b35-cac3effa50d6&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Pedro-RGS/ArtHub.git",
+    "accountId": "f840d62c-b94f-409f-b2b3-45483b99454d"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -124,8 +120,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -180,6 +176,7 @@
       <workItem from="1730393718924" duration="2564000" />
       <workItem from="1730507049072" duration="1566000" />
       <workItem from="1730743967805" duration="1779000" />
+      <workItem from="1730988423078" duration="338000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -365,7 +362,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730936584249</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="feat: criação do Security e alteração da implementação de Usuário (UserDetails)">
+      <option name="closed" value="true" />
+      <created>1730944747489</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1730944747489</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,6 +409,8 @@
     <MESSAGE value="modifications" />
     <MESSAGE value="merge com a main_pedro" />
     <MESSAGE value="feat: adição da depedência de segurança" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: adição da depedência de segurança" />
+    <MESSAGE value="feat: criação do Security e alteração da implementação de Usuário (UserDetails)" />
+    <MESSAGE value="fix: correção na entidade de usuário (implementação dos métodos)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: correção na entidade de usuário (implementação dos métodos)" />
   </component>
 </project>
