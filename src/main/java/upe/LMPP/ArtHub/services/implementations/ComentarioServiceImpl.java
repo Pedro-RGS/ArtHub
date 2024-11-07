@@ -12,6 +12,7 @@ import upe.LMPP.ArtHub.services.interfaces.ComentarioService;
 import upe.LMPP.ArtHub.services.interfaces.PublicacaoService;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     public Comentario publicarComentario(Comentario comentario, Integer idDono, Integer idPublicacao) {
         comentario.setUsuario(usuarioService.buscarUsuarioPorId(idDono));
         comentario.setPublicacao(publicacaoService.buscarPublicacao(idPublicacao));
+        comentario.setDataPublicacao(LocalDateTime.now());
 
         return comentarioRepository.save(comentario);
     }

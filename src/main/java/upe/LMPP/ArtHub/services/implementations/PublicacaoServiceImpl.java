@@ -12,6 +12,7 @@ import upe.LMPP.ArtHub.repositories.PublicacaoRepository;
 import upe.LMPP.ArtHub.services.interfaces.PublicacaoService;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     public Publicacao criarPublicacao(Publicacao publicacao, Integer idDono) {
         Usuario dono = usuarioService.buscarUsuarioPorId(idDono);
         publicacao.setUsuario(dono);
+        publicacao.setDataPublicacao(LocalDateTime.now());
         return publicacaoRepository.save(publicacao);
     }
 
