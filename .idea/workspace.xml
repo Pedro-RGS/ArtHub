@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="corrigindo erros na ide" />
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge com main_murilo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +60,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Pedro-RGS/ArtHub.git&quot;,
-    &quot;accountId&quot;: &quot;40a5b2f3-d0f9-42d3-9ba0-f3a87ae471cb&quot;
+    &quot;accountId&quot;: &quot;1102009a-ad1d-4a1e-b18f-8534c70264d1&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -86,15 +88,15 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.ArtHubApplication.executor": "Run",
-    "git-widget-placeholder": "Merging main__paula",
+    "git-widget-placeholder": "main__paula",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/Programação-Web/ArtHub",
+    "last_opened_file_path": "C:/Users/pauli/Desktop/POO",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -121,8 +123,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -176,6 +178,11 @@
       <workItem from="1730331246061" duration="4503000" />
       <workItem from="1730393718924" duration="2564000" />
       <workItem from="1730507049072" duration="1566000" />
+      <workItem from="1730995625994" duration="1895000" />
+      <workItem from="1730998370672" duration="195000" />
+      <workItem from="1731000929894" duration="77000" />
+      <workItem from="1731001036352" duration="520000" />
+      <workItem from="1731023125626" duration="427000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -389,6 +396,7 @@
     <MESSAGE value="Fix" />
     <MESSAGE value="feat: Criação do RestExceptionHanlder para lidar com todas as exceções lançadas durante a execução do aplicativo" />
     <MESSAGE value="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos." />
+    <MESSAGE value="merge com main_murilo" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge com main_murilo" />
   </component>
 </project>
