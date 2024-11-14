@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge com main_murilo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +183,8 @@
       <workItem from="1731000929894" duration="77000" />
       <workItem from="1731001036352" duration="520000" />
       <workItem from="1731023125626" duration="427000" />
+      <workItem from="1731112373578" duration="80000" />
+      <workItem from="1731585937576" duration="1752000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
