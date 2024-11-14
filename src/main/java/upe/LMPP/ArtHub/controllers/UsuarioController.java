@@ -52,4 +52,11 @@ public class UsuarioController {
 
         return ResponseEntity.ok(usuario);
     }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Usuario> buscarUsuarioPorEmail(@PathVariable String email) {
+        Usuario usuario = usuarioService.buscarUsuarioPorEmail(email);
+
+        return ResponseEntity.ok(usuario);
+    }
 }

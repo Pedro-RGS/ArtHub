@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import upe.LMPP.ArtHub.repositories.UsuarioRepository;
+import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     TokenService tokenService;
     @Autowired
-    UsuarioRepository usuarioRepository;
+    UsuarioService service;
 
     @Override
     protected void doFilterInternal(HttpServletRequest servletRequest,
@@ -30,7 +31,8 @@ public class SecurityFilter extends OncePerRequestFilter {
         var token = this.recoverToken(servletRequest);
         if (token != null) {
             String emailUsuario = this.tokenService.validateToken(token);
-            UserDetails usuario = this.usuarioRepository.findByEmail(emailUsuario).get();
+            System.out.println(emailUsuario);
+            UserDetails usuario = this.service.buscarUsuarioPorEmail(emailUsuario);
 
             var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
