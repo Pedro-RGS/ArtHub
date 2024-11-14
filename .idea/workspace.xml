@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/entities/Usuario.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/ComentarioServiceImpl.class" afterDir="false" />
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge: merge com a branch main_paula">
+      <change afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/AuthServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/ArtHubApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/DTO/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/DTO/LoginDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/DTO/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/DTO/UsuarioDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +91,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.ArtHubApplication.executor": "Run",
+    "Spring Boot.ArtHubApplication.executor": "Debug",
     "git-widget-placeholder": "Merging main__pedro",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Gerência de Configuração/Natal",
@@ -437,6 +433,18 @@
     <MESSAGE value="merge: merge com a branch main_larah" />
     <MESSAGE value="merge: merge com a branch main_murilo" />
     <MESSAGE value="workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml" />
+    <MESSAGE value="merge: merge com a branch main_paula" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge: merge com a branch main_paula" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/AuthController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
