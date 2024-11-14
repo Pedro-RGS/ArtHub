@@ -22,9 +22,9 @@ public class TokenService {
             String token = JWT.create()
                     .withIssuer("arthub")
                     .withSubject(usuario.getEmail())
-                    .withIssuedAt(
+                    .withExpiresAt(
                             LocalDateTime.now()
-                                    .plusHours(5)
+                                    .plusHours(2)
                                     .toInstant(
                                             ZoneOffset.of("-03:00")
                                     )
@@ -46,7 +46,7 @@ public class TokenService {
                     .verify(token)
                     .getSubject();
         }catch (JWTVerificationException exception) {
-            return null;
+            return "tome";
         }
     }
 }
