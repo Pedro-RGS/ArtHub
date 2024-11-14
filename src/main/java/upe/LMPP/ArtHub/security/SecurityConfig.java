@@ -35,6 +35,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         //Adicionar as permissões quando fizer o controller de Autenticação (Auth)
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/registrar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/resgistrar/admin").hasRole("Administrador")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
