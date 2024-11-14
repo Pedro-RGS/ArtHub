@@ -11,4 +11,5 @@ public interface UsuarioService {
     public void removerUsuario(Integer id);
     public Usuario buscarUsuarioPorId(Integer id);
     public Usuario buscarUsuarioPorApelido(String apelido);
+    public Usuario buscarUsuarioPorEmail(String email);
 }

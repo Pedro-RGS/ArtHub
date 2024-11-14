@@ -56,5 +56,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findByApelido(apelido).orElseThrow(UsuarioInexistenteException::new);
     }
 
+    @Override
+    public Usuario buscarUsuarioPorEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElseThrow(UsuarioInexistenteException::new);
+    }
 }
 
