@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge: merge com a branch main_larah">
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge: merge com a branch main_murilo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +62,10 @@
     &quot;accountId&quot;: &quot;40a5b2f3-d0f9-42d3-9ba0-f3a87ae471cb&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -85,9 +88,9 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.ArtHubApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main__pedro&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main__pedro&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/ProjetoPapagaio/microsservico-notificacao&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pedro/OneDrive/Documentos/Faculdade/Gerência de Configuração/Natal&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -178,6 +181,11 @@
       <workItem from="1730509352022" duration="280000" />
       <workItem from="1730667049967" duration="11000" />
       <workItem from="1730985974971" duration="101000" />
+      <workItem from="1731001322098" duration="72000" />
+      <workItem from="1731107157106" duration="11000" />
+      <workItem from="1731277756466" duration="120000" />
+      <workItem from="1731277895521" duration="23000" />
+      <workItem from="1731532994198" duration="1898000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -371,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730982724698</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="merge: merge com a branch main_murilo">
+      <option name="closed" value="true" />
+      <created>1731006518110</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1731006518110</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
