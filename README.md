@@ -1,14 +1,17 @@
-BACK-END ARTHUB
+## BACK-END ARTHUB
 
 Esse projeto foi idealizado e realizado para a disciplina de programação web lecionada pelo professor e doutor Elisson Rocha.
 Tem o intuito de colocar em prática os conceitos aprendidos na matéria, dentre esses conceitos estão:
+
+- Http e arquitetura cliente-servidor
 - Conceitos básicos do Java com Springboot
 - Spring Security
 - JPA e Hibernate
+- Arquitetura RESTful
 
-O projeto vem com a ideia de ser uma rede social para artistas compartilharem suas artes e interagirem com artes de outras artistas.
+O projeto tem a ideia de ser uma rede social para artistas compartilharem suas artes e interagirem com as publicações de outras artistas.
 
-Ela tem as seguintes features:
+Ela tem as seguintes funcionalidades:
 
 - Criar sua conta
 - Fazer login
@@ -17,4 +20,6 @@ Ela tem as seguintes features:
 - Realizar comentários em publicações
 - Curtir e descurtir publicações e comentários
 
-OBS.: Não se pode editar comentários, tome cuidado com o que você escreve
+**Não se pode editar comentários, tome cuidado com o que você escreve**
+
+### O front-end dessa API pode ser encontrado em https://github.com/paulabeatrizz/arthub-front
