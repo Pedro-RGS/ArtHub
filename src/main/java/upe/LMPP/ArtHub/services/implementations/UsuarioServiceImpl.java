@@ -3,7 +3,6 @@ package upe.LMPP.ArtHub.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import upe.LMPP.ArtHub.entities.Publicacao;
 import upe.LMPP.ArtHub.entities.Usuario;
 import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioExistenteException;
 import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
@@ -43,19 +42,23 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void removerUsuario(Usuario usuario) {
-        usuarioRepository.delete(usuario);
+    public void removerUsuario(Integer id) {
+        usuarioRepository.deleteById(id);
     }
 
     @Override
     public Usuario buscarUsuarioPorId(Integer id) {
-        return usuarioRepository.findById(id).orElse(null);
+        return usuarioRepository.findById(id).orElseThrow(UsuarioInexistenteException::new);
     }
 
     @Override
     public Usuario buscarUsuarioPorApelido(String apelido) {
-        return usuarioRepository.findByApelido(apelido).orElse(null);
+        return usuarioRepository.findByApelido(apelido).orElseThrow(UsuarioInexistenteException::new);
     }
 
+    @Override
+    public Usuario buscarUsuarioPorEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElseThrow(UsuarioInexistenteException::new);
+    }
 }
 

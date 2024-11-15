@@ -21,10 +21,12 @@ public class Publicacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Enumerated(EnumType.STRING)
     private TipoArquivoEnum tipoArquivo;
     private LocalDateTime dataPublicacao;
     private String legenda;
+    private byte[] conteudo;
     private String titulo;
     @Enumerated(EnumType.STRING)
     private CategoriaEnum categoria;
