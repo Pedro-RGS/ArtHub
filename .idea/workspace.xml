@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="">
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="fix: Correção de erro na função de gerar token">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/TokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/UsuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,32 +81,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ArtHubApplication.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.ArtHubApplication.executor": "Run",
-    "git-widget-placeholder": "Merging main__pedro",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/pedro/OneDrive/Documentos/Faculdade/Gerência de Configuração/Natal",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ArtHubApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ArtHubApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main__pedro&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pedro/OneDrive/Documentos/Faculdade/Gerência de Configuração/Natal&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -192,6 +189,7 @@
       <workItem from="1731277895521" duration="23000" />
       <workItem from="1731532994198" duration="1898000" />
       <workItem from="1731605600652" duration="2383000" />
+      <workItem from="1731709882543" duration="1838000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -401,7 +399,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731603186461</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="merge: merge com a branch main_murilo">
+      <option name="closed" value="true" />
+      <created>1731613544166</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1731613544166</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix: Correção de erro na função de gerar token">
+      <option name="closed" value="true" />
+      <created>1731613587358</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1731613587358</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +433,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="criacao da entidade de usuario e seus tipos enum" />
     <MESSAGE value="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge" />
     <MESSAGE value="Merge com a branch de Paula (Publicação)" />
     <MESSAGE value="Commit com arquivos &quot;unversionados&quot;" />
@@ -441,9 +454,10 @@
     <MESSAGE value="raw: Commit do arquivo workspace.xml" />
     <MESSAGE value="feat: Adição da feature que permite que as publicações sejam filtradas por suas categorias" />
     <MESSAGE value="merge: merge com a branch main_larah" />
-    <MESSAGE value="merge: merge com a branch main_murilo" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="merge: merge com a branch main_paula" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="merge: merge com a branch main_murilo" />
+    <MESSAGE value="fix: Correção de erro na função de gerar token" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Correção de erro na função de gerar token" />
   </component>
 </project>
