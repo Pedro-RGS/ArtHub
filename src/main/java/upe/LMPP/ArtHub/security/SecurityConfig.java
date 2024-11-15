@@ -37,6 +37,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/registrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/resgistrar/admin").hasRole("Administrador")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/usuarios/remover/").hasRole("Administrador")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
