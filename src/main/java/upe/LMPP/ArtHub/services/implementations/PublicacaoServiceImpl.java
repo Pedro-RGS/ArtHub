@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import upe.LMPP.ArtHub.entities.Publicacao;
 import upe.LMPP.ArtHub.entities.Usuario;
+import upe.LMPP.ArtHub.entities.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
 import upe.LMPP.ArtHub.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
 import upe.LMPP.ArtHub.repositories.PublicacaoRepository;
@@ -48,6 +49,11 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     @Override
     public List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono) {
         return publicacaoRepository.findByUsuario(idDono);
+    }
+
+    @Override
+    public List<Publicacao> buscarPublicacaoPorCategoria(CategoriaEnum categoria){
+        return publicacaoRepository.findByCategoria(categoria);
     }
 
     @Override

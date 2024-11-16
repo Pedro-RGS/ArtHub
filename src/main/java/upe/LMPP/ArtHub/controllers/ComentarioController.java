@@ -12,6 +12,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("api/v1/comentarios")
 public class ComentarioController {
 

@@ -13,6 +13,7 @@ import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 import java.net.URI;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("api/v1/usuarios")
 public class UsuarioController {
 
@@ -49,6 +50,13 @@ public class UsuarioController {
     @GetMapping("/apelido/{apelido}")
     public ResponseEntity<Usuario> buscarUsuarioPorApelido(@PathVariable String apelido) {
         Usuario usuario = usuarioService.buscarUsuarioPorApelido(apelido);
+
+        return ResponseEntity.ok(usuario);
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Usuario> buscarUsuarioPorEmail(@PathVariable String email) {
+        Usuario usuario = usuarioService.buscarUsuarioPorEmail(email);
 
         return ResponseEntity.ok(usuario);
     }
