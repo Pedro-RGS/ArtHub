@@ -34,6 +34,7 @@ public class SecurityConfig {
         return httpSecurity
                 .cors(cors -> cors.configurationSource(request -> {
                     var config = new org.springframework.web.cors.CorsConfiguration();
+                    //Configuração pra poder usar a porta 5500 do live server do front
                     config.setAllowedOrigins(List.of("http://127.0.0.1:5500"));
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                     config.setAllowedHeaders(List.of("*"));
