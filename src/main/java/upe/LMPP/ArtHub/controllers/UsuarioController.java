@@ -13,6 +13,7 @@ import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 import java.net.URI;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("api/v1/usuarios")
 public class UsuarioController {
 
