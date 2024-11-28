@@ -26,7 +26,7 @@ public class Publicacao {
     private TipoArquivoEnum tipoArquivo;
     private LocalDateTime dataPublicacao;
     private String legenda;
-    private byte[] conteudo;
+    private String nomeConteudo;
     private String titulo;
     @Enumerated(EnumType.STRING)
     private CategoriaEnum categoria;
