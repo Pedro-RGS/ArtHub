@@ -1,6 +1,6 @@
 ## BACK-END ARTHUB
 
-Esse projeto foi idealizado e realizado para a disciplina de programação web lecionada pelo professor e doutor Elisson Rocha.
+Esse projeto foi idealizado e realizado para a disciplina de programação web lecionada pelo Professor Doutor Elisson Rocha.
 Tem o intuito de colocar em prática os conceitos aprendidos na matéria, dentre esses conceitos estão:
 
 - Http e arquitetura cliente-servidor
