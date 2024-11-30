@@ -35,9 +35,15 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
+    public Publicacao associarArquivoAPublicacao(Integer idPublicacao, String caminhoArquivo) {
+        Publicacao publicacao = buscarPublicacao(idPublicacao);
+        publicacao.setNomeConteudo(caminhoArquivo);
+        return publicacaoRepository.save(publicacao);
+    }
+
+    @Override
     public Publicacao buscarPublicacao(Integer idPublicacao) {
         Optional<Publicacao> publicacao = publicacaoRepository.findById(idPublicacao);
-
         return publicacao.orElseThrow(PublicacaoInexistenteException::new);
     }
 
@@ -52,7 +58,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public List<Publicacao> buscarPublicacaoPorCategoria(CategoriaEnum categoria){
+    public List<Publicacao> buscarPublicacaoPorCategoria(CategoriaEnum categoria) {
         return publicacaoRepository.findByCategoria(categoria);
     }
 
@@ -60,57 +66,41 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     public Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono) {
         Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(publicacao.getId());
 
-        if(publicacaoBanco.isPresent()){
+        if (publicacaoBanco.isPresent()) {
             Publicacao publicacaoEntity = publicacaoBanco.get();
 
-            //só é possível atualizar o titulo e a legenda de um post feito anteriomente
-            if (publicacao.getTitulo() != publicacaoEntity.getTitulo() ||
-                    publicacao.getLegenda() != publicacaoEntity.getLegenda()){
-                return publicacaoRepository.save(publicacao);
-            }
-
-            if(publicacaoBanco.get().getUsuario().getId() != idDono){
+            if (!publicacaoEntity.getUsuario().getId().equals(idDono)) {
                 throw new PublicacaoNaoAutoralException();
             }
+
+            // Atualização de título e legenda
+            publicacaoEntity.setTitulo(publicacao.getTitulo());
+            publicacaoEntity.setLegenda(publicacao.getLegenda());
+
+            return publicacaoRepository.save(publicacaoEntity);
         }
         throw new PublicacaoInexistenteException();
     }
 
     @Override
     public Publicacao curtirPublicacao(Integer idPublicacao) {
-        Optional<Publicacao> publicacao = publicacaoRepository.findById(idPublicacao);
-
-        if(publicacao.isEmpty()){
-            throw new PublicacaoInexistenteException();
-        }
-
-        Publicacao publicacaoEntity = publicacao.get();
-        publicacaoEntity.setCurtidas(publicacaoEntity.getCurtidas() + 1);
-        return publicacaoRepository.save(publicacaoEntity);
+        Publicacao publicacao = buscarPublicacao(idPublicacao);
+        publicacao.setCurtidas(publicacao.getCurtidas() + 1);
+        return publicacaoRepository.save(publicacao);
     }
 
     @Override
     public Publicacao descurtirPublicacao(Integer idPublicacao) {
-        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
-
-        if (publicacaoBanco.isEmpty()){
-            throw new PublicacaoInexistenteException();
-        }
-
-        Publicacao publicacao = publicacaoBanco.get();
+        Publicacao publicacao = buscarPublicacao(idPublicacao);
         publicacao.setCurtidas(publicacao.getCurtidas() - 1);
         return publicacaoRepository.save(publicacao);
     }
 
     @Override
     public void excluirPublicacao(Integer idPublicacao, Integer idDono) {
-        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(idPublicacao);
+        Publicacao publicacao = buscarPublicacao(idPublicacao);
 
-        if(publicacaoBanco.isEmpty()){
-            throw new PublicacaoInexistenteException();
-        }
-
-        if(publicacaoBanco.get().getUsuario().getId() != idDono){
+        if (!publicacao.getUsuario().getId().equals(idDono)) {
             throw new PublicacaoNaoAutoralException();
         }
 

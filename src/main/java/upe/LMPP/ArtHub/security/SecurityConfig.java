@@ -34,6 +34,7 @@ public class SecurityConfig {
         return httpSecurity
                 .cors(cors -> cors.configurationSource(request -> {
                     var config = new org.springframework.web.cors.CorsConfiguration();
+                    //Configuração pra poder usar a porta 5500 do live server do front
                     config.setAllowedOrigins(List.of("http://127.0.0.1:5500"));
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                     config.setAllowedHeaders(List.of("*"));
@@ -46,6 +47,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/registrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/resgistrar/admin").hasRole("Administrador")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/usuarios/remover/").hasRole("Administrador")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

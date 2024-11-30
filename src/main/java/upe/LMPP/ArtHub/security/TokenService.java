@@ -24,7 +24,7 @@ public class TokenService {
                     .withSubject(usuario.getEmail())
                     .withExpiresAt(
                             LocalDateTime.now()
-                                    .plusHours(2)
+                                    .plusHours(5)
                                     .toInstant(
                                             ZoneOffset.of("-03:00")
                                     )
@@ -46,7 +46,7 @@ public class TokenService {
                     .verify(token)
                     .getSubject();
         }catch (JWTVerificationException exception) {
-            return "tome";
+            return "Erro ao validar o token";
         }
     }
 }
