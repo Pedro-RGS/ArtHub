@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("/api/v1/publicacoes")
 public class PublicacaoController {
 
-    private static String caminhoArquivos = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos";
+    private static String caminhoArquivos = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\publicacoes";
 
     @Autowired
     PublicacaoService publicacaoService;
@@ -59,7 +59,7 @@ public class PublicacaoController {
         return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.getId())).body(novaPublicacao);
     }
 
-    @PutMapping("/{id}/add-media")
+    @PutMapping("/add-media/{id}")
     public ResponseEntity<Publicacao> addMedia(@PathVariable Integer id,
                                                @RequestParam("file") MultipartFile arquivo) {
         System.out.println("teste");

@@ -36,8 +36,8 @@ public class Usuario implements UserDetails {
     private UsuarioEnum tipoUsuario;
 
     private String biografia;
-    private byte[] fotoPerfil;
-    private byte[] banner;
+    private String fotoPerfil;
+    private String banner;
     private String chavePix;
 
     @JsonIgnore
