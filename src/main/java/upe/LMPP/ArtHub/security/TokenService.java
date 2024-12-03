@@ -52,12 +52,12 @@ public class TokenService {
     }
 
     public String extractEmailFromToken(String token) {
-        Algorithm algorithm = Algorithm.HMAC256(oSegredo); // Usa a mesma chave do token
+        Algorithm algorithm = Algorithm.HMAC256(oSegredo);
         DecodedJWT jwt = JWT.require(algorithm)
-                .withIssuer("arthub") // O mesmo issuer usado ao criar o token
+                .withIssuer("arthub")
                 .build()
                 .verify(token);
 
-        return jwt.getSubject(); // O email está no campo "subject"
+        return jwt.getSubject();
     }
 }
