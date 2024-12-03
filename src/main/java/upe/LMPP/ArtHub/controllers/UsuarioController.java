@@ -9,6 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.entities.Usuario;
 import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioExistenteException;
 import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
+import upe.LMPP.ArtHub.repositories.UsuarioRepository;
+import upe.LMPP.ArtHub.security.TokenService;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
 import java.io.File;
@@ -26,6 +28,10 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private TokenService tokenService;
+
 
     @PostMapping
     public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
@@ -113,4 +119,19 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao enviar banner.");
         }
     }
+
+    @GetMapping("/dados")
+    public ResponseEntity<Usuario> buscarUsuarioLogado(@RequestHeader("Authorization") String token) {
+        try {
+            token = token.replace("Bearer ", "");
+
+            String email = tokenService.extractEmailFromToken(token);
+            Usuario usuario = usuarioService.buscarUsuarioPorEmail(email);
+
+            return ResponseEntity.ok(usuario);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
+
 }
