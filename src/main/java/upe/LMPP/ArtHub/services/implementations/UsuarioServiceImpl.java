@@ -66,5 +66,18 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario buscarUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email).orElseThrow(UsuarioInexistenteException::new);
     }
+
+    @Override
+    public boolean seguirUsuario(Usuario usuario, Usuario seguindo) {
+        if (usuario.getSeguindo().contains(seguindo)) {
+            return false;
+        }
+
+        usuario.getSeguindo().add(seguindo);
+        seguindo.getSeguidores().add(usuario);
+        usuarioRepository.save(usuario);
+        usuarioRepository.save(seguindo);
+        return true;
+    }
 }
 

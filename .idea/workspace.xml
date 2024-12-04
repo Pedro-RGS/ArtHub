@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="visualização de dados">
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="feat:. adição da funcionalidade do Usuário realizar o upload das fotos de perfil e de banner">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/PublicacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/interfaces/UsuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +50,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main_murilo" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,8 +64,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Pedro-RGS/ArtHub.git&quot;,
-    &quot;accountId&quot;: &quot;02c67bbd-5cfa-48be-8b35-cac3effa50d6&quot;
+    &quot;accountId&quot;: &quot;f840d62c-b94f-409f-b2b3-45483b99454d&quot;
   }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
 }</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -78,15 +87,16 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.ArtHubApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ArtHub [clean].executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.ArtHubApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main__larah&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main__murilo&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pedro/OneDrive/Documentos/Faculdade/Programação/Programação-Web/ArtHub&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/muril/OneDrive/Área de Trabalho/Engenharia de Software - UPE/4º Semestre/Teoria da Computação (60H)&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -101,6 +111,11 @@
     ]
   }
 }</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean " />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -119,8 +134,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -173,23 +188,24 @@
       <workItem from="1729884134572" duration="1600000" />
       <workItem from="1730331246061" duration="4503000" />
       <workItem from="1730393718924" duration="2564000" />
-      <workItem from="1730507049072" duration="1566000" />
-      <workItem from="1730743967805" duration="2398000" />
-      <workItem from="1730996030307" duration="608000" />
-      <workItem from="1731605885901" duration="2313000" />
-      <workItem from="1731712532912" duration="194000" />
-      <workItem from="1731779032327" duration="3203000" />
-      <workItem from="1731792208199" duration="1218000" />
-      <workItem from="1731795198902" duration="2233000" />
-      <workItem from="1732207676286" duration="3345000" />
-      <workItem from="1732912713410" duration="1463000" />
-      <workItem from="1732977975182" duration="146000" />
-      <workItem from="1733169524734" duration="9196000" />
-      <workItem from="1733250197044" duration="4445000" />
-      <workItem from="1733254786211" duration="2593000" />
-      <workItem from="1733257866038" duration="1073000" />
-      <workItem from="1733314434928" duration="1220000" />
-      <workItem from="1733330663767" duration="1040000" />
+      <workItem from="1730507049072" duration="2243000" />
+      <workItem from="1730509352022" duration="280000" />
+      <workItem from="1730667049967" duration="11000" />
+      <workItem from="1730985974971" duration="101000" />
+      <workItem from="1731001322098" duration="72000" />
+      <workItem from="1731107157106" duration="11000" />
+      <workItem from="1731277756466" duration="120000" />
+      <workItem from="1731277895521" duration="23000" />
+      <workItem from="1731532994198" duration="1898000" />
+      <workItem from="1731605600652" duration="2383000" />
+      <workItem from="1731709882543" duration="1838000" />
+      <workItem from="1732225256458" duration="1856000" />
+      <workItem from="1732671762095" duration="17000" />
+      <workItem from="1732814413889" duration="7935000" />
+      <workItem from="1732978258821" duration="3005000" />
+      <workItem from="1732991226526" duration="815000" />
+      <workItem from="1733282940585" duration="346000" />
+      <workItem from="1733320422024" duration="7547000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -359,103 +375,63 @@
       <option name="project" value="LOCAL" />
       <updated>1730335772499</updated>
     </task>
-    <task id="LOCAL-00022" summary="merge com a main_pedro">
+    <task id="LOCAL-00022" summary="feat: Adição do lançamento de exceções em todos os Services e retirada de blocos try-catch do UsuarioController">
       <option name="closed" value="true" />
-      <created>1730745112033</created>
+      <created>1730509197743</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1730745112033</updated>
+      <updated>1730509197743</updated>
     </task>
-    <task id="LOCAL-00023" summary="criação do diretório DTO e modificações extras">
+    <task id="LOCAL-00023" summary="feat: Adição da feature que permite que as publicações sejam filtradas por suas categorias">
       <option name="closed" value="true" />
-      <created>1730746195533</created>
+      <created>1730934048593</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1730746195533</updated>
+      <updated>1730934048593</updated>
     </task>
-    <task id="LOCAL-00024" summary="criação do diretório DTO e modificações extras">
+    <task id="LOCAL-00024" summary="merge: merge com a branch main_larah">
       <option name="closed" value="true" />
-      <created>1730746216079</created>
+      <created>1730982724698</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1730746216079</updated>
+      <updated>1730982724698</updated>
     </task>
-    <task id="LOCAL-00025" summary="merge com a main_paula">
+    <task id="LOCAL-00025" summary="merge: merge com a branch main_murilo">
       <option name="closed" value="true" />
-      <created>1731602533908</created>
+      <created>1731006518110</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1731602533908</updated>
+      <updated>1731006518110</updated>
     </task>
-    <task id="LOCAL-00026" summary="merge com a main_murilo">
+    <task id="LOCAL-00026" summary="merge: merge com a branch main_paula">
       <option name="closed" value="true" />
-      <created>1732978008237</created>
+      <created>1731603186460</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1732978008237</updated>
+      <updated>1731603186461</updated>
     </task>
-    <task id="LOCAL-00027" summary="merge com a main_murilo">
+    <task id="LOCAL-00027" summary="merge: merge com a branch main_murilo">
       <option name="closed" value="true" />
-      <created>1733006437119</created>
+      <created>1731613544166</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1733006437119</updated>
+      <updated>1731613544166</updated>
     </task>
-    <task id="LOCAL-00028" summary="atualizar usuário">
+    <task id="LOCAL-00028" summary="fix: Correção de erro na função de gerar token">
       <option name="closed" value="true" />
-      <created>1733182237665</created>
+      <created>1731613587358</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1733182237665</updated>
+      <updated>1731613587358</updated>
     </task>
-    <task id="LOCAL-00029" summary="atualizar usuário">
-      <option name="closed" value="true" />
-      <created>1733182252082</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1733182252084</updated>
-    </task>
-    <task id="LOCAL-00030" summary="visualização de dados">
-      <option name="closed" value="true" />
-      <created>1733257125334</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1733257125334</updated>
-    </task>
-    <task id="LOCAL-00031" summary="visualização de dados">
-      <option name="closed" value="true" />
-      <created>1733257133226</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1733257133226</updated>
-    </task>
-    <task id="LOCAL-00032" summary="visualização de dados">
-      <option name="closed" value="true" />
-      <created>1733257228426</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1733257228426</updated>
-    </task>
-    <task id="LOCAL-00033" summary="visualização de dados">
-      <option name="closed" value="true" />
-      <created>1733257994101</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1733257994101</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +449,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="criacao da entidade de usuario e seus tipos enum" />
     <MESSAGE value="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge" />
     <MESSAGE value="Merge com a branch de Paula (Publicação)" />
     <MESSAGE value="Commit com arquivos &quot;unversionados&quot;" />
@@ -491,13 +466,14 @@
     <MESSAGE value="Fix" />
     <MESSAGE value="feat: Criação do RestExceptionHanlder para lidar com todas as exceções lançadas durante a execução do aplicativo" />
     <MESSAGE value="fix: Adição des @ExceptionHandler's que estavam faltando, e modificação de endpoints repetidos." />
-    <MESSAGE value="modifications" />
-    <MESSAGE value="merge com a main_pedro" />
-    <MESSAGE value="criação do diretório DTO e modificações extras" />
-    <MESSAGE value="merge com a main_paula" />
-    <MESSAGE value="merge com a main_murilo" />
-    <MESSAGE value="atualizar usuário" />
-    <MESSAGE value="visualização de dados" />
-    <option name="LAST_COMMIT_MESSAGE" value="visualização de dados" />
+    <MESSAGE value="feat: Adição do lançamento de exceções em todos os Services e retirada de blocos try-catch do UsuarioController" />
+    <MESSAGE value="raw: Commit do arquivo workspace.xml" />
+    <MESSAGE value="feat: Adição da feature que permite que as publicações sejam filtradas por suas categorias" />
+    <MESSAGE value="merge: merge com a branch main_larah" />
+    <MESSAGE value="workspace.xml" />
+    <MESSAGE value="merge: merge com a branch main_paula" />
+    <MESSAGE value="merge: merge com a branch main_murilo" />
+    <MESSAGE value="fix: Correção de erro na função de gerar token" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Correção de erro na função de gerar token" />
   </component>
 </project>
