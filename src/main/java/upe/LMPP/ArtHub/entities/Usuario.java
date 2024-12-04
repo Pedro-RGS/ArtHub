@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import upe.LMPP.ArtHub.entities.enums.UsuarioEnum;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -61,6 +62,19 @@ public class Usuario implements UserDetails {
     )
     private List<Publicacao> publicacoesCurtidas;
 
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_seguindo",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "seguindo_id")
+    )
+    private List<Usuario> seguindo = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "seguindo")
+    private List<Usuario> seguidores = new ArrayList<>();
+
     public Usuario(String nome, String apelido, String email, Date dataNascimento, String senha){
         this.nome = nome;
         this.apelido = apelido;
@@ -73,7 +87,6 @@ public class Usuario implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.tipoUsuario == UsuarioEnum.ADMINISTRADOR){
             return List.of(new SimpleGrantedAuthority("ROLE_ADMINISTRADOR"), new SimpleGrantedAuthority("ROLE_COMUM"));
-
         }
         return List.of(new SimpleGrantedAuthority("ROLE_COMUM"));
     }
@@ -87,5 +100,4 @@ public class Usuario implements UserDetails {
     public String getUsername() {
         return this.apelido;
     }
-
 }
