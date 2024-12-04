@@ -16,5 +16,6 @@ public interface PublicacaoService {
     Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono);
     Publicacao curtirPublicacao(Integer idPublicacao);
     Publicacao descurtirPublicacao(Integer idPublicacao);
+    Publicacao associarArquivoAPublicacao(Integer idPublicacao, String caminhoArquivo);
     void excluirPublicacao(Integer idPublicacao, Integer idDono);
 }

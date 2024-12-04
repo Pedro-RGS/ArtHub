@@ -1,6 +1,7 @@
 package upe.LMPP.ArtHub.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import upe.LMPP.ArtHub.entities.Usuario;
@@ -34,10 +35,15 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario atualizarUsuario(Usuario usuario) {
         Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuario.getEmail());
 
-        if (usuarioBanco.isPresent()){
-            return usuarioRepository.save(usuario);
-        }
+        if (usuarioBanco.isPresent()) {
+            Usuario usuarioExistente = usuarioBanco.get();
 
+        if (usuario.getSenha() != null && !usuario.getSenha().isEmpty()) {
+            String senhaCriptografada = new BCryptPasswordEncoder().encode(usuario.getSenha());
+            usuarioExistente.setSenha(senhaCriptografada);
+        }
+        return usuarioRepository.save(usuarioExistente);
+    }
        throw new UsuarioInexistenteException();
     }
 
