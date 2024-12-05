@@ -38,14 +38,15 @@ public class UsuarioServiceImpl implements UsuarioService {
         if (usuarioBanco.isPresent()) {
             Usuario usuarioExistente = usuarioBanco.get();
 
-        if (usuario.getSenha() != null && !usuario.getSenha().isEmpty()) {
-            String senhaCriptografada = new BCryptPasswordEncoder().encode(usuario.getSenha());
-            usuarioExistente.setSenha(senhaCriptografada);
+            if (usuario.getSenha() != null && !usuario.getSenha().isEmpty()) {
+                String senhaCriptografada = new BCryptPasswordEncoder().encode(usuario.getSenha());
+                usuarioExistente.setSenha(senhaCriptografada);
+            }
+            return usuarioRepository.save(usuarioExistente);
         }
-        return usuarioRepository.save(usuarioExistente);
+        throw new UsuarioInexistenteException();
     }
-       throw new UsuarioInexistenteException();
-    }
+
 
     @Override
     public void removerUsuario(Integer id) {
