@@ -62,7 +62,6 @@ public class PublicacaoController {
     @PutMapping("/add-media/{id}")
     public ResponseEntity<Publicacao> addMedia(@PathVariable Integer id,
                                                @RequestParam("file") MultipartFile arquivo) {
-        System.out.println("teste");
         try {
             Publicacao publicacao = publicacaoService.buscarPublicacao(id);
 

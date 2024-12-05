@@ -12,4 +12,5 @@ public interface UsuarioService {
     public Usuario buscarUsuarioPorId(Integer id);
     public Usuario buscarUsuarioPorApelido(String apelido);
     public Usuario buscarUsuarioPorEmail(String email);
+    boolean seguirUsuario(Usuario usuario, Usuario seguindo);
 }
