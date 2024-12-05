@@ -26,8 +26,8 @@ import java.util.UUID;
 @RequestMapping("api/v1/usuarios")
 public class UsuarioController {
 
-    private static String caminhoArquivosPerfis = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\perfis";
-    private static String caminhoArquivosBanners = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\banners";
+    private static String caminhoArquivosPerfis = "C:\\Users\\larah\\Documentos\\Faculdade\\intellij\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\perfis";
+    private static String caminhoArquivosBanners = "C:\\Users\\larah\\Documentos\\Faculdade\\intellij\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\banners";
 
     @Autowired
     private UsuarioService usuarioService;

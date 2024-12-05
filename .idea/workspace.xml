@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge com a main_larah">
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge com a main_murilo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/controllers/UsuarioController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +66,11 @@
     &quot;accountId&quot;: &quot;02c67bbd-5cfa-48be-8b35-cac3effa50d6&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp_3_UsuarioController.class" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp_8_UsuarioController.class" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp_9_UsuarioController.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -196,6 +202,8 @@
       <workItem from="1733335516179" duration="2087000" />
       <workItem from="1733339824697" duration="3015000" />
       <workItem from="1733353027292" duration="4782000" />
+      <workItem from="1733395703042" duration="3158000" />
+      <workItem from="1733404610470" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -477,7 +485,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733333871948</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="merge com a main_murilo">
+      <option name="closed" value="true" />
+      <created>1733360201188</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1733360201188</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +511,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge" />
     <MESSAGE value="Merge com a branch de Paula (Publicação)" />
     <MESSAGE value="Commit com arquivos &quot;unversionados&quot;" />
     <MESSAGE value="relacionamento de entidades e criação de repositórios" />
@@ -516,10 +531,11 @@
     <MESSAGE value="merge com a main_pedro" />
     <MESSAGE value="criação do diretório DTO e modificações extras" />
     <MESSAGE value="merge com a main_paula" />
-    <MESSAGE value="merge com a main_murilo" />
     <MESSAGE value="atualizar usuário" />
     <MESSAGE value="visualização de dados" />
     <MESSAGE value="merge com a main_larah" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge com a main_larah" />
+    <MESSAGE value="fix: erros" />
+    <MESSAGE value="merge com a main_murilo" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge com a main_murilo" />
   </component>
 </project>
