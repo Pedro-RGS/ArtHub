@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="visualização de dados" />
+    <list default="true" id="92ef653b-8137-4d9e-b347-5be31ddb075b" name="Changes" comment="merge com a main_larah">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/upe/LMPP/ArtHub/services/implementations/UsuarioServiceImpl.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +48,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main_murilo" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -185,6 +190,12 @@
       <workItem from="1733169524734" duration="9196000" />
       <workItem from="1733250197044" duration="4445000" />
       <workItem from="1733254786211" duration="2593000" />
+      <workItem from="1733257866038" duration="1073000" />
+      <workItem from="1733314434928" duration="1220000" />
+      <workItem from="1733330663767" duration="1040000" />
+      <workItem from="1733335516179" duration="2087000" />
+      <workItem from="1733339824697" duration="3015000" />
+      <workItem from="1733353027292" duration="4782000" />
     </task>
     <task id="LOCAL-00001" summary="criacao da entidade de usuario e seus tipos enum">
       <option name="closed" value="true" />
@@ -442,7 +453,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733257228426</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="visualização de dados">
+      <option name="closed" value="true" />
+      <created>1733257994101</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1733257994101</updated>
+    </task>
+    <task id="LOCAL-00034" summary="merge com a main_larah">
+      <option name="closed" value="true" />
+      <created>1733333850941</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1733333850941</updated>
+    </task>
+    <task id="LOCAL-00035" summary="merge com a main_larah">
+      <option name="closed" value="true" />
+      <created>1733333871948</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1733333871948</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +495,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="criacao da entidade de usuario e seus tipos enum" />
     <MESSAGE value="criacao da entidade a parte &quot;telefone&quot; e das outras para o futuro merge" />
     <MESSAGE value="Merge com a branch de Paula (Publicação)" />
     <MESSAGE value="Commit com arquivos &quot;unversionados&quot;" />
@@ -485,6 +519,7 @@
     <MESSAGE value="merge com a main_murilo" />
     <MESSAGE value="atualizar usuário" />
     <MESSAGE value="visualização de dados" />
-    <option name="LAST_COMMIT_MESSAGE" value="visualização de dados" />
+    <MESSAGE value="merge com a main_larah" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge com a main_larah" />
   </component>
 </project>

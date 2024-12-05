@@ -42,6 +42,15 @@ public class UsuarioServiceImpl implements UsuarioService {
             String senhaCriptografada = new BCryptPasswordEncoder().encode(usuario.getSenha());
             usuarioExistente.setSenha(senhaCriptografada);
         }
+
+        if (usuario.getApelido() != null && !usuario.getApelido().isEmpty()) {
+                usuarioExistente.setApelido(usuario.getApelido());
+        }
+
+        if (usuario.getBiografia() != null && !usuario.getBiografia().isEmpty()) {
+                usuarioExistente.setBiografia(usuario.getBiografia());
+        }
+
         return usuarioRepository.save(usuarioExistente);
     }
        throw new UsuarioInexistenteException();
