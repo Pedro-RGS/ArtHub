@@ -6,11 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import upe.LMPP.ArtHub.entities.DTO.UsuarioDTO;
 import upe.LMPP.ArtHub.entities.Usuario;
-import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioExistenteException;
-import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
-import upe.LMPP.ArtHub.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.security.TokenService;
 import upe.LMPP.ArtHub.entities.enums.UsuarioEnum;
 import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
@@ -42,10 +38,10 @@ public class UsuarioController {
         return ResponseEntity.created(URI.create("/usuarios/" + usuarioCadastrado.getId())).body(usuarioCadastrado);
     }
 
-    @PutMapping("/atualizar")
-    public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuario) {
-        Usuario usuarioAtualizado = usuarioService.atualizarUsuario(usuario);
-        return ResponseEntity.ok(usuarioAtualizado);
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuarioAtualizado) {
+        Usuario usuario = usuarioService.atualizarUsuario(usuarioAtualizado);
+        return ResponseEntity.ok(usuario);
     }
 
     @DeleteMapping("/remover/{id}")
@@ -85,8 +81,8 @@ public class UsuarioController {
             }
 
             // Gerar nome único para o arquivo
-            String nomeArquivo = UUID.randomUUID() + "_" + file.getOriginalFilename();
-            File destino = new File(caminhoArquivosPerfis + nomeArquivo);
+            String nomeArquivo = file.getOriginalFilename();
+            File destino = new File(caminhoArquivosPerfis + id + "_" + nomeArquivo);
             file.transferTo(destino);
 
             // Atualizar o caminho no atributo do usuário
@@ -108,8 +104,8 @@ public class UsuarioController {
             }
 
             // Gerar nome único para o arquivo
-            String nomeArquivo = UUID.randomUUID() + "_" + file.getOriginalFilename();
-            File destino = new File(caminhoArquivosBanners + nomeArquivo);
+            String nomeArquivo = file.getOriginalFilename();
+            File destino = new File(caminhoArquivosBanners + id + "_" + nomeArquivo);
             file.transferTo(destino);
 
             // Atualizar o caminho no atributo do usuário
@@ -163,7 +159,7 @@ public class UsuarioController {
         return ResponseEntity.badRequest().body("Você já está seguindo este usuário.");
     }
 
-    @GetMapping("/{userId}/seguidores")
+    @GetMapping("/seguidores/{userId}")
     public ResponseEntity<List<Usuario>> listarSeguidores(@PathVariable Integer userId) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(userId);
 
@@ -174,7 +170,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario.getSeguidores());
     }
 
-    @GetMapping("/{userId}/seguindo")
+    @GetMapping("/seguindo/{userId}")
     public ResponseEntity<List<Usuario>> listarSeguindo(@PathVariable Integer userId) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(userId);
 
