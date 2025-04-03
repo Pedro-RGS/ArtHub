@@ -2,10 +2,7 @@ package upe.LMPP.ArtHub.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,18 +30,14 @@ public class Usuario implements UserDetails {
     private String email;
     private Date dataNascimento;
     private String senha;
-
-    @Enumerated(EnumType.STRING)
-    private UsuarioEnum tipoUsuario;
-
     private String biografia;
     private String fotoPerfil;
     private String banner;
     private String chavePix;
+    private String telefones;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
-    private List<Telefone> telefones;
+    @Enumerated(EnumType.STRING)
+    private UsuarioEnum tipoUsuario;
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
@@ -74,14 +68,6 @@ public class Usuario implements UserDetails {
     @JsonIgnore
     @ManyToMany(mappedBy = "seguindo")
     private List<Usuario> seguidores = new ArrayList<>();
-
-    public Usuario(String nome, String apelido, String email, Date dataNascimento, String senha){
-        this.nome = nome;
-        this.apelido = apelido;
-        this.email = email;
-        this.dataNascimento = dataNascimento;
-        this.senha = senha;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
