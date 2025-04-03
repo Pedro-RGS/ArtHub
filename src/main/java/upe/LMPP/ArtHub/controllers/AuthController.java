@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import upe.LMPP.ArtHub.entities.DTO.LoginDTO;
 import upe.LMPP.ArtHub.entities.DTO.UsuarioDTO;
@@ -39,26 +38,15 @@ public class AuthController {
 
     @PostMapping("/registrar")
     public ResponseEntity<Usuario> register(@RequestBody UsuarioDTO usuarioDTO){
-        String senhaEncriptada = new BCryptPasswordEncoder().encode(usuarioDTO.senha());
-        Usuario usuario = new Usuario(usuarioDTO.nome(),
-                usuarioDTO.apelido(), usuarioDTO.email(),
-                usuarioDTO.dataNascimento(), senhaEncriptada);
 
-        usuario.setTipoUsuario(UsuarioEnum.COMUM);
-
-        usuario = usuarioService.cadastrarUsuario(usuario);
+        Usuario usuario = usuarioService.cadastrarUsuario(usuarioDTO, UsuarioEnum.COMUM);
         return ResponseEntity.ok(usuario);
     }
 
     @PostMapping("/resgistrar/admin")
     public ResponseEntity<Usuario> registerAdmin(@RequestBody UsuarioDTO usuarioDTO){
-        Usuario usuario = new Usuario(usuarioDTO.nome(),
-                usuarioDTO.apelido(), usuarioDTO.email(),
-                usuarioDTO.dataNascimento(), usuarioDTO.senha());
 
-        usuario.setTipoUsuario(UsuarioEnum.ADMINISTRADOR);
-
-        usuario = usuarioService.cadastrarUsuario(usuario);
+        Usuario usuario = usuarioService.cadastrarUsuario(usuarioDTO, UsuarioEnum.ADMINISTRADOR);
         return ResponseEntity.ok(usuario);
     }
 }
