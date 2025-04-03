@@ -1,4 +1,4 @@
-package upe.LMPP.ArtHub.corsconfig;
+package upe.LMPP.ArtHub.configuration.corsConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
