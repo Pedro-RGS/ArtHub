@@ -29,6 +29,7 @@ public class Comentario {
     @ManyToOne
     @JoinColumn(name = "id_publicacao")
     private Publicacao publicacao;
+
     private Integer curtidas;
     private LocalDateTime dataPublicacao;
     private String conteudo;
