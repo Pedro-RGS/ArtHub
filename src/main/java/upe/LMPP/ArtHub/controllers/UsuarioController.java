@@ -1,6 +1,5 @@
 package upe.LMPP.ArtHub.controllers;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +12,7 @@ import upe.LMPP.ArtHub.services.interfaces.UsuarioService;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @CrossOrigin("*")
@@ -30,13 +27,6 @@ public class UsuarioController {
 
     @Autowired
     private TokenService tokenService;
-
-    @PostMapping
-    public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
-        Usuario usuarioCadastrado = usuarioService.cadastrarUsuario(usuario);
-
-        return ResponseEntity.created(URI.create("/usuarios/" + usuarioCadastrado.getId())).body(usuarioCadastrado);
-    }
 
     @PutMapping("/atualizar/{id}")
     public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuarioAtualizado) {
