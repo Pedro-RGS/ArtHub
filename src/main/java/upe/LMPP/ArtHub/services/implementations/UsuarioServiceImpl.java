@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import upe.LMPP.ArtHub.entities.DTO.UsuarioDTO;
 import upe.LMPP.ArtHub.entities.Usuario;
+import upe.LMPP.ArtHub.entities.enums.UsuarioEnum;
 import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioExistenteException;
 import upe.LMPP.ArtHub.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.repositories.UsuarioRepository;
@@ -21,12 +23,21 @@ public class UsuarioServiceImpl implements UsuarioService {
     UsuarioRepository usuarioRepository;
 
     @Override
-    public Usuario cadastrarUsuario(Usuario usuario) {
-        Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuario.getEmail());
+    public Usuario cadastrarUsuario(UsuarioDTO usuarioDTO, UsuarioEnum usuarioEnum) {
+        Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuarioDTO.email());
 
         if (usuarioBanco.isPresent()) {
             throw new UsuarioExistenteException();
         }
+
+        String senhaEncriptada = new BCryptPasswordEncoder().encode(usuarioDTO.senha());
+
+        Usuario usuario = Usuario.builder()
+                .nome(usuarioDTO.nome())
+                .apelido(usuarioDTO.apelido())
+                .email(usuarioDTO.email())
+                .dataNascimento(usuarioDTO.dataNascimento())
+                .senha(senhaEncriptada).build();
 
         return usuarioRepository.save(usuario);
     }
