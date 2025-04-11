@@ -1,5 +1,8 @@
 package upe.LMPP.ArtHub.infra.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum UsuarioEnum {
     ADMINISTRADOR("Administrador"),
     COMUM("Comum"),
@@ -11,7 +14,4 @@ public enum UsuarioEnum {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
 }

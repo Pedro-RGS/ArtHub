@@ -1,5 +1,8 @@
 package upe.LMPP.ArtHub.infra.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum CategoriaEnum {
     POEMA("Poema"),
     MUSICA("Musica"),
@@ -12,9 +15,5 @@ public enum CategoriaEnum {
 
     CategoriaEnum(String categoria) {
         this.categoria = categoria;
-    }
-
-    public String categoria() {
-        return categoria;
     }
 }

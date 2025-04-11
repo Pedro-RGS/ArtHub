@@ -1,5 +1,8 @@
 package upe.LMPP.ArtHub.infra.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum TipoArquivoEnum {
     IMAGEM("Imagem"),
     AUDIO("Audio"),
@@ -11,7 +14,4 @@ public enum TipoArquivoEnum {
         this.tipoArquivo = tipoArquivo;
     }
 
-    public String getTipoArquivo() {
-        return tipoArquivo;
-    }
 }
