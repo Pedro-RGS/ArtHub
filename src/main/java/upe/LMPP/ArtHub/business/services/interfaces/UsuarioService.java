@@ -5,10 +5,10 @@ import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
 
 public interface UsuarioService {
-    public Usuario cadastrarUsuario(UsuarioDTO usuario, UsuarioEnum usuarioEnum);
-    public Usuario atualizarUsuario(Usuario usuario);
-    public void removerUsuario(Integer id);
-    public Usuario buscarUsuarioPorId(Integer id);
-    public Usuario buscarUsuarioPorApelido(String apelido);
-    public Usuario buscarUsuarioPorEmail(String email);
+    Usuario cadastrarUsuario(UsuarioDTO usuario, UsuarioEnum usuarioEnum);
+    Usuario atualizarUsuario(Usuario usuario);
+    void removerUsuario(Integer id);
+    Usuario buscarUsuarioPorId(Integer id);
+    Usuario buscarUsuarioPorApelido(String apelido);
+    Usuario buscarUsuarioPorEmail(String email);
 }
