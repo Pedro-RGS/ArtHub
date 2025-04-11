@@ -20,7 +20,7 @@ import java.util.List;
 public class Publicacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     private TipoArquivoEnum tipoArquivo;
@@ -28,16 +28,17 @@ public class Publicacao {
     private String legenda;
     private String nomeConteudo;
     private String titulo;
+    private Integer curtidas;
+
     @Enumerated(EnumType.STRING)
     private CategoriaEnum categoria;
-    private Integer curtidas;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @JoinColumn(name = "id_perfil")
+    private Perfil perfil;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "publicacoesCurtidas")
-    private List<Usuario> usuariosQueCurtiram;
+    private List<Perfil> perfisQueCurtiram;
 }

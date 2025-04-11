@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("api/v1/comentarios")
+@RequestMapping("/comentarios")
 public class ComentarioController {
 
     @Autowired

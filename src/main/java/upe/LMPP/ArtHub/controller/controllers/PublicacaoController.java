@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import upe.LMPP.ArtHub.controller.DTO.PublicacaoDTO;
+import upe.LMPP.ArtHub.controller.DTO.PublicacaoEditadaDTO;
 import upe.LMPP.ArtHub.infra.entities.Publicacao;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
@@ -17,10 +19,8 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/v1/publicacoes")
+@RequestMapping("/publicacoes")
 public class PublicacaoController {
-
-    private static String caminhoArquivos = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\publicacoes";
 
     @Autowired
     PublicacaoService publicacaoService;
@@ -51,9 +51,9 @@ public class PublicacaoController {
     }
 
     @PostMapping("/{idDono}")
-    public ResponseEntity<Publicacao> postPublicacao(@RequestBody Publicacao publicacao,
+    public ResponseEntity<Publicacao> postPublicacao(@RequestBody PublicacaoDTO publicacaoDTO,
                                                      @PathVariable Integer idDono) {
-        Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacao, idDono);
+        Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacaoDTO, idDono);
 
         return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.getId())).body(novaPublicacao);
     }
@@ -61,32 +61,14 @@ public class PublicacaoController {
     @PutMapping("/add-media/{id}")
     public ResponseEntity<Publicacao> addMedia(@PathVariable Integer id,
                                                @RequestParam("file") MultipartFile arquivo) {
-        try {
-            Publicacao publicacao = publicacaoService.buscarPublicacao(id);
-
-            if (arquivo != null && !arquivo.isEmpty()) {
-                byte[] bytes = arquivo.getBytes();
-                Path caminho = Paths.get(caminhoArquivos + id + "_" + arquivo.getOriginalFilename());
-                Files.write(caminho, bytes);
-
-                // Atualiza o campo nomeConteudo na publicação
-                publicacao.setNomeConteudo(id + "_" + arquivo.getOriginalFilename());
-                Publicacao atualizada = publicacaoService.atualizarPublicacao(publicacao, publicacao.getUsuario().getId());
-
-                return ResponseEntity.ok().body(atualizada);
-            } else {
-                return ResponseEntity.badRequest().body(null);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return ResponseEntity.internalServerError().body(null);
-        }
+        Publicacao publicacao = publicacaoService.addMedia(id, arquivo);
+        return ResponseEntity.ok().body(publicacao);
     }
 
     @PutMapping("/{idDono}")
-    public ResponseEntity<Publicacao> putPublicacao(@RequestBody Publicacao publicacao,
+    public ResponseEntity<Publicacao> putPublicacao(@RequestBody PublicacaoEditadaDTO publicacaoDTO,
                                                     @PathVariable Integer idDono){
-        return ResponseEntity.ok().body(publicacaoService.atualizarPublicacao(publicacao, idDono));
+        return ResponseEntity.ok().body(publicacaoService.atualizarPublicacao(publicacaoDTO, idDono));
     }
 
     @PutMapping("cutir/{idPublicacao}")

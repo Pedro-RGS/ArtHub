@@ -2,6 +2,7 @@ package upe.LMPP.ArtHub.business.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
 import upe.LMPP.ArtHub.infra.entities.Comentario;
 import upe.LMPP.ArtHub.infra.exceptions.comentarioExceptions.ComentarioInexistenteException;
 import upe.LMPP.ArtHub.infra.repositories.ComentarioRepository;
@@ -20,14 +21,14 @@ public class ComentarioServiceImpl implements ComentarioService {
     ComentarioRepository comentarioRepository;
 
     @Autowired
-    UsuarioService usuarioService;
+    PerfilService perfilService;
 
     @Autowired
     PublicacaoService publicacaoService;
 
     @Override
     public Comentario publicarComentario(Comentario comentario, Integer idDono, Integer idPublicacao) {
-        comentario.setUsuario(usuarioService.buscarUsuarioPorId(idDono));
+        comentario.setPerfil(perfilService.obterPerfil(idDono));
         comentario.setPublicacao(publicacaoService.buscarPublicacao(idPublicacao));
         comentario.setDataPublicacao(LocalDateTime.now());
 

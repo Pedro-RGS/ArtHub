@@ -2,17 +2,26 @@ package upe.LMPP.ArtHub.business.services.implementations;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
+import upe.LMPP.ArtHub.controller.DTO.PublicacaoDTO;
+import upe.LMPP.ArtHub.controller.DTO.PublicacaoEditadaDTO;
+import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Publicacao;
-import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
 import upe.LMPP.ArtHub.infra.repositories.PublicacaoRepository;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
-import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,18 +29,29 @@ import java.util.Optional;
 @Transactional
 public class PublicacaoServiceImpl implements PublicacaoService {
 
+    private final static String caminhoArquivos = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\publicacoes";
+
     @Autowired
     PublicacaoRepository publicacaoRepository;
 
     @Autowired
-    UsuarioService usuarioService;
+    PerfilService perfilService;
 
     @Override
-    public Publicacao criarPublicacao(Publicacao publicacao, Integer idDono) {
-        Usuario dono = usuarioService.buscarUsuarioPorId(idDono);
-        publicacao.setUsuario(dono);
-        publicacao.setDataPublicacao(LocalDateTime.now());
-        return publicacaoRepository.save(publicacao);
+    public Publicacao criarPublicacao(PublicacaoDTO publicacaoDTO, Integer idDono) {
+        Perfil perfilDono = perfilService.obterPerfil(idDono);
+        Publicacao novaPublicacao = new Publicacao(
+                null,
+                publicacaoDTO.tipoArquivo(),
+                LocalDateTime.now(),
+                publicacaoDTO.legenda(),
+                publicacaoDTO.nomeConteudo(),
+                publicacaoDTO.titulo(),
+                0,
+                publicacaoDTO.categoria(),
+                perfilDono,
+                new ArrayList<>());
+        return publicacaoRepository.save(novaPublicacao);
     }
 
     @Override
@@ -54,7 +74,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
     @Override
     public List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono) {
-        return publicacaoRepository.findByUsuario(idDono);
+        return publicacaoRepository.findByPerfil(idDono);
     }
 
     @Override
@@ -63,19 +83,19 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public Publicacao atualizarPublicacao(Publicacao publicacao, Integer idDono) {
-        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(publicacao.getId());
+    public Publicacao atualizarPublicacao(PublicacaoEditadaDTO publicacaoDTO, Integer idDono) {
+        Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(publicacaoDTO.id());
 
         if (publicacaoBanco.isPresent()) {
             Publicacao publicacaoEntity = publicacaoBanco.get();
 
-            if (!publicacaoEntity.getUsuario().getId().equals(idDono)) {
+            if (!publicacaoEntity.getPerfil().getUsuario().getId().equals(idDono)) {
                 throw new PublicacaoNaoAutoralException();
             }
 
-            // Atualização de título e legenda
-            publicacaoEntity.setTitulo(publicacao.getTitulo());
-            publicacaoEntity.setLegenda(publicacao.getLegenda());
+            publicacaoEntity.setTitulo(publicacaoDTO.titulo());
+            publicacaoEntity.setLegenda(publicacaoDTO.legenda());
+            publicacaoEntity.setNomeConteudo(publicacaoDTO.nomeConteudo());
 
             return publicacaoRepository.save(publicacaoEntity);
         }
@@ -100,10 +120,39 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     public void excluirPublicacao(Integer idPublicacao, Integer idDono) {
         Publicacao publicacao = buscarPublicacao(idPublicacao);
 
-        if (!publicacao.getUsuario().getId().equals(idDono)) {
+        if (!publicacao.getPerfil().getUsuario().getId().equals(idDono)) {
             throw new PublicacaoNaoAutoralException();
         }
 
         publicacaoRepository.deleteById(idPublicacao);
+    }
+
+    @Override
+    public Publicacao addMedia(Integer id, MultipartFile arquivo) {
+        try {
+            Publicacao publicacao = buscarPublicacao(id);
+
+            PublicacaoEditadaDTO dto = new PublicacaoEditadaDTO(
+                    publicacao.getId(),
+                    publicacao.getTitulo(),
+                    publicacao.getLegenda(),
+                    publicacao.getNomeConteudo()
+            );
+
+            if (arquivo != null && !arquivo.isEmpty()) {
+                byte[] bytes = arquivo.getBytes();
+                Path caminho = Paths.get(caminhoArquivos + id + "_" + arquivo.getOriginalFilename());
+                Files.write(caminho, bytes);
+
+                // Atualiza o campo nomeConteudo na publicação
+                publicacao.setNomeConteudo(id + "_" + arquivo.getOriginalFilename());
+
+                return atualizarPublicacao(dto, publicacao.getPerfil().getUsuario().getId());
+            } else {
+                return null;
+            }
+        } catch (IOException e) {
+            throw new PublicacaoInexistenteException();
+        }
     }
 }

@@ -16,11 +16,8 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("api/v1/usuarios")
+@RequestMapping("/usuarios")
 public class UsuarioController {
-
-    private static String caminhoArquivosPerfis = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\perfis";
-    private static String caminhoArquivosBanners = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\banners";
 
     @Autowired
     private UsuarioService usuarioService;
@@ -62,54 +59,8 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-    @PutMapping("/uploadPerfil/{id}")
-    public ResponseEntity<String> uploadFotoPerfil(@PathVariable Integer id, @RequestParam("file") MultipartFile file) {
-        try {
-            Usuario usuario = usuarioService.buscarUsuarioPorId(id);
-            if (usuario == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
-            }
-
-            // Gerar nome único para o arquivo
-            String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosPerfis + id + "_" + nomeArquivo);
-            file.transferTo(destino);
-
-            // Atualizar o caminho no atributo do usuário
-            usuario.setFotoPerfil(nomeArquivo);
-            usuarioService.atualizarUsuario(usuario);
-
-            return ResponseEntity.ok("Foto de perfil enviada com sucesso.");
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao enviar foto de perfil.");
-        }
-    }
-
-    @PutMapping("/uploadBanner/{id}")
-    public ResponseEntity<String> uploadFotoBanner(@PathVariable Integer id, @RequestParam("file") MultipartFile file) {
-        try {
-            Usuario usuario = usuarioService.buscarUsuarioPorId(id);
-            if (usuario == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
-            }
-
-            // Gerar nome único para o arquivo
-            String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosBanners + id + "_" + nomeArquivo);
-            file.transferTo(destino);
-
-            // Atualizar o caminho no atributo do usuário
-            usuario.setBanner(nomeArquivo);
-            usuarioService.atualizarUsuario(usuario);
-
-            return ResponseEntity.ok("Foto do banner enviada com sucesso.");
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao enviar banner.");
-        }
-    }
-
     @PutMapping("/registrar/admin/{id}")
-    public ResponseEntity<?> registrarAdmin(@RequestParam Integer adminId, @PathVariable Integer id) {
+    public ResponseEntity<?> pomoverUsuarioParaAdmim(@RequestParam Integer adminId, @PathVariable Integer id) {
         Usuario adminNomeador = usuarioService.buscarUsuarioPorId(adminId);
 
         if (adminNomeador == null || adminNomeador.getTipoUsuario() != UsuarioEnum.ADMINISTRADOR) {
@@ -126,49 +77,6 @@ public class UsuarioController {
         Usuario usuarioAtualizado = usuarioService.atualizarUsuario(usuarioPromovido);
 
         return ResponseEntity.ok(usuarioAtualizado);
-    }
-
-
-    @PutMapping("/{userId}/seguir/{seguindoId}")
-    public ResponseEntity<String> seguirUsuario(@PathVariable Integer userId, @PathVariable Integer seguindoId) {
-        Usuario usuario = usuarioService.buscarUsuarioPorId(userId);
-        Usuario seguindo = usuarioService.buscarUsuarioPorId(seguindoId);
-
-        if (usuario == null || seguindo == null) {
-            return ResponseEntity.badRequest().body("Usuário não encontrado.");
-        }
-
-        if (usuario.equals(seguindo)) {
-            return ResponseEntity.badRequest().body("Um usuário não pode seguir a si mesmo.");
-        }
-
-        boolean sucesso = usuarioService.seguirUsuario(usuario, seguindo);
-        if (sucesso) {
-            return ResponseEntity.ok("Agora você está seguindo " + seguindo.getNome() + ".");
-        }
-        return ResponseEntity.badRequest().body("Você já está seguindo este usuário.");
-    }
-
-    @GetMapping("/seguidores/{userId}")
-    public ResponseEntity<List<Usuario>> listarSeguidores(@PathVariable Integer userId) {
-        Usuario usuario = usuarioService.buscarUsuarioPorId(userId);
-
-        if (usuario == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(usuario.getSeguidores());
-    }
-
-    @GetMapping("/seguindo/{userId}")
-    public ResponseEntity<List<Usuario>> listarSeguindo(@PathVariable Integer userId) {
-        Usuario usuario = usuarioService.buscarUsuarioPorId(userId);
-
-        if (usuario == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(usuario.getSeguindo());
     }
 
     @GetMapping("/dados")

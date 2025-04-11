@@ -1,14 +1,18 @@
 package upe.LMPP.ArtHub.business.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
 import upe.LMPP.ArtHub.controller.DTO.UsuarioDTO;
+import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioExistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
+import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
 import upe.LMPP.ArtHub.infra.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
@@ -21,6 +25,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
+    @Autowired
+    PerfilService perfilService;
+
     @Override
     public Usuario cadastrarUsuario(UsuarioDTO usuarioDTO, UsuarioEnum usuarioEnum) {
         Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuarioDTO.email());
@@ -31,16 +38,25 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         String senhaEncriptada = new BCryptPasswordEncoder().encode(usuarioDTO.senha());
 
-        Usuario usuario = Usuario.builder()
-                .nome(usuarioDTO.nome())
-                .apelido(usuarioDTO.apelido())
-                .email(usuarioDTO.email())
-                .dataNascimento(usuarioDTO.dataNascimento())
-                .senha(senhaEncriptada).build();
+        Usuario usuario = new Usuario(
+                null,
+                usuarioDTO.nome(),
+                usuarioDTO.apelido(),
+                usuarioDTO.email(),
+                usuarioDTO.dataNascimento(),
+                senhaEncriptada,
+                usuarioDTO.telefone(),
+                null,
+                usuarioEnum
+        );
+
+        Perfil perfilUsuario = perfilService.criarPerfil(usuario);
+        usuario.setPerfil(perfilUsuario);
 
         return usuarioRepository.save(usuario);
     }
 
+    // Só está atualizando a senha do usuáio
     @Override
     public Usuario atualizarUsuario(Usuario usuario) {
         Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuario.getEmail());
@@ -57,9 +73,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         throw new UsuarioInexistenteException();
     }
 
-
     @Override
     public void removerUsuario(Integer id) {
+        perfilService.removerPerfil(id);
         usuarioRepository.deleteById(id);
     }
 
@@ -76,19 +92,6 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario buscarUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email).orElseThrow(UsuarioInexistenteException::new);
-    }
-
-    @Override
-    public boolean seguirUsuario(Usuario usuario, Usuario seguindo) {
-        if (usuario.getSeguindo().contains(seguindo)) {
-            return false;
-        }
-
-        usuario.getSeguindo().add(seguindo);
-        seguindo.getSeguidores().add(usuario);
-        usuarioRepository.save(usuario);
-        usuarioRepository.save(seguindo);
-        return true;
     }
 }
 

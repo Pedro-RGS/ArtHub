@@ -14,7 +14,7 @@ import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/auth")
 public class AuthController {
 
     @Autowired

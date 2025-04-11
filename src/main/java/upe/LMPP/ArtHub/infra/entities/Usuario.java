@@ -19,7 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Builder
 public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,44 +29,14 @@ public class Usuario implements UserDetails {
     private String email;
     private Date dataNascimento;
     private String senha;
-    private String biografia;
-    private String fotoPerfil;
-    private String banner;
-    private String chavePix;
-    private String telefones;
+    private String telefone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Perfil perfil;
 
     @Enumerated(EnumType.STRING)
     private UsuarioEnum tipoUsuario;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
-    private List<Publicacao> publicacoes;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
-    private List<Comentario> comentarios;
-
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "curtir_publicacao",
-            joinColumns = @JoinColumn(name = "id_usuario"),
-            inverseJoinColumns = @JoinColumn(name = "id_publicacao")
-    )
-    private List<Publicacao> publicacoesCurtidas;
-
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "usuario_seguindo",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "seguindo_id")
-    )
-    private List<Usuario> seguindo = new ArrayList<>();
-
-    @JsonIgnore
-    @ManyToMany(mappedBy = "seguindo")
-    private List<Usuario> seguidores = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
