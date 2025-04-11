@@ -38,12 +38,12 @@ public class ComentarioController {
                 comentarioPublicado.getId())).body(comentarioPublicado);
     }
 
-    @PutMapping("/cutir/{idComentario}")
+    @PutMapping("/curtir/{idComentario}")
     public ResponseEntity<Comentario> curtirComentario(@PathVariable Integer idComentario) {
         return ResponseEntity.ok().body(comentarioService.curtirComentario(idComentario));
     }
 
-    @PutMapping("/descutir/{idComentario}")
+    @PutMapping("/descurtir/{idComentario}")
     public ResponseEntity<Comentario> descurtirComentario(@PathVariable Integer idComentario) {
         return ResponseEntity.ok().body(comentarioService.descurtirComentario(idComentario));
     }
