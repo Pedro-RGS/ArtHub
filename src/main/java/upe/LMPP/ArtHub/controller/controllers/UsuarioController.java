@@ -25,42 +25,49 @@ public class UsuarioController {
     @Autowired
     private TokenService tokenService;
 
-    @PutMapping("/atualizar/{id}")
-    public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuarioAtualizado) {
-        Usuario usuario = usuarioService.atualizarUsuario(usuarioAtualizado);
-        return ResponseEntity.ok(usuario);
-    }
-
-    @DeleteMapping("/remover/{id}")
-    public ResponseEntity<Void> removerUsuario(@PathVariable Integer id) {
-        Usuario usuarioRemovido = usuarioService.buscarUsuarioPorId(id);
-        usuarioService.removerUsuario(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> buscarUsuarioPorId(@PathVariable Integer id) {
+    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Integer id) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(id);
 
         return ResponseEntity.ok(usuario);
     }
 
     @GetMapping("/buscarApelido/{apelido}")
-    public ResponseEntity<Usuario> buscarUsuarioPorApelido(@PathVariable String apelido) {
+    public ResponseEntity<Usuario> getUsuarioByApelido(@PathVariable String apelido) {
         Usuario usuario = usuarioService.buscarUsuarioPorApelido(apelido);
 
         return ResponseEntity.ok(usuario);
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<Usuario> buscarUsuarioPorEmail(@PathVariable String email) {
+    public ResponseEntity<Usuario> getUsuarioByEmail(@PathVariable String email) {
         Usuario usuario = usuarioService.buscarUsuarioPorEmail(email);
 
         return ResponseEntity.ok(usuario);
     }
 
+    @GetMapping("/dados")
+    public ResponseEntity<Usuario> getUsuarioLogado(@RequestHeader("Authorization") String token) {
+        try {
+            token = token.replace("Bearer ", "");
+
+            String email = tokenService.extractEmailFromToken(token);
+            Usuario usuario = usuarioService.buscarUsuarioPorEmail(email);
+
+            return ResponseEntity.ok(usuario);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
+
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<Usuario> putUsuario(@RequestBody Usuario usuarioAtualizado) {
+        Usuario usuario = usuarioService.atualizarUsuario(usuarioAtualizado);
+        return ResponseEntity.ok(usuario);
+    }
+
     @PutMapping("/registrar/admin/{id}")
-    public ResponseEntity<?> pomoverUsuarioParaAdmim(@RequestParam Integer adminId, @PathVariable Integer id) {
+    public ResponseEntity<?> promoverUsuarioParaAdmim(@RequestParam Integer adminId, @PathVariable Integer id) {
         Usuario adminNomeador = usuarioService.buscarUsuarioPorId(adminId);
 
         if (adminNomeador == null || adminNomeador.getTipoUsuario() != UsuarioEnum.ADMINISTRADOR) {
@@ -79,17 +86,10 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioAtualizado);
     }
 
-    @GetMapping("/dados")
-    public ResponseEntity<Usuario> buscarUsuarioLogado(@RequestHeader("Authorization") String token) {
-        try {
-            token = token.replace("Bearer ", "");
-
-            String email = tokenService.extractEmailFromToken(token);
-            Usuario usuario = usuarioService.buscarUsuarioPorEmail(email);
-
-            return ResponseEntity.ok(usuario);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
+    @DeleteMapping("/remover/{id}")
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Integer id) {
+        Usuario usuarioRemovido = usuarioService.buscarUsuarioPorId(id);
+        usuarioService.removerUsuario(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
