@@ -20,13 +20,12 @@ public class ComentarioController {
 
     @GetMapping("/{idPublicacao}")
     public ResponseEntity<List<Comentario>> getAllComentariosFromPublicacao(@PathVariable Integer idPublicacao) {
-        List<Comentario> comentarios = comentarioService.listarComentarios(idPublicacao);
-        return ResponseEntity.ok(comentarios);
+        return ResponseEntity.ok().body(comentarioService.listarComentarios(idPublicacao));
     }
 
     @GetMapping("/{idComentario}")
     public ResponseEntity<Comentario> getComentario(@PathVariable Integer idComentario){
-        return ResponseEntity.ok(comentarioService.buscarPorId(idComentario));
+        return ResponseEntity.ok().body(comentarioService.buscarPorId(idComentario));
     }
 
     @PostMapping("/{idUsuario}/{idPublicacao}")
@@ -35,17 +34,18 @@ public class ComentarioController {
                                                          @PathVariable Integer idPublicacao) {
         Comentario comentarioPublicado = comentarioService.publicarComentario(comentario, idUsuario, idPublicacao);
 
-        return ResponseEntity.created(URI.create("/comentarios/" + comentarioPublicado.getId())).body(comentarioPublicado);
+        return ResponseEntity.created(URI.create("/comentarios/" +
+                comentarioPublicado.getId())).body(comentarioPublicado);
     }
 
     @PutMapping("/cutir/{idComentario}")
     public ResponseEntity<Comentario> curtirComentario(@PathVariable Integer idComentario) {
-        return ResponseEntity.ok(comentarioService.curtirComentario(idComentario));
+        return ResponseEntity.ok().body(comentarioService.curtirComentario(idComentario));
     }
 
     @PutMapping("/descutir/{idComentario}")
     public ResponseEntity<Comentario> descurtirComentario(@PathVariable Integer idComentario) {
-        return ResponseEntity.ok(comentarioService.descurtirComentario(idComentario));
+        return ResponseEntity.ok().body(comentarioService.descurtirComentario(idComentario));
     }
 
     @DeleteMapping("remover/{idComentario}")
