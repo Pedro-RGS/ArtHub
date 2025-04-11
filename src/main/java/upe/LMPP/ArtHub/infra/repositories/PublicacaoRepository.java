@@ -12,6 +12,5 @@ import java.util.List;
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer> {
     @Query("SELECT p FROM Publicacao p WHERE p.perfil.usuario = :idDono")
     List<Publicacao> findByPerfil(Integer idDono);
-
     List<Publicacao> findByCategoria(CategoriaEnum categoria);
 }
