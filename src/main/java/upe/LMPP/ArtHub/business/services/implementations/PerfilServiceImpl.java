@@ -1,6 +1,7 @@
 package upe.LMPP.ArtHub.business.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,8 +21,10 @@ import java.util.Optional;
 @Transactional
 public class PerfilServiceImpl implements PerfilService {
 
-    private static final String caminhoArquivosPerfis = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\perfis";
-    private static final String caminhoArquivosBanners = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\banners";
+    @Value("${PATH_PERFIS}")
+    private String caminhoArquivosPerfis;
+    @Value("${PATH_BANNERS}")
+    private String caminhoArquivosBanners;
 
     @Autowired
     PerfilRepository perfilRepository;
