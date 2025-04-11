@@ -1,7 +1,6 @@
 package upe.LMPP.ArtHub.business.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +11,6 @@ import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioExistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
-import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
 import upe.LMPP.ArtHub.infra.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 

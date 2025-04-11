@@ -4,15 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.business.security.TokenService;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
 import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
 
 @RestController
 @CrossOrigin("*")
@@ -88,7 +84,6 @@ public class UsuarioController {
 
     @DeleteMapping("/remover/{id}")
     public ResponseEntity<Void> deleteUsuario(@PathVariable Integer id) {
-        Usuario usuarioRemovido = usuarioService.buscarUsuarioPorId(id);
         usuarioService.removerUsuario(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
