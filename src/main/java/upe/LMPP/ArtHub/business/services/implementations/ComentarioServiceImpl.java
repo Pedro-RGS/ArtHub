@@ -8,7 +8,6 @@ import upe.LMPP.ArtHub.infra.exceptions.comentarioExceptions.ComentarioInexisten
 import upe.LMPP.ArtHub.infra.repositories.ComentarioRepository;
 import upe.LMPP.ArtHub.business.services.interfaces.ComentarioService;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
-import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
 import java.time.LocalDateTime;
 import java.util.List;
