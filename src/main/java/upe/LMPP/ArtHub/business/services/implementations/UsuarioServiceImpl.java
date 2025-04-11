@@ -4,13 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import upe.LMPP.ArtHub.business.security.TokenService;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
 import upe.LMPP.ArtHub.controller.DTO.UsuarioDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
+import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioAdministradorInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioExistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
+import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioNaoAdminException;
 import upe.LMPP.ArtHub.infra.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
@@ -25,6 +28,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     PerfilService perfilService;
+
+    @Autowired
+    private TokenService tokenService;
 
     @Override
     public Usuario cadastrarUsuario(UsuarioDTO usuarioDTO, UsuarioEnum usuarioEnum) {
@@ -72,6 +78,29 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public Usuario promoverUsuarioParaAdmim(Integer idAdmin, Integer idPromovido) {
+        Usuario adminNomeador = this.buscarUsuarioPorId(idAdmin);
+
+        if (adminNomeador == null) {
+            throw new UsuarioAdministradorInexistenteException();
+        }
+
+        if (adminNomeador.getTipoUsuario() != UsuarioEnum.ADMINISTRADOR) {
+            throw new UsuarioNaoAdminException();
+        }
+
+        Usuario usuarioPromovido = this.buscarUsuarioPorId(idPromovido);
+
+        if (usuarioPromovido == null) {
+            throw new UsuarioInexistenteException();
+        }
+
+        usuarioPromovido.setTipoUsuario(UsuarioEnum.ADMINISTRADOR);
+
+        return this.atualizarUsuario(usuarioPromovido);
+    }
+
+    @Override
     public void removerUsuario(Integer id) {
         perfilService.removerPerfil(id);
         usuarioRepository.deleteById(id);
@@ -88,8 +117,22 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public Usuario buscarUsuarioLogado(String token) {
+        try {
+            token = token.replace("Bearer ", "");
+
+            String email = tokenService.extractEmailFromToken(token);
+
+            return this.buscarUsuarioPorEmail(email);
+        } catch (Exception e) {
+            throw new UsuarioInexistenteException();
+        }
+    }
+
+    @Override
     public Usuario buscarUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email).orElseThrow(UsuarioInexistenteException::new);
     }
+
 }
 
