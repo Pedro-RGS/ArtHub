@@ -3,6 +3,7 @@ package upe.LMPP.ArtHub.business.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
@@ -10,12 +11,17 @@ import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteExcept
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
 public class PerfilServiceImpl implements PerfilService {
+
+    private static final String caminhoArquivosPerfis = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\perfis";
+    private static final String caminhoArquivosBanners = "C:\\Users\\muril\\OneDrive\\Área de Trabalho\\Engenharia de Software - UPE\\4º Semestre\\Programação para Web (60H)\\ArtHub\\src\\main\\java\\upe\\LMPP\\ArtHub\\arquivos\\banners";
 
     @Autowired
     PerfilRepository perfilRepository;
@@ -100,5 +106,44 @@ public class PerfilServiceImpl implements PerfilService {
         }
 
         return perfil.get().getSeguidores().stream().map(Perfil::getUsuario).toList();
+    }
+
+    @Override
+    public Perfil uploadFotoPerfil(Integer id, MultipartFile file) {
+        try {
+            Perfil perfil = obterPerfil(id);
+
+            // Gerar nome único para o arquivo
+            String nomeArquivo = file.getOriginalFilename();
+            File destino = new File(caminhoArquivosPerfis + id + "_" + nomeArquivo);
+            file.transferTo(destino);
+
+            // Atualizar o caminho no atributo do usuário
+            perfil.setFotoPerfil(nomeArquivo);
+            this.atualizarPerfil(perfil);
+
+            return perfil;
+        } catch (IOException e) {
+            throw new PerfilInexistenteException();
+        }
+    }
+
+    public Perfil uploadFotoBanner(Integer id, MultipartFile file){
+        try {
+            Perfil perfil = this.obterPerfil(id);
+
+            // Gerar nome único para o arquivo
+            String nomeArquivo = file.getOriginalFilename();
+            File destino = new File(caminhoArquivosBanners + id + "_" + nomeArquivo);
+            file.transferTo(destino);
+
+            // Atualizar o caminho no atributo do usuário
+            perfil.setBanner(nomeArquivo);
+            this.atualizarPerfil(perfil);
+
+            return perfil;
+        } catch (IOException e) {
+            throw new PerfilInexistenteException();
+        }
     }
 }
