@@ -23,27 +23,22 @@ public class PublicacaoController {
 
     @GetMapping
     public ResponseEntity<List<Publicacao>> getAllPublicacao(){
-        List<Publicacao> paginas = publicacaoService.buscarTodasPublicacacoes();
-
-        return ResponseEntity.ok().body(paginas);
+        return ResponseEntity.ok().body(publicacaoService.buscarTodasPublicacacoes());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Publicacao> getPublicacao(@PathVariable Integer id){
-        Publicacao publicacaoEncontrada = publicacaoService.buscarPublicacao(id);
-        return ResponseEntity.ok().body(publicacaoEncontrada);
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(id));
     }
 
     @GetMapping("/usuario/{idUsuario}")
     public ResponseEntity<List<Publicacao>> getPublicacaoByUsuario(@PathVariable Integer idUsuario){
-        List<Publicacao> publicacaoEncontrada = publicacaoService.buscarPublicacoesPorUsuario(idUsuario);
-        return ResponseEntity.ok().body(publicacaoEncontrada);
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacoesPorUsuario(idUsuario));
     }
 
     @GetMapping("categoria/{categoria}")
     public ResponseEntity<List<Publicacao>> getPublicacaoByCategoria(@PathVariable CategoriaEnum categoria){
-        List<Publicacao> publicacoesEncontradas = publicacaoService.buscarPublicacaoPorCategoria(categoria);
-        return ResponseEntity.ok().body(publicacoesEncontradas);
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria));
     }
 
     @PostMapping("/{idDono}")
@@ -57,8 +52,7 @@ public class PublicacaoController {
     @PutMapping("/add-media/{id}")
     public ResponseEntity<Publicacao> addMedia(@PathVariable Integer id,
                                                @RequestParam("file") MultipartFile arquivo) {
-        Publicacao publicacao = publicacaoService.addMedia(id, arquivo);
-        return ResponseEntity.ok().body(publicacao);
+        return ResponseEntity.ok().body(publicacaoService.addMedia(id, arquivo));
     }
 
     @PutMapping("/{idDono}")
@@ -67,16 +61,14 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoService.atualizarPublicacao(publicacaoDTO, idDono));
     }
 
-    @PutMapping("cutir/{idPublicacao}")
+    @PutMapping("curtir/{idPublicacao}")
     public ResponseEntity<Publicacao> curtirPublicacao(@PathVariable Integer idPublicacao){
-        publicacaoService.curtirPublicacao(idPublicacao);
-        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idPublicacao));
+        return ResponseEntity.ok().body(publicacaoService.curtirPublicacao(idPublicacao));
     }
 
     @PutMapping("descurtir/{idPublicacao}")
     public ResponseEntity<Publicacao> descurtirPublicacao(@PathVariable Integer idPublicacao){
-        publicacaoService.descurtirPublicacao(idPublicacao);
-        return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(idPublicacao));
+        return ResponseEntity.ok().body(publicacaoService.descurtirPublicacao(idPublicacao));
     }
 
     @DeleteMapping("remover/{idUsuario}/{idPublicacao}")
