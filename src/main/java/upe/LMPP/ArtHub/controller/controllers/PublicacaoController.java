@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import upe.LMPP.ArtHub.controller.DTO.PublicacaoDTO;
-import upe.LMPP.ArtHub.controller.DTO.PublicacaoEditadaDTO;
+import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoCriadaDTO;
+import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
+import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoEditadaDTO;
 import upe.LMPP.ArtHub.infra.entities.Publicacao;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
@@ -21,54 +22,55 @@ public class PublicacaoController {
     @Autowired
     PublicacaoService publicacaoService;
 
+    // Adicionar paginação
     @GetMapping
-    public ResponseEntity<List<Publicacao>> getAllPublicacao(){
+    public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(){
         return ResponseEntity.ok().body(publicacaoService.buscarTodasPublicacacoes());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Publicacao> getPublicacao(@PathVariable Integer id){
+    public ResponseEntity<PublicacaoDTO> getPublicacao(@PathVariable Integer id){
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacao(id));
     }
 
     @GetMapping("/usuario/{idUsuario}")
-    public ResponseEntity<List<Publicacao>> getPublicacaoByUsuario(@PathVariable Integer idUsuario){
+    public ResponseEntity<List<PublicacaoDTO>> getPublicacaoByUsuario(@PathVariable Integer idUsuario){
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacoesPorUsuario(idUsuario));
     }
 
     @GetMapping("categoria/{categoria}")
-    public ResponseEntity<List<Publicacao>> getPublicacaoByCategoria(@PathVariable CategoriaEnum categoria){
+    public ResponseEntity<List<PublicacaoDTO>> getPublicacaoByCategoria(@PathVariable CategoriaEnum categoria){
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria));
     }
 
     @PostMapping("/{idDono}")
-    public ResponseEntity<Publicacao> postPublicacao(@RequestBody PublicacaoDTO publicacaoDTO,
+    public ResponseEntity<PublicacaoDTO> postPublicacao(@RequestBody PublicacaoCriadaDTO publicacaoDTO,
                                                      @PathVariable Integer idDono) {
-        Publicacao novaPublicacao = publicacaoService.criarPublicacao(publicacaoDTO, idDono);
+        PublicacaoDTO novaPublicacao = publicacaoService.criarPublicacao(publicacaoDTO, idDono);
 
-        return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.getId())).body(novaPublicacao);
+        return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.titulo())).body(novaPublicacao);
     }
 
     @PutMapping("/add-media/{id}")
-    public ResponseEntity<Publicacao> addMedia(@PathVariable Integer id,
+    public ResponseEntity<PublicacaoDTO> addMedia(@PathVariable Integer id,
                                                @RequestParam("file") MultipartFile arquivo) {
         return ResponseEntity.ok().body(publicacaoService.addMedia(id, arquivo));
     }
 
     @PutMapping("/{idDono}")
-    public ResponseEntity<Publicacao> putPublicacao(@RequestBody PublicacaoEditadaDTO publicacaoDTO,
+    public ResponseEntity<PublicacaoDTO> putPublicacao(@RequestBody PublicacaoEditadaDTO publicacaoDTO,
                                                     @PathVariable Integer idDono){
         return ResponseEntity.ok().body(publicacaoService.atualizarPublicacao(publicacaoDTO, idDono));
     }
 
-    @PutMapping("curtir/{idPublicacao}")
-    public ResponseEntity<Publicacao> curtirPublicacao(@PathVariable Integer idPublicacao){
-        return ResponseEntity.ok().body(publicacaoService.curtirPublicacao(idPublicacao));
+    @PutMapping("curtir/{idPublicacao}/{idPerfil}")
+    public ResponseEntity<PublicacaoDTO> curtirPublicacao(@PathVariable Integer idPublicacao, @PathVariable Integer idPerfil){
+        return ResponseEntity.ok().body(publicacaoService.curtirPublicacao(idPublicacao, idPerfil));
     }
 
-    @PutMapping("descurtir/{idPublicacao}")
-    public ResponseEntity<Publicacao> descurtirPublicacao(@PathVariable Integer idPublicacao){
-        return ResponseEntity.ok().body(publicacaoService.descurtirPublicacao(idPublicacao));
+    @PutMapping("descurtir/{idPublicacao}/{idPerfil}")
+    public ResponseEntity<PublicacaoDTO> descurtirPublicacao(@PathVariable Integer idPublicacao, @PathVariable Integer idPerfil){
+        return ResponseEntity.ok().body(publicacaoService.descurtirPublicacao(idPublicacao, idPerfil));
     }
 
     @DeleteMapping("remover/{idUsuario}/{idPublicacao}")

@@ -3,11 +3,17 @@ package upe.LMPP.ArtHub.business.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
+import upe.LMPP.ArtHub.controller.DTO.comentario.ComentarioCriadoDTO;
+import upe.LMPP.ArtHub.controller.DTO.comentario.ComentarioDTO;
 import upe.LMPP.ArtHub.infra.entities.Comentario;
 import upe.LMPP.ArtHub.infra.exceptions.comentarioExceptions.ComentarioInexistenteException;
+import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
+import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.infra.repositories.ComentarioRepository;
 import upe.LMPP.ArtHub.business.services.interfaces.ComentarioService;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
+import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
+import upe.LMPP.ArtHub.infra.repositories.PublicacaoRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,18 +26,22 @@ public class ComentarioServiceImpl implements ComentarioService {
     ComentarioRepository comentarioRepository;
 
     @Autowired
-    PerfilService perfilService;
+    PerfilRepository perfilRepository;
 
     @Autowired
-    PublicacaoService publicacaoService;
+    PublicacaoRepository publicacaoRepository;
 
     @Override
-    public Comentario publicarComentario(Comentario comentario, Integer idDono, Integer idPublicacao) {
-        comentario.setPerfil(perfilService.obterPerfil(idDono));
-        comentario.setPublicacao(publicacaoService.buscarPublicacao(idPublicacao));
-        comentario.setDataPublicacao(LocalDateTime.now());
+    public ComentarioDTO publicarComentario(ComentarioCriadoDTO comentario, Integer idDono, Integer idPublicacao) {
+        Comentario novoComentario = new Comentario(
+                null,
+                0,
+                LocalDateTime.now(),
+                comentario.conteudo(),
+                perfilRepository.findById(idDono).orElseThrow(UsuarioInexistenteException::new),
+                publicacaoRepository.findById(idPublicacao).orElseThrow(PublicacaoNaoAutoralException::new));
 
-        return comentarioRepository.save(comentario);
+        return ComentarioDTO.comentarioToDTO(comentarioRepository.save(novoComentario));
     }
 
     @Override
@@ -46,7 +56,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     }
 
     @Override
-    public Comentario curtirComentario(Integer idComentario) {
+    public ComentarioDTO curtirComentario(Integer idComentario) {
         Optional<Comentario> comentario = comentarioRepository.findById(idComentario);
 
         if (comentario.isEmpty()) {
@@ -54,11 +64,11 @@ public class ComentarioServiceImpl implements ComentarioService {
         }
         Comentario comentarioCurtido = comentario.get();
         comentarioCurtido.setCurtidas(comentarioCurtido.getCurtidas() + 1);
-        return comentarioRepository.save(comentarioCurtido);
+        return ComentarioDTO.comentarioToDTO(comentarioRepository.save(comentarioCurtido));
     }
 
     @Override
-    public Comentario descurtirComentario(Integer idComentario) {
+    public ComentarioDTO descurtirComentario(Integer idComentario) {
         Optional<Comentario> comentario = comentarioRepository.findById(idComentario);
 
         if (comentario.isEmpty()) {
@@ -66,17 +76,19 @@ public class ComentarioServiceImpl implements ComentarioService {
         }
         Comentario comentarioCurtido = comentario.get();
         comentarioCurtido.setCurtidas(comentarioCurtido.getCurtidas() - 1);
-        return comentarioRepository.save(comentarioCurtido);
+        return ComentarioDTO.comentarioToDTO(comentarioRepository.save(comentarioCurtido));
     }
 
     @Override
-    public List<Comentario> listarComentarios(Integer idPublicacao) {
-        return comentarioRepository.findByPublicacao(idPublicacao);
+    public List<ComentarioDTO> listarComentarios(Integer idPublicacao) {
+        return comentarioRepository.findByPublicacao(idPublicacao)
+                .stream().map(ComentarioDTO::comentarioToDTO).toList();
     }
 
     @Override
-    public Comentario buscarPorId(Integer idComentario) {
-        Optional<Comentario> comentario = comentarioRepository.findById(idComentario);
-        return comentario.orElseThrow(ComentarioInexistenteException::new);
+    public ComentarioDTO buscarPorId(Integer idComentario) {
+        Comentario comentario = comentarioRepository.findById(idComentario)
+                .orElseThrow(ComentarioInexistenteException::new);
+        return ComentarioDTO.comentarioToDTO(comentario);
     }
 }

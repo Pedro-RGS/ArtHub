@@ -3,7 +3,8 @@ package upe.LMPP.ArtHub.controller.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import upe.LMPP.ArtHub.infra.entities.Comentario;
+import upe.LMPP.ArtHub.controller.DTO.comentario.ComentarioCriadoDTO;
+import upe.LMPP.ArtHub.controller.DTO.comentario.ComentarioDTO;
 import upe.LMPP.ArtHub.business.services.interfaces.ComentarioService;
 
 import java.net.URI;
@@ -18,33 +19,33 @@ public class ComentarioController {
     @Autowired
     ComentarioService comentarioService;
 
-    @GetMapping("/{idPublicacao}")
-    public ResponseEntity<List<Comentario>> getAllComentariosFromPublicacao(@PathVariable Integer idPublicacao) {
+    @GetMapping("publicacao/{idPublicacao}")
+    public ResponseEntity<List<ComentarioDTO>> getAllComentariosFromPublicacao(@PathVariable Integer idPublicacao) {
         return ResponseEntity.ok().body(comentarioService.listarComentarios(idPublicacao));
     }
 
     @GetMapping("/{idComentario}")
-    public ResponseEntity<Comentario> getComentario(@PathVariable Integer idComentario){
+    public ResponseEntity<ComentarioDTO> getComentario(@PathVariable Integer idComentario){
         return ResponseEntity.ok().body(comentarioService.buscarPorId(idComentario));
     }
 
-    @PostMapping("/{idUsuario}/{idPublicacao}")
-    public ResponseEntity<Comentario> postComentario(@RequestBody Comentario comentario,
-                                                         @PathVariable Integer idUsuario,
-                                                         @PathVariable Integer idPublicacao) {
-        Comentario comentarioPublicado = comentarioService.publicarComentario(comentario, idUsuario, idPublicacao);
+    @PostMapping("/{idDono}/{idPublicacao}")
+    public ResponseEntity<ComentarioDTO> postComentario(@PathVariable Integer idDono,
+                                                        @PathVariable Integer idPublicacao,
+                                                        @RequestBody ComentarioCriadoDTO comentario) {
+        ComentarioDTO comentarioPublicado = comentarioService.publicarComentario(comentario, idDono, idPublicacao);
 
-        return ResponseEntity.created(URI.create("/comentarios/" +
-                comentarioPublicado.getId())).body(comentarioPublicado);
+        return ResponseEntity.created(URI.create("/comentarios/" + comentarioPublicado.perfil().getUsuario()))
+                .body(comentarioPublicado);
     }
 
     @PutMapping("/curtir/{idComentario}")
-    public ResponseEntity<Comentario> curtirComentario(@PathVariable Integer idComentario) {
+    public ResponseEntity<ComentarioDTO> curtirComentario(@PathVariable Integer idComentario) {
         return ResponseEntity.ok().body(comentarioService.curtirComentario(idComentario));
     }
 
     @PutMapping("/descurtir/{idComentario}")
-    public ResponseEntity<Comentario> descurtirComentario(@PathVariable Integer idComentario) {
+    public ResponseEntity<ComentarioDTO> descurtirComentario(@PathVariable Integer idComentario) {
         return ResponseEntity.ok().body(comentarioService.descurtirComentario(idComentario));
     }
 

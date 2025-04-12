@@ -5,8 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
-import upe.LMPP.ArtHub.controller.DTO.LoginDTO;
-import upe.LMPP.ArtHub.controller.DTO.UsuarioDTO;
+import upe.LMPP.ArtHub.controller.DTO.usuario.LoginDTO;
+import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioCriadoDTO;
+import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
 import upe.LMPP.ArtHub.business.security.TokenService;
@@ -37,16 +38,12 @@ public class AuthController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Usuario> register(@RequestBody UsuarioDTO usuarioDTO){
-
-        Usuario usuario = usuarioService.cadastrarUsuario(usuarioDTO, UsuarioEnum.COMUM);
-        return ResponseEntity.ok(usuario);
+    public ResponseEntity<UsuarioDTO> register(@RequestBody UsuarioCriadoDTO usuarioCriadoDTO){
+        return ResponseEntity.ok().body(usuarioService.cadastrarUsuario(usuarioCriadoDTO, UsuarioEnum.COMUM));
     }
 
     @PostMapping("/resgistrar/admin")
-    public ResponseEntity<Usuario> registerAdmin(@RequestBody UsuarioDTO usuarioDTO){
-
-        Usuario usuario = usuarioService.cadastrarUsuario(usuarioDTO, UsuarioEnum.ADMINISTRADOR);
-        return ResponseEntity.ok(usuario);
+    public ResponseEntity<UsuarioDTO> registerAdmin(@RequestBody UsuarioCriadoDTO usuarioCriadoDTO){
+        return ResponseEntity.ok().body(usuarioService.cadastrarUsuario(usuarioCriadoDTO, UsuarioEnum.ADMINISTRADOR));
     }
 }

@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
-import upe.LMPP.ArtHub.controller.DTO.PublicacaoDTO;
-import upe.LMPP.ArtHub.controller.DTO.PublicacaoEditadaDTO;
+import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoCriadaDTO;
+import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
+import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoEditadaDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Publicacao;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
@@ -39,52 +40,53 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     PerfilService perfilService;
 
     @Override
-    public Publicacao criarPublicacao(PublicacaoDTO publicacaoDTO, Integer idDono) {
+    public PublicacaoDTO criarPublicacao(PublicacaoCriadaDTO publicacao, Integer idDono) {
         Perfil perfilDono = perfilService.obterPerfil(idDono);
         Publicacao novaPublicacao = new Publicacao(
                 null,
-                publicacaoDTO.tipoArquivo(),
+                publicacao.tipoArquivo(),
                 LocalDateTime.now(),
-                publicacaoDTO.legenda(),
-                publicacaoDTO.nomeConteudo(),
-                publicacaoDTO.titulo(),
+                publicacao.legenda(),
+                publicacao.nomeConteudo(),
+                publicacao.titulo(),
                 0,
-                publicacaoDTO.categoria(),
+                publicacao.categoria(),
                 perfilDono,
                 new ArrayList<>());
-        return publicacaoRepository.save(novaPublicacao);
+        return PublicacaoDTO.PublicacaoToDTO(publicacaoRepository.save(novaPublicacao));
     }
 
     @Override
-    public Publicacao associarArquivoAPublicacao(Integer idPublicacao, String caminhoArquivo) {
-        Publicacao publicacao = buscarPublicacao(idPublicacao);
+    public PublicacaoDTO associarArquivoAPublicacao(Integer idPublicacao, String caminhoArquivo) {
+        Publicacao publicacao = publicacaoRepository.findById(idPublicacao)
+                .orElseThrow(PublicacaoInexistenteException::new);
         publicacao.setNomeConteudo(caminhoArquivo);
-        return publicacaoRepository.save(publicacao);
+        return PublicacaoDTO.PublicacaoToDTO(publicacaoRepository.save(publicacao));
     }
 
     @Override
-    public Publicacao buscarPublicacao(Integer idPublicacao) {
+    public PublicacaoDTO buscarPublicacao(Integer idPublicacao) {
         Optional<Publicacao> publicacao = publicacaoRepository.findById(idPublicacao);
-        return publicacao.orElseThrow(PublicacaoInexistenteException::new);
+        return PublicacaoDTO.PublicacaoToDTO(publicacao.orElseThrow(PublicacaoInexistenteException::new));
     }
 
     @Override
-    public List<Publicacao> buscarTodasPublicacacoes() {
-        return publicacaoRepository.findAll();
+    public List<PublicacaoDTO> buscarTodasPublicacacoes() {
+        return publicacaoRepository.findAll().stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
     }
 
     @Override
-    public List<Publicacao> buscarPublicacoesPorUsuario(Integer idDono) {
-        return publicacaoRepository.findByPerfil(idDono);
+    public List<PublicacaoDTO> buscarPublicacoesPorUsuario(Integer idDono) {
+        return publicacaoRepository.findByPerfil(idDono).stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
     }
 
     @Override
-    public List<Publicacao> buscarPublicacaoPorCategoria(CategoriaEnum categoria) {
-        return publicacaoRepository.findByCategoria(categoria);
+    public List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria) {
+        return publicacaoRepository.findByCategoria(categoria).stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
     }
 
     @Override
-    public Publicacao atualizarPublicacao(PublicacaoEditadaDTO publicacaoDTO, Integer idDono) {
+    public PublicacaoDTO atualizarPublicacao(PublicacaoEditadaDTO publicacaoDTO, Integer idDono) {
         Optional<Publicacao> publicacaoBanco = publicacaoRepository.findById(publicacaoDTO.id());
 
         if (publicacaoBanco.isPresent()) {
@@ -98,28 +100,33 @@ public class PublicacaoServiceImpl implements PublicacaoService {
             publicacaoEntity.setLegenda(publicacaoDTO.legenda());
             publicacaoEntity.setNomeConteudo(publicacaoDTO.nomeConteudo());
 
-            return publicacaoRepository.save(publicacaoEntity);
+            return PublicacaoDTO.PublicacaoToDTO(publicacaoRepository.save(publicacaoEntity));
         }
         throw new PublicacaoInexistenteException();
     }
 
     @Override
-    public Publicacao curtirPublicacao(Integer idPublicacao) {
-        Publicacao publicacao = buscarPublicacao(idPublicacao);
+    public PublicacaoDTO curtirPublicacao(Integer idPublicacao, Integer idPerfil) {
+        Publicacao publicacao = publicacaoRepository.findById(idPublicacao)
+                .orElseThrow(PublicacaoInexistenteException::new);
         publicacao.setCurtidas(publicacao.getCurtidas() + 1);
-        return publicacaoRepository.save(publicacao);
+        publicacao.getPerfisQueCurtiram().add(perfilService.obterPerfil(idPerfil));
+        return PublicacaoDTO.PublicacaoToDTO(publicacaoRepository.save(publicacao));
     }
 
     @Override
-    public Publicacao descurtirPublicacao(Integer idPublicacao) {
-        Publicacao publicacao = buscarPublicacao(idPublicacao);
+    public PublicacaoDTO descurtirPublicacao(Integer idPublicacao, Integer idPerfil) {
+        Publicacao publicacao = publicacaoRepository.findById(idPublicacao)
+                .orElseThrow(PublicacaoInexistenteException::new);
         publicacao.setCurtidas(publicacao.getCurtidas() - 1);
-        return publicacaoRepository.save(publicacao);
+        publicacao.getPerfisQueCurtiram().add(perfilService.obterPerfil(idPerfil));
+        return PublicacaoDTO.PublicacaoToDTO(publicacaoRepository.save(publicacao));
     }
 
     @Override
     public void excluirPublicacao(Integer idPublicacao, Integer idDono) {
-        Publicacao publicacao = buscarPublicacao(idPublicacao);
+        Publicacao publicacao = publicacaoRepository.findById(idPublicacao)
+                .orElseThrow(PublicacaoInexistenteException::new);
 
         if (!publicacao.getPerfil().getUsuario().getId().equals(idDono)) {
             throw new PublicacaoNaoAutoralException();
@@ -129,9 +136,10 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public Publicacao addMedia(Integer id, MultipartFile arquivo) {
+    public PublicacaoDTO addMedia(Integer id, MultipartFile arquivo) {
         try {
-            Publicacao publicacao = buscarPublicacao(id);
+            Publicacao publicacao = publicacaoRepository.findById(id)
+                    .orElseThrow(PublicacaoInexistenteException::new);
 
             PublicacaoEditadaDTO dto = new PublicacaoEditadaDTO(
                     publicacao.getId(),

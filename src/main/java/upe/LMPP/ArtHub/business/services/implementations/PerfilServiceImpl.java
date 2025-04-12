@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
+import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilDTO;
+import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilEditadoDTO;
+import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteException;
@@ -61,14 +64,52 @@ public class PerfilServiceImpl implements PerfilService {
         return true;
     }
 
-    // email, senha, perfil, banner, nome, telefone, bio
+    // email, senha, foto de perfil, banner, nome, telefone, bio
     @Override
-    public Perfil atualizarPerfil(Perfil perfil) {
-        if (!perfilRepository.existsById(perfil.getId())) {
+    public PerfilDTO atualizarBio(Integer donoId, PerfilEditadoDTO dto) {
+        Perfil perfil = this.obterPerfil(donoId);
+        perfil.setBiografia(dto.biografia());
+        perfilRepository.save(perfil);
+        return PerfilDTO.toPerfilDTO(perfil);
+    }
+
+    @Override
+    public PerfilDTO uploadFotoPerfil(Integer id, MultipartFile file) {
+        try {
+            Perfil perfil = obterPerfil(id);
+
+            // Gerar nome único para o arquivo
+            String nomeArquivo = file.getOriginalFilename();
+            File destino = new File(caminhoArquivosPerfis + id + "_" + nomeArquivo);
+            file.transferTo(destino);
+
+            // Atualizar o caminho no atributo do usuário
+            perfil.setFotoPerfil(nomeArquivo);
+            perfilRepository.save(perfil);
+
+            return PerfilDTO.toPerfilDTO(perfil);
+        } catch (IOException e) {
             throw new PerfilInexistenteException();
         }
+    }
 
-        return perfilRepository.save(perfil);
+    public PerfilDTO uploadFotoBanner(Integer id, MultipartFile file){
+        try {
+            Perfil perfil = this.obterPerfil(id);
+
+            // Gerar nome único para o arquivo
+            String nomeArquivo = file.getOriginalFilename();
+            File destino = new File(caminhoArquivosBanners + id + "_" + nomeArquivo);
+            file.transferTo(destino);
+
+            // Atualizar o caminho no atributo do usuário
+            perfil.setBanner(nomeArquivo);
+            perfilRepository.save(perfil);
+
+            return PerfilDTO.toPerfilDTO(perfil);
+        } catch (IOException e) {
+            throw new PerfilInexistenteException();
+        }
     }
 
     @Override
@@ -90,63 +131,24 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public List<Usuario> obterSeguidos(Integer idUsuario) {
+    public List<UsuarioDTO> obterSeguidos(Integer idUsuario) {
         Optional<Perfil> perfil = perfilRepository.findByIdUsuario(idUsuario);
 
         if (perfil.isEmpty()){
             throw new UsuarioInexistenteException();
         }
 
-        return perfil.get().getSeguindo().stream().map(Perfil::getUsuario).toList();
+        return perfil.get().getSeguindo().stream().map(Perfil::getUsuario).map(UsuarioDTO::UsuarioToDTO).toList();
     }
 
     @Override
-    public List<Usuario> obterSeguidores(Integer idUsuario) {
+    public List<UsuarioDTO> obterSeguidores(Integer idUsuario) {
         Optional<Perfil> perfil = perfilRepository.findByIdUsuario(idUsuario);
 
         if (perfil.isEmpty()){
             throw new UsuarioInexistenteException();
         }
 
-        return perfil.get().getSeguidores().stream().map(Perfil::getUsuario).toList();
-    }
-
-    @Override
-    public Perfil uploadFotoPerfil(Integer id, MultipartFile file) {
-        try {
-            Perfil perfil = obterPerfil(id);
-
-            // Gerar nome único para o arquivo
-            String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosPerfis + id + "_" + nomeArquivo);
-            file.transferTo(destino);
-
-            // Atualizar o caminho no atributo do usuário
-            perfil.setFotoPerfil(nomeArquivo);
-            this.atualizarPerfil(perfil);
-
-            return perfil;
-        } catch (IOException e) {
-            throw new PerfilInexistenteException();
-        }
-    }
-
-    public Perfil uploadFotoBanner(Integer id, MultipartFile file){
-        try {
-            Perfil perfil = this.obterPerfil(id);
-
-            // Gerar nome único para o arquivo
-            String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosBanners + id + "_" + nomeArquivo);
-            file.transferTo(destino);
-
-            // Atualizar o caminho no atributo do usuário
-            perfil.setBanner(nomeArquivo);
-            this.atualizarPerfil(perfil);
-
-            return perfil;
-        } catch (IOException e) {
-            throw new PerfilInexistenteException();
-        }
+        return perfil.get().getSeguidores().stream().map(Perfil::getUsuario).map(UsuarioDTO::UsuarioToDTO).toList();
     }
 }

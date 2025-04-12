@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import upe.LMPP.ArtHub.business.security.TokenService;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
-import upe.LMPP.ArtHub.controller.DTO.UsuarioDTO;
+import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioCriadoDTO;
+import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
+import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioEditadoDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
@@ -33,23 +35,23 @@ public class UsuarioServiceImpl implements UsuarioService {
     private TokenService tokenService;
 
     @Override
-    public Usuario cadastrarUsuario(UsuarioDTO usuarioDTO, UsuarioEnum usuarioEnum) {
-        Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuarioDTO.email());
+    public UsuarioDTO cadastrarUsuario(UsuarioCriadoDTO usuarioCriadoDTO, UsuarioEnum usuarioEnum) {
+        Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuarioCriadoDTO.email());
 
         if (usuarioBanco.isPresent()) {
             throw new UsuarioExistenteException();
         }
 
-        String senhaEncriptada = new BCryptPasswordEncoder().encode(usuarioDTO.senha());
+        String senhaEncriptada = new BCryptPasswordEncoder().encode(usuarioCriadoDTO.senha());
 
         Usuario usuario = new Usuario(
                 null,
-                usuarioDTO.nome(),
-                usuarioDTO.apelido(),
-                usuarioDTO.email(),
-                usuarioDTO.dataNascimento(),
+                usuarioCriadoDTO.nome(),
+                usuarioCriadoDTO.apelido(),
+                usuarioCriadoDTO.email(),
+                usuarioCriadoDTO.dataNascimento(),
                 senhaEncriptada,
-                usuarioDTO.telefone(),
+                usuarioCriadoDTO.telefone(),
                 null,
                 usuarioEnum
         );
@@ -57,47 +59,54 @@ public class UsuarioServiceImpl implements UsuarioService {
         Perfil perfilUsuario = perfilService.criarPerfil(usuario);
         usuario.setPerfil(perfilUsuario);
 
-        return usuarioRepository.save(usuario);
+        return UsuarioDTO.UsuarioToDTO(usuarioRepository.save(usuario));
     }
 
-    // Só está atualizando a senha do usuáio
     @Override
-    public Usuario atualizarUsuario(Usuario usuario) {
-        Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuario.getEmail());
+    public UsuarioDTO atualizarUsuario(UsuarioEditadoDTO usuario) {
+        Optional<Usuario> usuarioBanco = usuarioRepository.findByEmail(usuario.email());
 
         if (usuarioBanco.isPresent()) {
             Usuario usuarioExistente = usuarioBanco.get();
 
-            if (usuario.getSenha() != null && !usuario.getSenha().isEmpty()) {
-                String senhaCriptografada = new BCryptPasswordEncoder().encode(usuario.getSenha());
+            if (usuario.senha() != null && !usuario.senha().isEmpty()) {
+                String senhaCriptografada = new BCryptPasswordEncoder().encode(usuario.senha());
                 usuarioExistente.setSenha(senhaCriptografada);
+                usuarioExistente.setApelido(usuario.apelido());
+                usuarioExistente.setEmail(usuario.email());
+                usuarioExistente.setTelefone(usuario.telefone());
             }
-            return usuarioRepository.save(usuarioExistente);
+            usuarioRepository.save(usuarioExistente);
+            return UsuarioDTO.UsuarioToDTO(usuarioExistente);
         }
         throw new UsuarioInexistenteException();
     }
 
     @Override
-    public Usuario promoverUsuarioParaAdmim(Integer idAdmin, Integer idPromovido) {
-        Usuario adminNomeador = this.buscarUsuarioPorId(idAdmin);
+    public UsuarioDTO promoverUsuarioParaAdmim(Integer idAdmin, Integer idPromovido) {
+        Optional<Usuario> adminNomeadorOptional = usuarioRepository.findById(idAdmin);
 
-        if (adminNomeador == null) {
+        if (adminNomeadorOptional.isEmpty()) {
             throw new UsuarioAdministradorInexistenteException();
         }
+
+        Usuario adminNomeador = adminNomeadorOptional.get();
 
         if (adminNomeador.getTipoUsuario() != UsuarioEnum.ADMINISTRADOR) {
             throw new UsuarioNaoAdminException();
         }
 
-        Usuario usuarioPromovido = this.buscarUsuarioPorId(idPromovido);
+        Optional<Usuario> usuarioPromovidoOptional = usuarioRepository.findById(idPromovido);
 
-        if (usuarioPromovido == null) {
+        if (usuarioPromovidoOptional.isEmpty()) {
             throw new UsuarioInexistenteException();
         }
 
+        Usuario usuarioPromovido = usuarioPromovidoOptional.get();
+
         usuarioPromovido.setTipoUsuario(UsuarioEnum.ADMINISTRADOR);
 
-        return this.atualizarUsuario(usuarioPromovido);
+        return UsuarioDTO.UsuarioToDTO(usuarioRepository.save(usuarioPromovido));
     }
 
     @Override
@@ -107,17 +116,19 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario buscarUsuarioPorId(Integer id) {
-        return usuarioRepository.findById(id).orElseThrow(UsuarioInexistenteException::new);
+    public UsuarioDTO buscarUsuarioPorId(Integer id) {
+        return UsuarioDTO.UsuarioToDTO(usuarioRepository.findById(id)
+                .orElseThrow(UsuarioInexistenteException::new));
     }
 
     @Override
-    public Usuario buscarUsuarioPorApelido(String apelido) {
-        return usuarioRepository.findByApelido(apelido).orElseThrow(UsuarioInexistenteException::new);
+    public UsuarioDTO buscarUsuarioPorApelido(String apelido) {
+        return UsuarioDTO.UsuarioToDTO(usuarioRepository.findByApelido(apelido)
+                .orElseThrow(UsuarioInexistenteException::new));
     }
 
     @Override
-    public Usuario buscarUsuarioLogado(String token) {
+    public UsuarioDTO buscarUsuarioLogado(String token) {
         try {
             token = token.replace("Bearer ", "");
 
@@ -130,9 +141,15 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario buscarUsuarioPorEmail(String email) {
-        return usuarioRepository.findByEmail(email).orElseThrow(UsuarioInexistenteException::new);
+    public UsuarioDTO buscarUsuarioPorEmail(String email) {
+        return UsuarioDTO.UsuarioToDTO(usuarioRepository.findByEmail(email)
+                .orElseThrow(UsuarioInexistenteException::new));
     }
 
+    @Override
+    public Usuario buscarUsuarioPorEmailUserDetails(String email) {
+        return usuarioRepository.findByEmail(email)
+                .orElseThrow(UsuarioInexistenteException::new);
+    }
 }
 
