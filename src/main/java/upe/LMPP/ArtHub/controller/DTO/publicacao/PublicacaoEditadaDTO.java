@@ -1,4 +1,4 @@
-package upe.LMPP.ArtHub.controller.DTO;
+package upe.LMPP.ArtHub.controller.DTO.publicacao;
 
 public record PublicacaoEditadaDTO(
         Integer id,
