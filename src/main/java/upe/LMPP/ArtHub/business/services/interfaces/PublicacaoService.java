@@ -12,9 +12,9 @@ public interface PublicacaoService {
 
     PublicacaoDTO criarPublicacao(PublicacaoCriadaDTO publicacao, Integer idDono);
     PublicacaoDTO buscarPublicacao(Integer idPublicacao);
-    List<PublicacaoDTO> buscarTodasPublicacacoes();
+    List<PublicacaoDTO> buscarTodasPublicacacoes(int pagina, int itens);
     List<PublicacaoDTO> buscarPublicacoesPorUsuario(Integer idDono);
-    List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria);
+    List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria, int pagina, int itens);
     PublicacaoDTO atualizarPublicacao(PublicacaoEditadaDTO publicacaoDTO, Integer idDono);
     PublicacaoDTO curtirPublicacao(Integer idPublicacao, Integer idPerfil);
     PublicacaoDTO descurtirPublicacao(Integer idPublicacao, Integer idPerfil);

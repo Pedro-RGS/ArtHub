@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoCriadaDTO;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoEditadaDTO;
-import upe.LMPP.ArtHub.infra.entities.Publicacao;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
 
@@ -24,8 +23,9 @@ public class PublicacaoController {
 
     // Adicionar paginação
     @GetMapping
-    public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(){
-        return ResponseEntity.ok().body(publicacaoService.buscarTodasPublicacacoes());
+    public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(@RequestParam(required = false, defaultValue = "1") int pagina,
+                                                                @RequestParam(required = false, defaultValue = "8") int itens){
+        return ResponseEntity.ok().body(publicacaoService.buscarTodasPublicacacoes(pagina, itens));
     }
 
     @GetMapping("/{id}")
@@ -39,8 +39,10 @@ public class PublicacaoController {
     }
 
     @GetMapping("categoria/{categoria}")
-    public ResponseEntity<List<PublicacaoDTO>> getPublicacaoByCategoria(@PathVariable CategoriaEnum categoria){
-        return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria));
+    public ResponseEntity<List<PublicacaoDTO>> getPublicacaoByCategoria(@PathVariable CategoriaEnum categoria,
+                                                                        @RequestParam(required = false, defaultValue = "1") int pagina,
+                                                                        @RequestParam(required = false, defaultValue = "8") int itens){
+        return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria, pagina, itens));
     }
 
     @PostMapping("/{idDono}")

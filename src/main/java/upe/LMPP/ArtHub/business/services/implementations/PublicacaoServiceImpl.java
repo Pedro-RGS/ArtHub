@@ -3,6 +3,7 @@ package upe.LMPP.ArtHub.business.services.implementations;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
@@ -71,8 +72,10 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public List<PublicacaoDTO> buscarTodasPublicacacoes() {
-        return publicacaoRepository.findAll().stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
+    public List<PublicacaoDTO> buscarTodasPublicacacoes(int pagina, int itens) {
+
+        return publicacaoRepository.findAll(PageRequest.of(pagina, itens))
+                .stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
     }
 
     @Override
@@ -81,8 +84,9 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria) {
-        return publicacaoRepository.findByCategoria(categoria).stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
+    public List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria, int pagina, int itens) {
+        return publicacaoRepository.findByCategoria(categoria, PageRequest.of(pagina, itens))
+                .stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
     }
 
     @Override
