@@ -21,7 +21,6 @@ public class PublicacaoController {
     @Autowired
     PublicacaoService publicacaoService;
 
-    // Adicionar paginação
     @GetMapping
     public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(@RequestParam(required = false, defaultValue = "1") int pagina,
                                                                 @RequestParam(required = false, defaultValue = "8") int itens){
