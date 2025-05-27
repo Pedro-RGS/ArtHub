@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
+
 import java.io.IOException;
 
 @Component
@@ -19,40 +20,30 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     @Autowired
     TokenService tokenService;
-
     @Autowired
     UsuarioService service;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
+    protected void doFilterInternal(HttpServletRequest servletRequest,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-        String path = request.getRequestURI();
-
-        String token = recoverToken(request);
+        var token = this.recoverToken(servletRequest);
         if (token != null) {
-            try {
-                String emailUsuario = tokenService.validateToken(token);
-                UserDetails usuario = service.buscarUsuarioPorEmailUserDetails(emailUsuario);
+            String emailUsuario = this.tokenService.validateToken(token);
+            UserDetails usuario = this.service.buscarUsuarioPorEmailUserDetails(emailUsuario);
 
-                var authentication = new UsernamePasswordAuthenticationToken(
-                        usuario, null, usuario.getAuthorities());
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-            } catch (Exception e) {
-                // Ignora se o token for inválido, não autentica
-                // Você pode logar a exceção se quiser, por exemplo:
-                // System.out.println("Token inválido: " + e.getMessage());
-            }
+            var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(servletRequest, response);
     }
 
-    private String recoverToken(HttpServletRequest request) {
-        String authHeader = request.getHeader("Authorization");
+    public String recoverToken(HttpServletRequest request) {
+        var authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             return authHeader.replace("Bearer ", "");
         }
         return null;
     }
+
 }

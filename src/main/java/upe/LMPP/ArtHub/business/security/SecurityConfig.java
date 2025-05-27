@@ -43,16 +43,17 @@ public class SecurityConfig {
                         req, res, ex) -> {throw ex;}))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/registrar").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/registrar/admin").hasRole("Administrador")
                         .requestMatchers(HttpMethod.PUT, "/usuarios/atualizar").authenticated()
                         .requestMatchers(HttpMethod.GET, "/usuarios/dados").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/auth/registrar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/resgistrar/admin").hasRole("Administrador")
                         .requestMatchers(HttpMethod.DELETE, "/usuarios/remover/").hasRole("Administrador")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager() throws Exception {
