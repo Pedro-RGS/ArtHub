@@ -12,10 +12,7 @@ import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioEditadoDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
-import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioAdministradorInexistenteException;
-import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioExistenteException;
-import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
-import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioNaoAdminException;
+import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.*;
 import upe.LMPP.ArtHub.infra.repositories.UsuarioRepository;
 import upe.LMPP.ArtHub.business.services.interfaces.UsuarioService;
 
@@ -149,7 +146,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario buscarUsuarioPorEmailUserDetails(String email) {
         return usuarioRepository.findByEmail(email)
-                .orElseThrow(UsuarioInexistenteException::new);
+                .orElseThrow(UsuarioNaoLogadoException::new);
     }
 }
 

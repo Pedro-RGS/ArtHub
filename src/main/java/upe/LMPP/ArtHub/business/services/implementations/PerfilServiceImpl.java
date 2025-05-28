@@ -70,7 +70,7 @@ public class PerfilServiceImpl implements PerfilService {
         Perfil perfil = this.obterPerfil(donoId);
         perfil.setBiografia(dto.biografia());
         perfilRepository.save(perfil);
-        return PerfilDTO.toPerfilDTO(perfil);
+        return PerfilDTO.perfilToDTO(perfil);
     }
 
     @Override
@@ -87,7 +87,7 @@ public class PerfilServiceImpl implements PerfilService {
             perfil.setFotoPerfil(nomeArquivo);
             perfilRepository.save(perfil);
 
-            return PerfilDTO.toPerfilDTO(perfil);
+            return PerfilDTO.perfilToDTO(perfil);
         } catch (IOException e) {
             throw new PerfilInexistenteException();
         }
@@ -106,7 +106,7 @@ public class PerfilServiceImpl implements PerfilService {
             perfil.setBanner(nomeArquivo);
             perfilRepository.save(perfil);
 
-            return PerfilDTO.toPerfilDTO(perfil);
+            return PerfilDTO.perfilToDTO(perfil);
         } catch (IOException e) {
             throw new PerfilInexistenteException();
         }

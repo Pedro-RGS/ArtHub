@@ -1,6 +1,6 @@
 package upe.LMPP.ArtHub.controller.DTO.publicacao;
 
-import upe.LMPP.ArtHub.infra.entities.Perfil;
+import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilDTO;
 import upe.LMPP.ArtHub.infra.entities.Publicacao;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.infra.enums.TipoArquivoEnum;
@@ -14,8 +14,8 @@ public record PublicacaoDTO(
         String titulo,
         CategoriaEnum categoria,
         Integer curtidas,
-        Perfil perfil,
-        List<Perfil> perfisQueCurtiram) {
+        PerfilDTO perfil,
+        List<PerfilDTO> perfisQueCurtiram) {
 
     public static PublicacaoDTO PublicacaoToDTO(Publicacao publicacao) {
         return new PublicacaoDTO(
@@ -25,7 +25,8 @@ public record PublicacaoDTO(
                 publicacao.getTitulo(),
                 publicacao.getCategoria(),
                 publicacao.getCurtidas(),
-                publicacao.getPerfil(),
-                publicacao.getPerfisQueCurtiram());
+                PerfilDTO.perfilToDTO(publicacao.getPerfil()),
+                publicacao.getPerfisQueCurtiram().stream().map(PerfilDTO::perfilToDTO).toList()
+        );
     }
 }

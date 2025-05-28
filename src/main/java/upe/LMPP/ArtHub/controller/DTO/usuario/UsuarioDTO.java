@@ -5,6 +5,7 @@ import upe.LMPP.ArtHub.infra.enums.UsuarioEnum;
 
 
 public record UsuarioDTO(
+        Integer id,
         String nome,
         String apelido,
         String email,
@@ -13,6 +14,7 @@ public record UsuarioDTO(
 
     public static UsuarioDTO UsuarioToDTO(Usuario usuario) {
         return new UsuarioDTO(
+                usuario.getId(),
                 usuario.getNome(),
                 usuario.getApelido(),
                 usuario.getEmail(),

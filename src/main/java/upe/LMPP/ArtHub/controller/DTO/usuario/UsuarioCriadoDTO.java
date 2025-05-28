@@ -3,7 +3,6 @@ import jakarta.validation.constraints.Pattern;
 
 import java.util.Date;
 
-// Criar um UsuarioCreationDTO
 public record UsuarioCriadoDTO(
         String nome,
         String apelido,
