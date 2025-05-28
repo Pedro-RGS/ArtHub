@@ -2,6 +2,7 @@ package upe.LMPP.ArtHub.controller.controllerAdvice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import upe.LMPP.ArtHub.infra.exceptions.comentarioExceptions.ComentarioInexistenteException;
@@ -11,6 +12,8 @@ import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoNaoAutora
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.*;
 
 import java.nio.file.AccessDeniedException;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestControllerAdvice
 public class RestExceptionHandler {
@@ -76,5 +79,19 @@ public class RestExceptionHandler {
             UsuarioNaoLogadoException e
     ){
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleValidationException(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult().getFieldErrors().forEach(error -> {
+            String message = error.getDefaultMessage();
+            String field = error.getField();
+            System.out.println("Erro de validação - Campo: " + field + ", Mensagem: " + message);
+            errors.put(field, message);
+        });
+
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 }
