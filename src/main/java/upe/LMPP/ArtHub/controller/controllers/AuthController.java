@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
+
+import jakarta.validation.Valid;
 import upe.LMPP.ArtHub.controller.DTO.usuario.LoginDTO;
 import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioCriadoDTO;
 import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
@@ -38,7 +40,7 @@ public class AuthController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<UsuarioDTO> register(@RequestBody UsuarioCriadoDTO usuarioCriadoDTO){
+    public ResponseEntity<UsuarioDTO> register(@Valid @RequestBody UsuarioCriadoDTO usuarioCriadoDTO){
         return ResponseEntity.ok().body(usuarioService.cadastrarUsuario(usuarioCriadoDTO, UsuarioEnum.COMUM));
     }
 
