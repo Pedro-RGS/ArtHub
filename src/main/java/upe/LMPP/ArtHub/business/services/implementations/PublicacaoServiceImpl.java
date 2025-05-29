@@ -73,7 +73,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
     @Override
     public List<PublicacaoDTO> buscarTodasPublicacacoes(int pagina, int itens) {
-
+        System.out.println("tá chegando no método do service");
         return publicacaoRepository.findAll(PageRequest.of(pagina, itens))
                 .stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
     }
@@ -145,20 +145,20 @@ public class PublicacaoServiceImpl implements PublicacaoService {
             Publicacao publicacao = publicacaoRepository.findById(id)
                     .orElseThrow(PublicacaoInexistenteException::new);
 
-            PublicacaoEditadaDTO dto = new PublicacaoEditadaDTO(
-                    publicacao.getId(),
-                    publicacao.getTitulo(),
-                    publicacao.getLegenda(),
-                    publicacao.getNomeConteudo()
-            );
-
             if (arquivo != null && !arquivo.isEmpty()) {
                 byte[] bytes = arquivo.getBytes();
-                Path caminho = Paths.get(caminhoArquivos + id + "_" + arquivo.getOriginalFilename());
+                Path caminho = Paths.get(caminhoArquivos + "\\" + id + "_" + arquivo.getOriginalFilename());
+                System.out.println(caminho);
                 Files.write(caminho, bytes);
 
                 // Atualiza o campo nomeConteudo na publicação
                 publicacao.setNomeConteudo(id + "_" + arquivo.getOriginalFilename());
+                PublicacaoEditadaDTO dto = new PublicacaoEditadaDTO(
+                        publicacao.getId(),
+                        publicacao.getTitulo(),
+                        publicacao.getLegenda(),
+                        publicacao.getNomeConteudo()
+                );
 
                 return atualizarPublicacao(dto, publicacao.getPerfil().getUsuario().getId());
             } else {
