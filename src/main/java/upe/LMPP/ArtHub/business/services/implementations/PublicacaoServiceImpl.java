@@ -152,7 +152,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
                 Files.write(caminho, bytes);
 
                 // Atualiza o campo nomeConteudo na publicação
-                publicacao.setNomeConteudo(id + "_" + arquivo.getOriginalFilename());
+                publicacao.setNomeConteudo(caminho.toString().replace('\\', '/'));
                 PublicacaoEditadaDTO dto = new PublicacaoEditadaDTO(
                         publicacao.getId(),
                         publicacao.getTitulo(),
