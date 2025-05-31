@@ -23,7 +23,7 @@ public class PublicacaoController {
 
     @GetMapping
     public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(@RequestParam(required = false, defaultValue = "0") int pagina,
-                                                                @RequestParam(required = false, defaultValue = "8") int itens){
+                                                                @RequestParam(required = false, defaultValue = "14") int itens){
         return ResponseEntity.ok().body(publicacaoService.buscarTodasPublicacacoes(pagina, itens));
     }
 
