@@ -73,7 +73,6 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
     @Override
     public List<PublicacaoDTO> buscarTodasPublicacacoes(int pagina, int itens) {
-        System.out.println("tá chegando no método do service");
         return publicacaoRepository.findAll(PageRequest.of(pagina, itens))
                 .stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
     }
