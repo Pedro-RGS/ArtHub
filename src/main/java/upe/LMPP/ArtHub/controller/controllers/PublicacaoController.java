@@ -1,15 +1,22 @@
 package upe.LMPP.ArtHub.controller.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
+import upe.LMPP.ArtHub.business.services.implementations.ImageService;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoCriadaDTO;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoEditadaDTO;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
@@ -20,6 +27,9 @@ public class PublicacaoController {
 
     @Autowired
     PublicacaoService publicacaoService;
+
+    @Autowired
+    ImageService imageService;
 
     @GetMapping
     public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(@RequestParam(required = false, defaultValue = "0") int pagina,
@@ -42,6 +52,21 @@ public class PublicacaoController {
                                                                         @RequestParam(required = false, defaultValue = "1") int pagina,
                                                                         @RequestParam(required = false, defaultValue = "8") int itens){
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria, pagina, itens));
+    }
+
+    //getPublicacaoImage
+    @GetMapping("/imagem/{idPublicacao}")
+    public ResponseEntity<ByteArrayResource> getImage(@PathVariable Integer idPublicacao){
+        PublicacaoDTO publicacao = publicacaoService.buscarPublicacao(idPublicacao);
+        try {
+            byte[] imagem = imageService.getImage(publicacao.nomeConteudo());
+            MediaType mediaType = imageService.getMediaType(publicacao.nomeConteudo());
+            System.out.println(mediaType);
+
+            return ResponseEntity.ok().contentType(mediaType).body(new ByteArrayResource(imagem));
+        } catch (IOException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao carregar a imagem");
+        }
     }
 
     @PostMapping("/{idDono}")
