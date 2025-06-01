@@ -40,23 +40,23 @@ public class PerfilController {
         return ResponseEntity.ok().body(perfilService.obterSeguidos(perfilId));
     }
 
-//    @GetMapping("/imagem/{idPerfil}")
-//    public ResponseEntity<ByteArrayResource> getImage(@PathVariable Integer idPerfil){
-//        PublicacaoDTO publicacao = perfilService.bus(idPublicacao);
-//        MediaType mediaType = ImageService.getMediaType(publicacao.nomeConteudo());
-//        ByteArrayResource imagem = publicacaoService.buscarImagem(publicacao);
-//
-//        return ResponseEntity.ok().contentType(mediaType).body(imagem);
-//    }
-//
-//    @GetMapping("/imagem/{idPublicacao}")
-//    public ResponseEntity<ByteArrayResource> getImage(@PathVariable Integer idPublicacao){
-//        PublicacaoDTO publicacao = publicacaoService.buscarPublicacao(idPublicacao);
-//        MediaType mediaType = ImageService.getMediaType(publicacao.nomeConteudo());
-//        ByteArrayResource imagem = publicacaoService.buscarImagem(publicacao);
-//
-//        return ResponseEntity.ok().contentType(mediaType).body(imagem);
-//    }
+    @GetMapping("/fotoPerfil/{idPerfil}")
+    public ResponseEntity<ByteArrayResource> getImagePerfil(@PathVariable Integer idPerfil){
+        PerfilDTO publicacao = perfilService.getPerfil(idPerfil);
+        MediaType mediaType = ImageService.getMediaType(publicacao.fotoPerfil());
+        ByteArrayResource imagem = perfilService.buscarFotoPerfil(publicacao);
+
+        return ResponseEntity.ok().contentType(mediaType).body(imagem);
+    }
+
+    @GetMapping("/banner/{idPerfil}")
+    public ResponseEntity<ByteArrayResource> getImageBanner(@PathVariable Integer idPerfil){
+        PerfilDTO publicacao = perfilService.getPerfil(idPerfil);
+        MediaType mediaType = ImageService.getMediaType(publicacao.fotoPerfil());
+        ByteArrayResource imagem = perfilService.buscarFotoBanner(publicacao);
+
+        return ResponseEntity.ok().contentType(mediaType).body(imagem);
+    }
 
     @PutMapping("/{donoId}")
     public ResponseEntity<PerfilDTO> atualizarPerfil(@PathVariable Integer donoId,
