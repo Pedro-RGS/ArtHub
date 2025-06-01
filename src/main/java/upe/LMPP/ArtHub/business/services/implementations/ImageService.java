@@ -1,8 +1,12 @@
 package upe.LMPP.ArtHub.business.services.implementations;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,14 +17,9 @@ import java.nio.file.Paths;
 @Service
 public class ImageService {
 
-    @Value("${PATH_PUBLICACOES}")
-    private String caminhoArquivos;
-
     // metodo para determinar o tipo de extenção do arquivo
-    public MediaType getMediaType(String fileName){
+    public static MediaType getMediaType(String fileName){
         String extension = fileName.substring(fileName.lastIndexOf(".")).toLowerCase();
-        System.out.println(extension);
-
         return switch (extension) {
             case ".jpg", ".jpeg" -> MediaType.IMAGE_JPEG;
             case ".png" -> MediaType.IMAGE_PNG;
@@ -30,12 +29,12 @@ public class ImageService {
     }
 
     // metodo para pegar a imagem baseado no path dela
-    public byte[] getImage(String filePath) throws IOException {
-        Path path = Paths.get(caminhoArquivos).resolve(filePath).normalize();
-
+    public ByteArrayResource getImage(String fileName, String filePath) throws IOException {
+        Path path = Paths.get(filePath).resolve(fileName).normalize();
         if(!Files.exists(path)){
-            throw new FileNotFoundException("O arquivo com o seguinte path não foi encontrado: " + filePath);
+            throw new FileNotFoundException("O arquivo com o seguinte path não foi encontrado: " + fileName);
         }
-        return Files.readAllBytes(path);
+        byte[] imagem = Files.readAllBytes(path);
+        return new ByteArrayResource(imagem);
     }
 }
