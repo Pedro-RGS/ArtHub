@@ -6,6 +6,7 @@ import upe.LMPP.ArtHub.infra.entities.Perfil;
 import java.time.LocalDateTime;
 
 public record ComentarioDTO(
+        Integer id,
         Integer curtidas,
         LocalDateTime dataPublicacao,
         String conteudo,
@@ -13,6 +14,7 @@ public record ComentarioDTO(
 
     public static ComentarioDTO comentarioToDTO(Comentario comentario) {
         return new ComentarioDTO(
+                comentario.getId(),
                 comentario.getCurtidas(),
                 comentario.getDataPublicacao(),
                 comentario.getConteudo(),

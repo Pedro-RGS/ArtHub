@@ -8,6 +8,7 @@ import upe.LMPP.ArtHub.infra.enums.TipoArquivoEnum;
 import java.util.List;
 
 public record PublicacaoDTO(
+        Integer id,
         TipoArquivoEnum tipoArquivo,
         String legenda,
         String nomeConteudo,
@@ -19,6 +20,7 @@ public record PublicacaoDTO(
 
     public static PublicacaoDTO PublicacaoToDTO(Publicacao publicacao) {
         return new PublicacaoDTO(
+                publicacao.getId(),
                 publicacao.getTipoArquivo(),
                 publicacao.getLegenda(),
                 publicacao.getNomeConteudo(),
