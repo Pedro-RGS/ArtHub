@@ -3,6 +3,7 @@ package upe.LMPP.ArtHub.business.services.implementations;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +14,7 @@ import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoEditadaDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Publicacao;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
+import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.ImagemPublicacaoNaoEncontradaException;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
 import upe.LMPP.ArtHub.infra.repositories.PublicacaoRepository;
@@ -39,6 +41,9 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
     @Autowired
     PerfilService perfilService;
+
+    @Autowired
+    ImageService imageService;
 
     @Override
     public PublicacaoDTO criarPublicacao(PublicacaoCriadaDTO publicacao, Integer idDono) {
@@ -86,6 +91,15 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     public List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria, int pagina, int itens) {
         return publicacaoRepository.findByCategoria(categoria, PageRequest.of(pagina, itens))
                 .stream().map(PublicacaoDTO::PublicacaoToDTO).toList();
+    }
+
+    @Override
+    public ByteArrayResource buscarImagem(PublicacaoDTO publicacaoDTO) {
+        try {
+            return imageService.getImage(publicacaoDTO.nomeConteudo(), caminhoArquivos);
+        } catch (IOException e) {
+            throw new ImagemPublicacaoNaoEncontradaException();
+        }
     }
 
     @Override

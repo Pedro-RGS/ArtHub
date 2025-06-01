@@ -1,5 +1,6 @@
 package upe.LMPP.ArtHub.business.services.interfaces;
 
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.web.multipart.MultipartFile;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoCriadaDTO;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
@@ -15,6 +16,7 @@ public interface PublicacaoService {
     List<PublicacaoDTO> buscarTodasPublicacacoes(int pagina, int itens);
     List<PublicacaoDTO> buscarPublicacoesPorUsuario(Integer idDono);
     List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria, int pagina, int itens);
+    ByteArrayResource buscarImagem(PublicacaoDTO publicacaoDTO);
     PublicacaoDTO atualizarPublicacao(PublicacaoEditadaDTO publicacaoDTO, Integer idDono);
     PublicacaoDTO curtirPublicacao(Integer idPublicacao, Integer idPerfil);
     PublicacaoDTO descurtirPublicacao(Integer idPublicacao, Integer idPerfil);

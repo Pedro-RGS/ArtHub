@@ -28,9 +28,6 @@ public class PublicacaoController {
     @Autowired
     PublicacaoService publicacaoService;
 
-    @Autowired
-    ImageService imageService;
-
     @GetMapping
     public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(@RequestParam(required = false, defaultValue = "0") int pagina,
                                                                 @RequestParam(required = false, defaultValue = "14") int itens){
@@ -54,19 +51,13 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria, pagina, itens));
     }
 
-    //getPublicacaoImage
     @GetMapping("/imagem/{idPublicacao}")
     public ResponseEntity<ByteArrayResource> getImage(@PathVariable Integer idPublicacao){
         PublicacaoDTO publicacao = publicacaoService.buscarPublicacao(idPublicacao);
-        try {
-            byte[] imagem = imageService.getImage(publicacao.nomeConteudo());
-            MediaType mediaType = imageService.getMediaType(publicacao.nomeConteudo());
-            System.out.println(mediaType);
+        MediaType mediaType = ImageService.getMediaType(publicacao.nomeConteudo());
+        ByteArrayResource imagem = publicacaoService.buscarImagem(publicacao);
 
-            return ResponseEntity.ok().contentType(mediaType).body(new ByteArrayResource(imagem));
-        } catch (IOException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao carregar a imagem");
-        }
+        return ResponseEntity.ok().contentType(mediaType).body(imagem);
     }
 
     @PostMapping("/{idDono}")
