@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum TipoArquivoEnum {
     IMAGEM("Imagem"),
     AUDIO("Audio"),
-    TEXTO("Texto");
+    TEXTO("Texto"),
+    VIDEO("Video");
 
     private final String tipoArquivo;
 
