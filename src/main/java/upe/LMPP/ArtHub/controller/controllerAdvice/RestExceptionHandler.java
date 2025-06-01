@@ -6,12 +6,14 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import upe.LMPP.ArtHub.infra.exceptions.comentarioExceptions.ComentarioInexistenteException;
+import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemBannerNaoEncontradaException;
+import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemPerfilNaoEncontradaException;
+import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.ImagemPublicacaoNaoEncontradaException;
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.*;
 
-import java.nio.file.AccessDeniedException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,6 +74,27 @@ public class RestExceptionHandler {
             UsuarioNaoAdminException e
     ){
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(e.getMessage());
+    }
+
+    @ExceptionHandler(ImagemPublicacaoNaoEncontradaException.class)
+    public ResponseEntity<String> imagemPublicacaoNaoEncontrada(
+            ImagemPublicacaoNaoEncontradaException e
+    ){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+    }
+
+    @ExceptionHandler(ImagemPerfilNaoEncontradaException.class)
+    public ResponseEntity<String> imagemPublicacaoNaoEncontrada(
+            ImagemPerfilNaoEncontradaException e
+    ){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+    }
+
+    @ExceptionHandler(ImagemBannerNaoEncontradaException.class)
+    public ResponseEntity<String> imagemPublicacaoNaoEncontrada(
+            ImagemBannerNaoEncontradaException e
+    ){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
 
     @ExceptionHandler(UsuarioNaoLogadoException.class)
