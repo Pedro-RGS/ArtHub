@@ -2,6 +2,7 @@ package upe.LMPP.ArtHub.business.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,6 +12,9 @@ import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilEditadoDTO;
 import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
+import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemBannerNaoEncontradaException;
+import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemPerfilNaoEncontradaException;
+import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.ImagemPublicacaoNaoEncontradaException;
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
@@ -31,6 +35,9 @@ public class PerfilServiceImpl implements PerfilService {
 
     @Autowired
     PerfilRepository perfilRepository;
+
+    @Autowired
+    ImageService imageService;
 
     @Override
     public Perfil criarPerfil(Usuario usuario) {
@@ -128,6 +135,24 @@ public class PerfilServiceImpl implements PerfilService {
         return perfilRepository
                 .findById(id)
                 .orElseThrow(PerfilInexistenteException::new);
+    }
+
+    @Override
+    public ByteArrayResource buscarFotoPerfil(PerfilDTO perfil) {
+        try {
+            return imageService.getImage(perfil.fotoPerfil(), caminhoArquivosPerfis);
+        } catch (IOException e) {
+            throw new ImagemPerfilNaoEncontradaException();
+        }
+    }
+
+    @Override
+    public ByteArrayResource buscarFotoBanner(PerfilDTO perfil) {
+        try {
+            return imageService.getImage(perfil.fotoPerfil(), caminhoArquivosBanners);
+        } catch (IOException e) {
+            throw new ImagemBannerNaoEncontradaException();
+        }
     }
 
     @Override

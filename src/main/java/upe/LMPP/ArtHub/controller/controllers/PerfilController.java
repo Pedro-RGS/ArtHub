@@ -1,12 +1,16 @@
 package upe.LMPP.ArtHub.controller.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import upe.LMPP.ArtHub.business.services.implementations.ImageService;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
 import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilDTO;
 import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilEditadoDTO;
+import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
 import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
 
 import java.util.List;
@@ -28,6 +32,24 @@ public class PerfilController {
     public ResponseEntity<List<UsuarioDTO>> getSeguindo(@PathVariable Integer userId) {
         return ResponseEntity.ok().body(perfilService.obterSeguidos(userId));
     }
+
+//    @GetMapping("/imagem/{idPerfil}")
+//    public ResponseEntity<ByteArrayResource> getImage(@PathVariable Integer idPerfil){
+//        PublicacaoDTO publicacao = perfilService.bus(idPublicacao);
+//        MediaType mediaType = ImageService.getMediaType(publicacao.nomeConteudo());
+//        ByteArrayResource imagem = publicacaoService.buscarImagem(publicacao);
+//
+//        return ResponseEntity.ok().contentType(mediaType).body(imagem);
+//    }
+//
+//    @GetMapping("/imagem/{idPublicacao}")
+//    public ResponseEntity<ByteArrayResource> getImage(@PathVariable Integer idPublicacao){
+//        PublicacaoDTO publicacao = publicacaoService.buscarPublicacao(idPublicacao);
+//        MediaType mediaType = ImageService.getMediaType(publicacao.nomeConteudo());
+//        ByteArrayResource imagem = publicacaoService.buscarImagem(publicacao);
+//
+//        return ResponseEntity.ok().contentType(mediaType).body(imagem);
+//    }
 
     @PutMapping("/{donoId}")
     public ResponseEntity<PerfilDTO> atualizarPerfil(@PathVariable Integer donoId,
