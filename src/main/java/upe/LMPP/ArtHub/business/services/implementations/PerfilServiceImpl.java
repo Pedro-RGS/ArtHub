@@ -151,4 +151,9 @@ public class PerfilServiceImpl implements PerfilService {
 
         return perfil.get().getSeguidores().stream().map(Perfil::getUsuario).map(UsuarioDTO::UsuarioToDTO).toList();
     }
+
+    @Override
+    public PerfilDTO getPerfil(Integer idUsuario) {
+        return PerfilDTO.perfilToDTO(perfilRepository.findById(idUsuario).get());
+    }
 }

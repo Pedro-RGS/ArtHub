@@ -8,6 +8,7 @@ import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
 import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilDTO;
 import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilEditadoDTO;
 import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
+import upe.LMPP.ArtHub.infra.entities.Perfil;
 
 import java.util.List;
 
@@ -19,14 +20,20 @@ public class PerfilController {
     @Autowired
     private PerfilService perfilService;
 
-    @GetMapping("/seguidores/{userId}")
-    public ResponseEntity<List<UsuarioDTO>> getSeguidores(@PathVariable Integer userId) {
-        return ResponseEntity.ok().body(perfilService.obterSeguidores(userId));
+    @GetMapping("/{perfilId}")
+    public ResponseEntity<PerfilDTO> getPerfil(@PathVariable Integer perfilId ) {
+        return ResponseEntity.ok().body(perfilService.getPerfil(perfilId));
+
     }
 
-    @GetMapping("/seguindo/{userId}")
-    public ResponseEntity<List<UsuarioDTO>> getSeguindo(@PathVariable Integer userId) {
-        return ResponseEntity.ok().body(perfilService.obterSeguidos(userId));
+    @GetMapping("/seguidores/{perfilId}")
+    public ResponseEntity<List<UsuarioDTO>> getSeguidores(@PathVariable Integer perfilId) {
+        return ResponseEntity.ok().body(perfilService.obterSeguidores(perfilId));
+    }
+
+    @GetMapping("/seguindo/{perfilId}")
+    public ResponseEntity<List<UsuarioDTO>> getSeguindo(@PathVariable Integer perfilId) {
+        return ResponseEntity.ok().body(perfilService.obterSeguidos(perfilId));
     }
 
     @PutMapping("/{donoId}")
@@ -45,8 +52,8 @@ public class PerfilController {
         return ResponseEntity.ok().body(perfilService.uploadFotoBanner(id, file));
     }
 
-    @PutMapping("/{userId}/seguir/{seguindoId}")
-    public ResponseEntity<Boolean> seguirUsuario(@PathVariable Integer userId, @PathVariable Integer seguindoId) {
-        return ResponseEntity.ok().body(perfilService.seguirUsuario(userId, seguindoId));
+    @PutMapping("/{perfilId}/seguir/{seguindoId}")
+    public ResponseEntity<Boolean> seguirUsuario(@PathVariable Integer perfilId, @PathVariable Integer seguindoId) {
+        return ResponseEntity.ok().body(perfilService.seguirUsuario(perfilId, seguindoId));
     }
 }
