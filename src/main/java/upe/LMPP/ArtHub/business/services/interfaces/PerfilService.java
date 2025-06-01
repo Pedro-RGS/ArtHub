@@ -18,6 +18,7 @@ public interface PerfilService {
     PerfilDTO atualizarBio(Integer donoId, PerfilEditadoDTO dto);
     void removerPerfil(Integer idUsuario);
     Perfil obterPerfil(Integer id);
+    PerfilDTO getPerfil(Integer id);
     ByteArrayResource buscarFotoPerfil(PerfilDTO perfil);
     ByteArrayResource buscarFotoBanner(PerfilDTO perfil);
     List<UsuarioDTO> obterSeguidos(Integer idUsuario);
