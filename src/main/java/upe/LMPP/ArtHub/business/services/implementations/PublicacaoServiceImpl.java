@@ -14,7 +14,7 @@ import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoEditadaDTO;
 import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Publicacao;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
-import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.ImagemPublicacaoNaoEncontradaException;
+import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.MidiaPublicacaoNaoEncontradaException;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.PublicacaoNaoAutoralException;
 import upe.LMPP.ArtHub.infra.repositories.PublicacaoRepository;
@@ -43,7 +43,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     PerfilService perfilService;
 
     @Autowired
-    ImageService imageService;
+    MediaService imageService;
 
     @Override
     public PublicacaoDTO criarPublicacao(PublicacaoCriadaDTO publicacao, Integer idDono) {
@@ -94,11 +94,11 @@ public class PublicacaoServiceImpl implements PublicacaoService {
     }
 
     @Override
-    public ByteArrayResource buscarImagem(PublicacaoDTO publicacaoDTO) {
+    public ByteArrayResource buscarConteudo(PublicacaoDTO publicacaoDTO) {
         try {
-            return imageService.getImage(publicacaoDTO.nomeConteudo(), caminhoArquivos);
+            return imageService.getFile(publicacaoDTO.nomeConteudo(), caminhoArquivos);
         } catch (IOException e) {
-            throw new ImagemPublicacaoNaoEncontradaException();
+            throw new MidiaPublicacaoNaoEncontradaException();
         }
     }
 
@@ -150,6 +150,15 @@ public class PublicacaoServiceImpl implements PublicacaoService {
         }
 
         publicacaoRepository.deleteById(idPublicacao);
+
+        try{
+            Path path = Path.of(caminhoArquivos).resolve(publicacao.getNomeConteudo()).normalize();
+            if (Files.exists(path)) {
+                Files.delete(path);
+            }
+        } catch (IOException e) {
+            throw new MidiaPublicacaoNaoEncontradaException();
+        }
     }
 
     @Override
@@ -159,13 +168,14 @@ public class PublicacaoServiceImpl implements PublicacaoService {
                     .orElseThrow(PublicacaoInexistenteException::new);
 
             if (arquivo != null && !arquivo.isEmpty()) {
-                byte[] bytes = arquivo.getBytes();
-                Path caminho = Paths.get(caminhoArquivos + "\\" + id + "_" + arquivo.getOriginalFilename());
-                System.out.println(caminho);
-                Files.write(caminho, bytes);
+                String originalFilename = arquivo.getOriginalFilename();
+                assert originalFilename != null;
+                String fileNameSafe = id + "_" + originalFilename.replaceAll("[^a-zA-Z0-9.\\-]", "_");
+                Path caminho = Paths.get(caminhoArquivos).resolve(fileNameSafe).normalize();
+                Files.write(caminho, arquivo.getBytes());
 
                 // Atualiza o campo nomeConteudo na publicação
-                publicacao.setNomeConteudo(id + "_" + arquivo.getOriginalFilename());
+                publicacao.setNomeConteudo(fileNameSafe);
                 PublicacaoEditadaDTO dto = new PublicacaoEditadaDTO(
                         publicacao.getId(),
                         publicacao.getTitulo(),
