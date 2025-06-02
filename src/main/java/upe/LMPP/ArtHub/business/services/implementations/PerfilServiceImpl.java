@@ -14,7 +14,6 @@ import upe.LMPP.ArtHub.infra.entities.Perfil;
 import upe.LMPP.ArtHub.infra.entities.Usuario;
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemBannerNaoEncontradaException;
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemPerfilNaoEncontradaException;
-import upe.LMPP.ArtHub.infra.exceptions.publicacaoExceptions.ImagemPublicacaoNaoEncontradaException;
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
@@ -37,7 +36,7 @@ public class PerfilServiceImpl implements PerfilService {
     PerfilRepository perfilRepository;
 
     @Autowired
-    ImageService imageService;
+    MediaService imageService;
 
     @Override
     public Perfil criarPerfil(Usuario usuario) {
@@ -140,7 +139,7 @@ public class PerfilServiceImpl implements PerfilService {
     @Override
     public ByteArrayResource buscarFotoPerfil(PerfilDTO perfil) {
         try {
-            return imageService.getImage(perfil.fotoPerfil(), caminhoArquivosPerfis);
+            return imageService.getFile(perfil.fotoPerfil(), caminhoArquivosPerfis);
         } catch (IOException e) {
             throw new ImagemPerfilNaoEncontradaException();
         }
@@ -149,7 +148,7 @@ public class PerfilServiceImpl implements PerfilService {
     @Override
     public ByteArrayResource buscarFotoBanner(PerfilDTO perfil) {
         try {
-            return imageService.getImage(perfil.fotoPerfil(), caminhoArquivosBanners);
+            return imageService.getFile(perfil.fotoPerfil(), caminhoArquivosBanners);
         } catch (IOException e) {
             throw new ImagemBannerNaoEncontradaException();
         }

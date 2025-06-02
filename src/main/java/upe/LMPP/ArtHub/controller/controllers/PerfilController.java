@@ -6,13 +6,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import upe.LMPP.ArtHub.business.services.implementations.ImageService;
+import upe.LMPP.ArtHub.business.services.implementations.MediaService;
 import upe.LMPP.ArtHub.business.services.interfaces.PerfilService;
 import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilDTO;
 import upe.LMPP.ArtHub.controller.DTO.pefil.PerfilEditadoDTO;
-import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
 import upe.LMPP.ArtHub.controller.DTO.usuario.UsuarioDTO;
-import upe.LMPP.ArtHub.infra.entities.Perfil;
 
 import java.util.List;
 
@@ -43,7 +41,7 @@ public class PerfilController {
     @GetMapping("/fotoPerfil/{idPerfil}")
     public ResponseEntity<ByteArrayResource> getImagePerfil(@PathVariable Integer idPerfil){
         PerfilDTO publicacao = perfilService.getPerfil(idPerfil);
-        MediaType mediaType = ImageService.getMediaType(publicacao.fotoPerfil());
+        MediaType mediaType = MediaService.getMediaType(publicacao.fotoPerfil());
         ByteArrayResource imagem = perfilService.buscarFotoPerfil(publicacao);
 
         return ResponseEntity.ok().contentType(mediaType).body(imagem);
@@ -52,7 +50,7 @@ public class PerfilController {
     @GetMapping("/banner/{idPerfil}")
     public ResponseEntity<ByteArrayResource> getImageBanner(@PathVariable Integer idPerfil){
         PerfilDTO publicacao = perfilService.getPerfil(idPerfil);
-        MediaType mediaType = ImageService.getMediaType(publicacao.fotoPerfil());
+        MediaType mediaType = MediaService.getMediaType(publicacao.fotoPerfil());
         ByteArrayResource imagem = perfilService.buscarFotoBanner(publicacao);
 
         return ResponseEntity.ok().contentType(mediaType).body(imagem);
