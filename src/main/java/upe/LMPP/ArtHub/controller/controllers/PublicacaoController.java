@@ -2,22 +2,20 @@ package upe.LMPP.ArtHub.controller.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.server.ResponseStatusException;
-import upe.LMPP.ArtHub.business.services.implementations.ImageService;
+import upe.LMPP.ArtHub.business.services.implementations.MediaService;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoCriadaDTO;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoDTO;
 import upe.LMPP.ArtHub.controller.DTO.publicacao.PublicacaoEditadaDTO;
 import upe.LMPP.ArtHub.infra.enums.CategoriaEnum;
 import upe.LMPP.ArtHub.business.services.interfaces.PublicacaoService;
 
-import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -50,13 +48,14 @@ public class PublicacaoController {
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria, pagina, itens));
     }
 
-    @GetMapping("/imagem/{idPublicacao}")
-    public ResponseEntity<ByteArrayResource> getImage(@PathVariable Integer idPublicacao){
+    @GetMapping("/midia/{idPublicacao}")
+    public ResponseEntity<ByteArrayResource> getMedia(@PathVariable Integer idPublicacao){
         PublicacaoDTO publicacao = publicacaoService.buscarPublicacao(idPublicacao);
-        MediaType mediaType = ImageService.getMediaType(publicacao.nomeConteudo());
-        ByteArrayResource imagem = publicacaoService.buscarImagem(publicacao);
+        MediaType mediaType = MediaService.getMediaType(publicacao.nomeConteudo());
+        System.out.println(publicacao.nomeConteudo());
+        ByteArrayResource conteudo = publicacaoService.buscarConteudo(publicacao);
 
-        return ResponseEntity.ok().contentType(mediaType).body(imagem);
+        return ResponseEntity.ok().contentType(mediaType).body(conteudo);
     }
 
     @PostMapping("/{idDono}")
@@ -64,7 +63,9 @@ public class PublicacaoController {
                                                      @PathVariable Integer idDono) {
         PublicacaoDTO novaPublicacao = publicacaoService.criarPublicacao(publicacaoDTO, idDono);
 
-        return ResponseEntity.created(URI.create("/publicacoes/" + novaPublicacao.titulo())).body(novaPublicacao);
+        String tituloEncodeURL = URLEncoder.encode(novaPublicacao.titulo(), StandardCharsets.UTF_8);
+
+        return ResponseEntity.created(URI.create("/publicacoes/" + tituloEncodeURL)).body(novaPublicacao);
     }
 
     @PutMapping("/add-media/{id}")
