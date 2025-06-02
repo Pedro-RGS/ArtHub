@@ -16,7 +16,7 @@ public interface PublicacaoService {
     List<PublicacaoDTO> buscarTodasPublicacacoes(int pagina, int itens);
     List<PublicacaoDTO> buscarPublicacoesPorUsuario(Integer idDono);
     List<PublicacaoDTO> buscarPublicacaoPorCategoria(CategoriaEnum categoria, int pagina, int itens);
-    ByteArrayResource buscarImagem(PublicacaoDTO publicacaoDTO);
+    ByteArrayResource buscarConteudo(PublicacaoDTO publicacaoDTO);
     PublicacaoDTO atualizarPublicacao(PublicacaoEditadaDTO publicacaoDTO, Integer idDono);
     PublicacaoDTO curtirPublicacao(Integer idPublicacao, Integer idPerfil);
     PublicacaoDTO descurtirPublicacao(Integer idPublicacao, Integer idPerfil);
