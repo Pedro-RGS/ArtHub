@@ -22,10 +22,9 @@ public class PerfilController {
     @Autowired
     private PerfilService perfilService;
 
-    @GetMapping("/{perfilId}")
-    public ResponseEntity<PerfilDTO> getPerfil(@PathVariable Integer perfilId ) {
-        return ResponseEntity.ok().body(perfilService.getPerfil(perfilId));
-
+    @GetMapping("/{usuarioId}")
+    public ResponseEntity<PerfilDTO> getPerfil(@PathVariable Integer usuarioId ) {
+        return ResponseEntity.ok().body(perfilService.getPerfil(usuarioId));
     }
 
     @GetMapping("/seguidores/{perfilId}")
