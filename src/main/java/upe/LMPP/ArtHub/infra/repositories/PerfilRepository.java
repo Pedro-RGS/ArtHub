@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface PerfilRepository extends JpaRepository<Perfil, Integer> {
-    @Query("SELECT p FROM Perfil p WHERE p.usuario = :idUsuario")
+    @Query("SELECT p FROM Perfil p WHERE p.usuario.id = :idUsuario")
     Optional<Perfil> findByIdUsuario(@Param("idUsuario") Integer id);
 }
