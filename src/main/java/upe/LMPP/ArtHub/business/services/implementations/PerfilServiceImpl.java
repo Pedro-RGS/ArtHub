@@ -177,7 +177,8 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public PerfilDTO getPerfil(Integer idUsuario) {
-        return PerfilDTO.perfilToDTO(perfilRepository.findById(idUsuario).get());
+    public PerfilDTO getPerfil(Integer id) {
+        return PerfilDTO.perfilToDTO(
+                perfilRepository.findByIdUsuario(id).orElseThrow(PerfilInexistenteException::new));
     }
 }
