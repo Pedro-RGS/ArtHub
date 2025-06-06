@@ -45,7 +45,7 @@ public class AuthController {
     }
 
     @PostMapping("/registrar/admin")
-    public ResponseEntity<UsuarioDTO> registerAdmin(@RequestBody UsuarioCriadoDTO usuarioCriadoDTO){
+    public ResponseEntity<UsuarioDTO> registerAdmin(@Valid @RequestBody UsuarioCriadoDTO usuarioCriadoDTO){
         return ResponseEntity.ok().body(usuarioService.cadastrarUsuario(usuarioCriadoDTO, UsuarioEnum.ADMINISTRADOR));
     }
 }
