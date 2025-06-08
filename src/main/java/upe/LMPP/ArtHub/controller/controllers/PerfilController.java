@@ -27,32 +27,39 @@ public class PerfilController {
         return ResponseEntity.ok().body(perfilService.getPerfil(usuarioId));
     }
 
-    @GetMapping("/seguidores/{perfilId}")
-    public ResponseEntity<List<UsuarioDTO>> getSeguidores(@PathVariable Integer perfilId) {
-        return ResponseEntity.ok().body(perfilService.obterSeguidores(perfilId));
+    @GetMapping("/seguidores/{usuarioId}")
+    public ResponseEntity<List<UsuarioDTO>> getSeguidores(@PathVariable Integer usuarioId) {
+        return ResponseEntity.ok().body(perfilService.obterSeguidores(usuarioId));
     }
 
-    @GetMapping("/seguindo/{perfilId}")
-    public ResponseEntity<List<UsuarioDTO>> getSeguindo(@PathVariable Integer perfilId) {
-        return ResponseEntity.ok().body(perfilService.obterSeguidos(perfilId));
+    @GetMapping("/seguindo/{usuarioId}")
+    public ResponseEntity<List<UsuarioDTO>> getSeguindo(@PathVariable Integer usuarioId) {
+        return ResponseEntity.ok().body(perfilService.obterSeguidos(usuarioId));
     }
 
     @GetMapping("/fotoPerfil/{idPerfil}")
     public ResponseEntity<ByteArrayResource> getImagePerfil(@PathVariable Integer idPerfil){
         PerfilDTO perfil = perfilService.getPerfil(idPerfil);
         MediaType mediaType = MediaService.getMediaType(perfil.fotoPerfil());
-        ByteArrayResource imagem = perfilService.buscarFotoPerfil(perfil);
 
+        if (mediaType == null){
+            return ResponseEntity.ok().body(null);
+        }
+
+        ByteArrayResource imagem = perfilService.buscarFotoPerfil(perfil);
         return ResponseEntity.ok().contentType(mediaType).body(imagem);
     }
 
     @GetMapping("/banner/{idPerfil}")
     public ResponseEntity<ByteArrayResource> getImageBanner(@PathVariable Integer idPerfil){
         PerfilDTO perfil = perfilService.getPerfil(idPerfil);
-        System.out.println(perfil.banner());
         MediaType mediaType = MediaService.getMediaType(perfil.banner());
-        ByteArrayResource imagem = perfilService.buscarFotoBanner(perfil);
 
+        if (mediaType == null){
+            return ResponseEntity.ok().body(null);
+        }
+
+        ByteArrayResource imagem = perfilService.buscarFotoBanner(perfil);
         return ResponseEntity.ok().contentType(mediaType).body(imagem);
     }
 
