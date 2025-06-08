@@ -39,18 +39,19 @@ public class PerfilController {
 
     @GetMapping("/fotoPerfil/{idPerfil}")
     public ResponseEntity<ByteArrayResource> getImagePerfil(@PathVariable Integer idPerfil){
-        PerfilDTO publicacao = perfilService.getPerfil(idPerfil);
-        MediaType mediaType = MediaService.getMediaType(publicacao.fotoPerfil());
-        ByteArrayResource imagem = perfilService.buscarFotoPerfil(publicacao);
+        PerfilDTO perfil = perfilService.getPerfil(idPerfil);
+        MediaType mediaType = MediaService.getMediaType(perfil.fotoPerfil());
+        ByteArrayResource imagem = perfilService.buscarFotoPerfil(perfil);
 
         return ResponseEntity.ok().contentType(mediaType).body(imagem);
     }
 
     @GetMapping("/banner/{idPerfil}")
     public ResponseEntity<ByteArrayResource> getImageBanner(@PathVariable Integer idPerfil){
-        PerfilDTO publicacao = perfilService.getPerfil(idPerfil);
-        MediaType mediaType = MediaService.getMediaType(publicacao.fotoPerfil());
-        ByteArrayResource imagem = perfilService.buscarFotoBanner(publicacao);
+        PerfilDTO perfil = perfilService.getPerfil(idPerfil);
+        System.out.println(perfil.banner());
+        MediaType mediaType = MediaService.getMediaType(perfil.banner());
+        ByteArrayResource imagem = perfilService.buscarFotoBanner(perfil);
 
         return ResponseEntity.ok().contentType(mediaType).body(imagem);
     }

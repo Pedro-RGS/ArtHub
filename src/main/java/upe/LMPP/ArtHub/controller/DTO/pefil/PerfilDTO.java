@@ -16,7 +16,7 @@ public record PerfilDTO(
                 perfil.getId(),
                 perfil.getBiografia(),
                 perfil.getFotoPerfil(),
-                perfil.getBiografia(),
+                perfil.getBanner(),
                 UsuarioDTO.UsuarioToDTO(perfil.getUsuario())
         );
     }
