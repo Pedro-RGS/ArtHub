@@ -15,7 +15,7 @@ public interface PerfilService {
     boolean seguirUsuario(Integer usuario, Integer seguindo);
     PerfilDTO uploadFotoPerfil(Integer id, MultipartFile file);
     PerfilDTO uploadFotoBanner(Integer id, MultipartFile file);
-    PerfilDTO atualizarBio(Integer donoId, PerfilEditadoDTO dto);
+    PerfilDTO atualizarPerfil(Integer donoId, PerfilEditadoDTO dto);
     void removerPerfil(Integer idUsuario);
     Perfil obterPerfil(Integer id);
     PerfilDTO getPerfil(Integer id);

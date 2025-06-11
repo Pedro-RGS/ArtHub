@@ -66,7 +66,7 @@ public class PerfilController {
     @PutMapping("/{donoId}")
     public ResponseEntity<PerfilDTO> atualizarPerfil(@PathVariable Integer donoId,
                                                      @RequestBody PerfilEditadoDTO perfilEditadoDTO) {
-        return ResponseEntity.ok().body(perfilService.atualizarBio(donoId, perfilEditadoDTO));
+        return ResponseEntity.ok().body(perfilService.atualizarPerfil(donoId, perfilEditadoDTO));
     }
 
     @PutMapping("/uploadPerfil/{id}")
