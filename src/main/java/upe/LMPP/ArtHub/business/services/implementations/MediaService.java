@@ -15,8 +15,13 @@ public class MediaService {
 
     // metodo para determinar o tipo de extenção do arquivo
     public static MediaType getMediaType(String fileName){
+        if (fileName == null || fileName.isEmpty()) {
+            return null;
+        }
+
         String extension = "";
         int dotIndex = fileName.lastIndexOf(".");
+
         if (dotIndex > 0){
             extension = fileName.substring(dotIndex).toLowerCase();
         }

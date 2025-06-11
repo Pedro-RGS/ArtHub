@@ -18,8 +18,10 @@ import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteExcept
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,16 +86,20 @@ public class PerfilServiceImpl implements PerfilService {
         try {
             Perfil perfil = obterPerfil(id);
 
-            // Gerar nome único para o arquivo
+            if (perfil == null){
+                throw new PerfilInexistenteException();
+            }
+
             String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosPerfis + "\\" + id + "_" + nomeArquivo + "\\");
-            file.transferTo(destino);
+            assert nomeArquivo != null;
+            String nomeArquivoTratado = id + "_" + nomeArquivo.replaceAll("[^a-zA-Z0-9.\\-]", "_");
+            Path destino = Paths.get(caminhoArquivosPerfis).resolve(nomeArquivoTratado).normalize();
+            Files.write(destino, file.getBytes());
 
-            // Atualizar o caminho no atributo do usuário
-            perfil.setFotoPerfil(nomeArquivo);
+            perfil.setFotoPerfil(nomeArquivoTratado);
             perfilRepository.save(perfil);
-
             return PerfilDTO.perfilToDTO(perfil);
+
         } catch (IOException e) {
             throw new PerfilInexistenteException();
         }
@@ -103,16 +109,20 @@ public class PerfilServiceImpl implements PerfilService {
         try {
             Perfil perfil = this.obterPerfil(id);
 
-            // Gerar nome único para o arquivo
+            if (perfil == null){
+                throw new PerfilInexistenteException();
+            }
+
             String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosBanners + "\\" + id + "_" + nomeArquivo + "\\");
-            file.transferTo(destino);
+            assert nomeArquivo != null;
+            String nomeArquivoTratado = id + "_" + nomeArquivo.replaceAll("[^a-zA-Z0-9.\\-]", "_");
+            Path caminho = Paths.get(caminhoArquivosBanners).resolve(nomeArquivoTratado).normalize();
+            Files.write(caminho, file.getBytes());
 
-            // Atualizar o caminho no atributo do usuário
-            perfil.setBanner(nomeArquivo);
+            perfil.setBanner(nomeArquivoTratado);
             perfilRepository.save(perfil);
-
             return PerfilDTO.perfilToDTO(perfil);
+
         } catch (IOException e) {
             throw new PerfilInexistenteException();
         }
@@ -148,7 +158,7 @@ public class PerfilServiceImpl implements PerfilService {
     @Override
     public ByteArrayResource buscarFotoBanner(PerfilDTO perfil) {
         try {
-            return imageService.getFile(perfil.fotoPerfil(), caminhoArquivosBanners);
+            return imageService.getFile(perfil.banner(), caminhoArquivosBanners);
         } catch (IOException e) {
             throw new ImagemBannerNaoEncontradaException();
         }
