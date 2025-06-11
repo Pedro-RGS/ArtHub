@@ -86,7 +86,7 @@ public class PerfilServiceImpl implements PerfilService {
 
             // Gerar nome único para o arquivo
             String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosPerfis + "\\" + id + "_" + nomeArquivo);
+            File destino = new File(caminhoArquivosPerfis + "\\" + id + "_" + nomeArquivo + "\\");
             file.transferTo(destino);
 
             // Atualizar o caminho no atributo do usuário
@@ -105,7 +105,7 @@ public class PerfilServiceImpl implements PerfilService {
 
             // Gerar nome único para o arquivo
             String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosBanners + "\\" + id + "_" + nomeArquivo);
+            File destino = new File(caminhoArquivosBanners + "\\" + id + "_" + nomeArquivo + "\\");
             file.transferTo(destino);
 
             // Atualizar o caminho no atributo do usuário
