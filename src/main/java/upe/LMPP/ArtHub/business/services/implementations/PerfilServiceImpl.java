@@ -74,9 +74,10 @@ public class PerfilServiceImpl implements PerfilService {
 
     // email, senha, foto de perfil, banner, nome, telefone, bio
     @Override
-    public PerfilDTO atualizarBio(Integer donoId, PerfilEditadoDTO dto) {
+    public PerfilDTO atualizarPerfil(Integer donoId, PerfilEditadoDTO dto) {
         Perfil perfil = this.obterPerfil(donoId);
         perfil.setBiografia(dto.biografia());
+        perfil.getUsuario().setApelido(dto.apelido());
         perfilRepository.save(perfil);
         return PerfilDTO.perfilToDTO(perfil);
     }
