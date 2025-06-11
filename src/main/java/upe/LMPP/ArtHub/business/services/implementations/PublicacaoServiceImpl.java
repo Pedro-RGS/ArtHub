@@ -115,6 +115,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
 
             publicacaoEntity.setTitulo(publicacaoDTO.titulo());
             publicacaoEntity.setLegenda(publicacaoDTO.legenda());
+            publicacaoEntity.setCategoria(publicacaoDTO.categoria());
             publicacaoEntity.setNomeConteudo(publicacaoDTO.nomeConteudo());
 
             return PublicacaoDTO.PublicacaoToDTO(publicacaoRepository.save(publicacaoEntity));
@@ -180,6 +181,7 @@ public class PublicacaoServiceImpl implements PublicacaoService {
                         publicacao.getId(),
                         publicacao.getTitulo(),
                         publicacao.getLegenda(),
+                        publicacao.getCategoria(),
                         publicacao.getNomeConteudo()
                 );
 
