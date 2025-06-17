@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer> {
-    @Query("SELECT p FROM Publicacao p WHERE p.perfil.usuario = :idDono")
+    @Query("SELECT p FROM Publicacao p WHERE p.perfil.usuario.id = :idDono")
     List<Publicacao> findByPerfil(Integer idDono);
     List<Publicacao> findByCategoria(CategoriaEnum categoria, Pageable pageable);
     Page<Publicacao> findAll(Pageable pageable);

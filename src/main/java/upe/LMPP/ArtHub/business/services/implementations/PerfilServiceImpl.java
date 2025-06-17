@@ -18,10 +18,13 @@ import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteExcept
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
 import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -72,9 +75,10 @@ public class PerfilServiceImpl implements PerfilService {
 
     // email, senha, foto de perfil, banner, nome, telefone, bio
     @Override
-    public PerfilDTO atualizarBio(Integer donoId, PerfilEditadoDTO dto) {
+    public PerfilDTO atualizarPerfil(Integer donoId, PerfilEditadoDTO dto) {
         Perfil perfil = this.obterPerfil(donoId);
         perfil.setBiografia(dto.biografia());
+        perfil.getUsuario().setApelido(dto.apelido());
         perfilRepository.save(perfil);
         return PerfilDTO.perfilToDTO(perfil);
     }
@@ -84,16 +88,20 @@ public class PerfilServiceImpl implements PerfilService {
         try {
             Perfil perfil = obterPerfil(id);
 
-            // Gerar nome único para o arquivo
+            if (perfil == null){
+                throw new PerfilInexistenteException();
+            }
+
             String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosPerfis + "\\" + id + "_" + nomeArquivo);
-            file.transferTo(destino);
+            assert nomeArquivo != null;
+            String nomeArquivoTratado = id + "_" + nomeArquivo.replaceAll("[^a-zA-Z0-9.\\-]", "_");
+            Path destino = Paths.get(caminhoArquivosPerfis).resolve(nomeArquivoTratado).normalize();
+            Files.write(destino, file.getBytes());
 
-            // Atualizar o caminho no atributo do usuário
-            perfil.setFotoPerfil(nomeArquivo);
+            perfil.setFotoPerfil(nomeArquivoTratado);
             perfilRepository.save(perfil);
-
             return PerfilDTO.perfilToDTO(perfil);
+
         } catch (IOException e) {
             throw new PerfilInexistenteException();
         }
@@ -103,16 +111,20 @@ public class PerfilServiceImpl implements PerfilService {
         try {
             Perfil perfil = this.obterPerfil(id);
 
-            // Gerar nome único para o arquivo
+            if (perfil == null){
+                throw new PerfilInexistenteException();
+            }
+
             String nomeArquivo = file.getOriginalFilename();
-            File destino = new File(caminhoArquivosBanners + "\\" + id + "_" + nomeArquivo);
-            file.transferTo(destino);
+            assert nomeArquivo != null;
+            String nomeArquivoTratado = id + "_" + nomeArquivo.replaceAll("[^a-zA-Z0-9.\\-]", "_");
+            Path caminho = Paths.get(caminhoArquivosBanners).resolve(nomeArquivoTratado).normalize();
+            Files.write(caminho, file.getBytes());
 
-            // Atualizar o caminho no atributo do usuário
-            perfil.setBanner(nomeArquivo);
+            perfil.setBanner(nomeArquivoTratado);
             perfilRepository.save(perfil);
-
             return PerfilDTO.perfilToDTO(perfil);
+
         } catch (IOException e) {
             throw new PerfilInexistenteException();
         }
@@ -148,7 +160,7 @@ public class PerfilServiceImpl implements PerfilService {
     @Override
     public ByteArrayResource buscarFotoBanner(PerfilDTO perfil) {
         try {
-            return imageService.getFile(perfil.fotoPerfil(), caminhoArquivosBanners);
+            return imageService.getFile(perfil.banner(), caminhoArquivosBanners);
         } catch (IOException e) {
             throw new ImagemBannerNaoEncontradaException();
         }
@@ -177,7 +189,40 @@ public class PerfilServiceImpl implements PerfilService {
     }
 
     @Override
-    public PerfilDTO getPerfil(Integer idUsuario) {
-        return PerfilDTO.perfilToDTO(perfilRepository.findById(idUsuario).get());
+    public PerfilDTO getPerfil(Integer id) {
+        return PerfilDTO.perfilToDTO(
+                perfilRepository.findByIdUsuario(id).orElseThrow(PerfilInexistenteException::new));
     }
+
+    @Override
+    public List<PerfilDTO> pesquisarPerfis(String query) {
+        List<Perfil> perfisEncontrados = perfilRepository
+                .findByUsuarioNomeContainingIgnoreCaseOrUsuarioApelidoContainingIgnoreCase(query, query);
+
+        return perfisEncontrados.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    private PerfilDTO convertToDto(Perfil perfil) {
+        // Primeiro, converte a entidade Usuario para UsuarioDTO
+        Usuario usuarioEntidade = perfil.getUsuario();
+        UsuarioDTO usuarioDTO = new UsuarioDTO(
+                usuarioEntidade.getId(),
+                usuarioEntidade.getNome(),
+                usuarioEntidade.getApelido(),
+                usuarioEntidade.getEmail(),
+                usuarioEntidade.getTelefone(),
+                usuarioEntidade.getTipoUsuario()
+        );
+
+        return new PerfilDTO(
+                perfil.getId(),
+                perfil.getBiografia(),
+                perfil.getFotoPerfil(),
+                perfil.getBanner(),
+                usuarioDTO
+        );
+    }
+
 }

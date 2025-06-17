@@ -52,11 +52,11 @@ public class PublicacaoController {
     public ResponseEntity<ByteArrayResource> getMedia(@PathVariable Integer idPublicacao){
         PublicacaoDTO publicacao = publicacaoService.buscarPublicacao(idPublicacao);
         MediaType mediaType = MediaService.getMediaType(publicacao.nomeConteudo());
-        System.out.println(publicacao.nomeConteudo());
         ByteArrayResource conteudo = publicacaoService.buscarConteudo(publicacao);
 
         return ResponseEntity.ok().contentType(mediaType).body(conteudo);
     }
+
 
     @PostMapping("/{idDono}")
     public ResponseEntity<PublicacaoDTO> postPublicacao(@RequestBody PublicacaoCriadaDTO publicacaoDTO,

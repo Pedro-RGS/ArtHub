@@ -43,6 +43,7 @@ public class SecurityConfig {
                         req, res, ex) -> {throw ex;}))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/email/enviar").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/usuarios/atualizar").authenticated()
                         .requestMatchers(HttpMethod.GET, "/usuarios/dados").authenticated()
                         .requestMatchers(HttpMethod.POST, "/auth/registrar").permitAll()
