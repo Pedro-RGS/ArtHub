@@ -174,7 +174,6 @@ public class PublicacaoServiceImpl implements PublicacaoService {
                 String fileNameSafe = id + "_" + originalFilename.replaceAll("[^a-zA-Z0-9.\\-]", "_");
                 Path caminho = Paths.get(caminhoArquivos).resolve(fileNameSafe).normalize();
                 Files.write(caminho, arquivo.getBytes());
-
                 // Atualiza o campo nomeConteudo na publicação
                 publicacao.setNomeConteudo(fileNameSafe);
                 PublicacaoEditadaDTO dto = new PublicacaoEditadaDTO(

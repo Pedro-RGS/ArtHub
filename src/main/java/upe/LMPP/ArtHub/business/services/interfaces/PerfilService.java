@@ -23,4 +23,5 @@ public interface PerfilService {
     ByteArrayResource buscarFotoBanner(PerfilDTO perfil);
     List<UsuarioDTO> obterSeguidos(Integer idUsuario);
     List<UsuarioDTO> obterSeguidores(Integer idUsuario);
+    List<PerfilDTO> pesquisarPerfis(String query);
 }

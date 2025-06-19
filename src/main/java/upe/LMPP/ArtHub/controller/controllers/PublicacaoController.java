@@ -58,6 +58,7 @@ public class PublicacaoController {
         return ResponseEntity.ok().contentType(mediaType).body(conteudo);
     }
 
+
     @PostMapping("/{idDono}")
     public ResponseEntity<PublicacaoDTO> postPublicacao(@RequestBody PublicacaoCriadaDTO publicacaoDTO,
                                                      @PathVariable Integer idDono) {

@@ -22,6 +22,13 @@ public class PerfilController {
     @Autowired
     private PerfilService perfilService;
 
+    @GetMapping("/pesquisar")
+    public ResponseEntity<List<PerfilDTO>> pesquisarPerfis(@RequestParam("q") String query) {
+        // Agora você precisa criar o método 'pesquisarPerfis' no seu PerfilService
+        List<PerfilDTO> resultados = perfilService.pesquisarPerfis(query);
+        return ResponseEntity.ok(resultados);
+    }
+
     @GetMapping("/{usuarioId}")
     public ResponseEntity<PerfilDTO> getPerfil(@PathVariable Integer usuarioId ) {
         return ResponseEntity.ok().body(perfilService.getPerfil(usuarioId));

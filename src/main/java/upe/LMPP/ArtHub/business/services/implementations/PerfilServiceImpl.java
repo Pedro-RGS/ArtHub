@@ -24,6 +24,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -192,4 +193,36 @@ public class PerfilServiceImpl implements PerfilService {
         return PerfilDTO.perfilToDTO(
                 perfilRepository.findByIdUsuario(id).orElseThrow(PerfilInexistenteException::new));
     }
+
+    @Override
+    public List<PerfilDTO> pesquisarPerfis(String query) {
+        List<Perfil> perfisEncontrados = perfilRepository
+                .findByUsuarioNomeContainingIgnoreCaseOrUsuarioApelidoContainingIgnoreCase(query, query);
+
+        return perfisEncontrados.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    private PerfilDTO convertToDto(Perfil perfil) {
+        // Primeiro, converte a entidade Usuario para UsuarioDTO
+        Usuario usuarioEntidade = perfil.getUsuario();
+        UsuarioDTO usuarioDTO = new UsuarioDTO(
+                usuarioEntidade.getId(),
+                usuarioEntidade.getNome(),
+                usuarioEntidade.getApelido(),
+                usuarioEntidade.getEmail(),
+                usuarioEntidade.getTelefone(),
+                usuarioEntidade.getTipoUsuario()
+        );
+
+        return new PerfilDTO(
+                perfil.getId(),
+                perfil.getBiografia(),
+                perfil.getFotoPerfil(),
+                perfil.getBanner(),
+                usuarioDTO
+        );
+    }
+
 }
