@@ -16,7 +16,9 @@ import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemBannerNaoEncontra
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.ImagemPerfilNaoEncontradaException;
 import upe.LMPP.ArtHub.infra.exceptions.perfilExceptions.PerfilInexistenteException;
 import upe.LMPP.ArtHub.infra.exceptions.usuarioExceptions.UsuarioInexistenteException;
+import upe.LMPP.ArtHub.infra.repositories.ComentarioRepository;
 import upe.LMPP.ArtHub.infra.repositories.PerfilRepository;
+import upe.LMPP.ArtHub.infra.repositories.PublicacaoRepository;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -37,6 +39,10 @@ public class PerfilServiceImpl implements PerfilService {
 
     @Autowired
     PerfilRepository perfilRepository;
+    @Autowired
+    ComentarioRepository comentarioRepository;
+    @Autowired
+    PublicacaoRepository publicacaoRepository;
 
     @Autowired
     MediaService imageService;
@@ -132,13 +138,27 @@ public class PerfilServiceImpl implements PerfilService {
 
     @Override
     public void removerPerfil(Integer idUsuario) {
-        Optional<Perfil> perfil = perfilRepository.findByIdUsuario(idUsuario);
-
-        if (perfil.isEmpty()){
+        Optional<Perfil> perfilOpt = perfilRepository.findByIdUsuario(idUsuario);
+        if (perfilOpt.isEmpty()){
             throw new UsuarioInexistenteException();
         }
+        Perfil perfil = perfilOpt.get();
 
-        perfilRepository.delete(perfil.get());
+        publicacaoRepository.deleteAll(perfil.getPublicacoes());
+        comentarioRepository.deleteAll(perfil.getComentarios());
+        perfil.getPublicacoesCurtidas().clear();
+
+        for (Perfil seguidor : perfil.getSeguidores()) {
+            seguidor.getSeguindo().remove(perfil);
+            perfilRepository.save(seguidor);
+        }
+
+        for (Perfil seguido : perfil.getSeguindo()) {
+            seguido.getSeguidores().remove(perfil);
+            perfilRepository.save(seguido);
+        }
+
+        perfilRepository.delete(perfil);
     }
 
     @Override

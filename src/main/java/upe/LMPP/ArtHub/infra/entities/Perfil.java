@@ -28,11 +28,11 @@ public class Perfil {
     private Usuario usuario;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "perfil")
+    @OneToMany(mappedBy = "perfil", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Publicacao> publicacoes;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "perfil")
+    @OneToMany(mappedBy = "perfil", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Comentario> comentarios;
 
     @JsonIgnore
