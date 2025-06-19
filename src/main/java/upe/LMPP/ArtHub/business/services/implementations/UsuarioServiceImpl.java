@@ -145,7 +145,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario buscarUsuarioPorEmailUserDetails(String email) {
-        System.out.println(email);
         return usuarioRepository.findByEmail(email)
                 .orElseThrow(UsuarioNaoLogadoException::new);
     }

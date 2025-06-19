@@ -27,7 +27,8 @@ public class PublicacaoController {
     PublicacaoService publicacaoService;
 
     @GetMapping
-    public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(@RequestParam(required = false, defaultValue = "0") int pagina, @RequestParam(required = false, defaultValue = "14") int itens){
+    public ResponseEntity<List<PublicacaoDTO>> getAllPublicacao(@RequestParam(required = false, defaultValue = "0") int pagina,
+                                                                @RequestParam(required = false, defaultValue = "14") int itens){
         return ResponseEntity.ok().body(publicacaoService.buscarTodasPublicacacoes(pagina, itens));
     }
 
@@ -43,8 +44,8 @@ public class PublicacaoController {
 
     @GetMapping("categoria/{categoria}")
     public ResponseEntity<List<PublicacaoDTO>> getPublicacaoByCategoria(@PathVariable CategoriaEnum categoria,
-                                                                        @RequestParam(required = false, defaultValue = "1") int pagina,
-                                                                        @RequestParam(required = false, defaultValue = "8") int itens){
+                                                                        @RequestParam(required = false, defaultValue = "0") int pagina,
+                                                                        @RequestParam(required = false, defaultValue = "14") int itens){
         return ResponseEntity.ok().body(publicacaoService.buscarPublicacaoPorCategoria(categoria, pagina, itens));
     }
 
